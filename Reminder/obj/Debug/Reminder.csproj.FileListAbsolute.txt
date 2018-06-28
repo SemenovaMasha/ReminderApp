@@ -81,3 +81,6 @@ D:\Projects\C#\ReminderApp\Reminder\obj\Debug\Reminder.csproj.CoreCompileInputs.
 D:\Projects\C#\ReminderApp\Reminder\obj\Debug\Reminder.exe
 D:\Projects\C#\ReminderApp\Reminder\obj\Debug\Reminder.pdb
 D:\Projects\C#\ReminderApp\Reminder\obj\Debug\Reminder.Migrations.Edit_Task_Key.resources
+c:\ВУЗ\Репозитории ГИТ\ReminderApp\Reminder\obj\Debug\Reminder.csprojResolveAssemblyReference.cache
+c:\ВУЗ\Репозитории ГИТ\ReminderApp\Reminder\obj\Debug\Reminder.exe
+c:\ВУЗ\Репозитории ГИТ\ReminderApp\Reminder\obj\Debug\Reminder.pdb
