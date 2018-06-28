@@ -93,6 +93,7 @@
     <Compile Include="TaskNotification.designer.cs">
       <DependentUpon>TaskNotification.cs</DependentUpon>
     </Compile>
+    <Compile Include="WorkToEmail.cs" />
     <EmbeddedResource Include="NewTaskForm.resx">
       <DependentUpon>NewTaskForm.cs</DependentUpon>
     </EmbeddedResource>
