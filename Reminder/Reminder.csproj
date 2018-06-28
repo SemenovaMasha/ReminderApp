@@ -74,6 +74,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthorizationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuthorizationForm.Designer.cs">
+      <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IControler.cs" />
     <Compile Include="IStreamer.cs" />
     <Compile Include="Migrations\201806281319320_first.cs" />
@@ -125,6 +131,9 @@
     <Compile Include="Models\UserSettingsModel.cs" />
     <Compile Include="TaskServiceDB.cs" />
     <Compile Include="WorkToEmail.cs" />
+    <EmbeddedResource Include="AuthorizationForm.resx">
+      <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281319320_first.resx">
       <DependentUpon>201806281319320_first.cs</DependentUpon>
     </EmbeddedResource>
