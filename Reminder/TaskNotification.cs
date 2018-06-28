@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reminder;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,9 @@ namespace Reminder_desktop_application
 {
     public partial class TaskNotification : MetroFramework.Forms.MetroForm
     {
-        public Task taskToNotify;
+        public TaskModel taskToNotify;
 
-        public TaskNotification(Task tasktonotify)
+        public TaskNotification(TaskModel tasktonotify)
         {
             InitializeComponent();
             taskToNotify = tasktonotify;

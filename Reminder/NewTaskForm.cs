@@ -63,6 +63,9 @@ namespace Reminder_desktop_application
                         remindTimePeriodType.SelectedIndex = 0;
                         remindPeriodTbx.Text = editTask.period_min + "";
                     }
+                    remindTimeDurationType.SelectedIndex = 0;
+                    remindDurationTbx.Text = editTask.duration_min + "";
+
                 }
             }
             
@@ -76,62 +79,160 @@ namespace Reminder_desktop_application
 
         private void saveLink_Click(object sender, EventArgs e)
         {
-            
-            if (usualRdbtn.Checked)
+            if (editTask == null)
             {
-                Task task = new Task(getGuid(),remindTextTbx.Text, datePck.Value,false, -1, -1, 0, this.taskControler.serviceDB);
-                taskControler.Add(task);
-            }
-            else 
-            {
-                int period_sec = -1;
-                int period_duration = -1;
-                if (remindRepeatCkb.Checked)
+
+                if (usualRdbtn.Checked)
                 {
-                    int period_value = Convert.ToInt32(remindPeriodTbx.Text);
-                    if (remindTimePeriodType.SelectedIndex == 0)
+                    TaskModel task = new TaskModel
                     {
-                        period_sec = period_value;
+                        text = remindTextTbx.Text,
+                        next_date = datePck.Value,
+                        remind_flag = false,
+                        period_min = -1,
+                        duration_min = -1,
+                        price = 0
                     }
-                    else if (remindTimePeriodType.SelectedIndex == 1)
+                    ;
+                    task.generateJobKey();
+                    taskControler.Add(task);
+                }
+                else
+                {
+                    int period_sec = -1;
+                    int period_duration = -1;
+                    if (remindRepeatCkb.Checked)
                     {
-                        period_sec = period_value *60;
+                        int period_value = Convert.ToInt32(remindPeriodTbx.Text);
+                        if (remindTimePeriodType.SelectedIndex == 0)
+                        {
+                            period_sec = period_value;
+                        }
+                        else if (remindTimePeriodType.SelectedIndex == 1)
+                        {
+                            period_sec = period_value * 60;
+                        }
+                        else if (remindTimePeriodType.SelectedIndex == 2)
+                        {
+                            period_sec = period_value * 1440;
+                        }
+                        else if (remindTimePeriodType.SelectedIndex == 3)
+                        {
+                            period_sec = period_value * 525600;
+                        }
+
+                        period_value = Convert.ToInt32(remindDurationTbx.Text);
+                        if (remindTimeDurationType.SelectedIndex == 0)
+                        {
+                            period_duration = period_value;
+                        }
+                        else if (remindTimeDurationType.SelectedIndex == 1)
+                        {
+                            period_duration = period_value * 60;
+                        }
+                        else if (remindTimeDurationType.SelectedIndex == 2)
+                        {
+                            period_duration = period_value * 1440;
+                        }
+                        else if (remindTimeDurationType.SelectedIndex == 3)
+                        {
+                            period_duration = period_value * 525600;
+                        }
                     }
-                    else if (remindTimePeriodType.SelectedIndex == 2)
+
+                    //Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
+                    //    true,  period_sec,
+                    //    period_duration,0, this.taskControler.serviceDB);
+
+                    TaskModel task = new TaskModel
                     {
-                        period_sec = period_value * 1440;
-                    }
-                    else if (remindTimePeriodType.SelectedIndex == 3)
+                        text = remindTextTbx.Text,
+                        next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
+                        remind_flag = true,
+                        period_min = period_sec,
+                        duration_min = period_duration,
+                        price = 0
+                    };
+                    task.generateJobKey();
+
+
+
+
+                    taskControler.Add(task);
+
+                }
+            }
+            else
+            {
+                if (usualRdbtn.Checked)
+                {
+                    editTask.text = remindTextTbx.Text;
+                    editTask.next_date = datePck.Value;
+                    editTask.remind_flag = false;
+                    editTask.period_min = -1;
+                    editTask.duration_min = -1;
+                    //editTask.generateJobKey();
+
+                    taskControler.Edit(editTask);
+                }
+                else
+                {
+                    int period_sec = -1;
+                    int period_duration = -1;
+                    if (remindRepeatCkb.Checked)
                     {
-                        period_sec = period_value * 525600;
+                        int period_value = Convert.ToInt32(remindPeriodTbx.Text);
+                        if (remindTimePeriodType.SelectedIndex == 0)
+                        {
+                            period_sec = period_value;
+                        }
+                        else if (remindTimePeriodType.SelectedIndex == 1)
+                        {
+                            period_sec = period_value * 60;
+                        }
+                        else if (remindTimePeriodType.SelectedIndex == 2)
+                        {
+                            period_sec = period_value * 1440;
+                        }
+                        else if (remindTimePeriodType.SelectedIndex == 3)
+                        {
+                            period_sec = period_value * 525600;
+                        }
+
+                        period_value = Convert.ToInt32(remindDurationTbx.Text);
+                        if (remindTimeDurationType.SelectedIndex == 0)
+                        {
+                            period_duration = period_value;
+                        }
+                        else if (remindTimeDurationType.SelectedIndex == 1)
+                        {
+                            period_duration = period_value * 60;
+                        }
+                        else if (remindTimeDurationType.SelectedIndex == 2)
+                        {
+                            period_duration = period_value * 1440;
+                        }
+                        else if (remindTimeDurationType.SelectedIndex == 3)
+                        {
+                            period_duration = period_value * 525600;
+                        }
                     }
                     
-                    period_value = Convert.ToInt32(remindDurationTbx.Text);
-                    if (remindTimeDurationType.SelectedIndex == 0)
-                    {
-                        period_duration = period_value ;
-                    }
-                    else if (remindTimeDurationType.SelectedIndex == 1)
-                    {
-                        period_duration = period_value * 60;
-                    }
-                    else if (remindTimeDurationType.SelectedIndex == 2)
-                    {
-                        period_duration = period_value * 1440;
-                    }
-                    else if (remindTimeDurationType.SelectedIndex == 3)
-                    {
-                        period_duration = period_value * 525600;
-                    }
+                    editTask.text = remindTextTbx.Text;
+                    editTask.next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay);
+                    editTask.remind_flag = true;
+                    editTask.period_min = period_sec;
+                    editTask.duration_min = period_duration;
+                    
+                    taskControler.Controler.Remove(editTask);
+                    taskControler.Controler.Add(editTask);
+
+                    taskControler.Edit(editTask);
+
                 }
-
-                Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
-                    true,  period_sec,
-                    period_duration,0, this.taskControler.serviceDB);
-
-                taskControler.Add(task);
-                
             }
+
+
             this.Close();
         }
 

@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Reminder_desktop_application;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace Reminder
 {
@@ -52,12 +52,30 @@ namespace Reminder
             List<TaskModel> list = context.Tasks.Where(t => t.next_date.Day == day.Day).ToList();//из БД только дату нужно!
             return list;
         }
+        public List<TaskModel> getYearTasks(DateTime day)
+        {
+            List<TaskModel> list = context.Tasks.Where(t => t.next_date.Year == day.Year).ToList();
+            return list;
+        }
 
         public List<TaskModel> GetList()
         {
             List<TaskModel> result = context.Tasks.ToList();
+
+            foreach (TaskModel task in result)
+            {
+                try
+                {
+                    Console.WriteLine(task.JobKey.ToString());
+                }
+                catch
+                {
+                    Console.WriteLine("Asd");
+                }
+            }
             return result;
         }
+        
 
     }
 }

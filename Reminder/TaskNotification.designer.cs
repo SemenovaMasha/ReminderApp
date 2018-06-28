@@ -92,7 +92,7 @@
             this.MaximizeBox = false;
             this.Name = "TaskNotification";
             this.Resizable = false;
-            this.Text = "Reminder";
+            this.Text = "Напоминание";
             this.ResumeLayout(false);
 
         }

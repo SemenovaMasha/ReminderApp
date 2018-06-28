@@ -1,10 +1,11 @@
 ﻿using Quartz;
 using Quartz.Impl;
+using Reminder;
 using System;
 
 namespace Reminder_desktop_application
 {
-    public class NotificationControler : IControler<Task>
+    public class NotificationControler : IControler<TaskModel>
     {
         ISchedulerFactory schedulerFactor = new StdSchedulerFactory();
         IScheduler scheduler;
@@ -15,12 +16,11 @@ namespace Reminder_desktop_application
             scheduler.Start();
         }
 
-        public void Add(Task task)
+        public void Add(TaskModel task)
         {
             if (task.next_date > DateTime.Now)
             {
-
-                IJobDetail taskToNotify = JobBuilder.Create<Notification>().WithIdentity(task.JobKey).Build();
+                IJobDetail taskToNotify = JobBuilder.Create<Notification>().WithIdentity(new JobKey(task.Id.ToString())).Build();
                 taskToNotify.JobDataMap["Task"] = task;
 
                 TriggerBuilder builder = TriggerBuilder.Create()
@@ -30,9 +30,9 @@ namespace Reminder_desktop_application
                 if (task.period_min > 0)
                 {
                     builder.WithSimpleSchedule(x => x
-                            .WithIntervalInMinutes(task.period_min)
+                            .WithIntervalInMinutes((int)(task.period_min))
                             .RepeatForever())
-                        .EndAt(task.next_date.AddMinutes(task.duration_min));
+                        .EndAt(task.next_date.AddMinutes((int)(task.duration_min)));
                 }
 
                 ITrigger trigger = builder
@@ -43,9 +43,10 @@ namespace Reminder_desktop_application
             }
         }
 
-        public void Remove(Task task)
+        public void Remove(TaskModel task)
         {
-            scheduler.DeleteJob(task.JobKey);
+            scheduler.DeleteJob(new JobKey(task.Id.ToString()));
+
         }
 
         public void Stop()

@@ -13,9 +13,6 @@ namespace Reminder_desktop_application
          */
 
         public TaskControler taskControler;
-        public List<Task> allDayTaks;
-        public Dictionary<string, List<Task>> tasksForEeachDay;
-        public Task taskToNotify;
         public ReminderContext context;
         TaskServiceDB serviceDB;
 
@@ -27,11 +24,11 @@ namespace Reminder_desktop_application
             serviceDB = new TaskServiceDB(context);
             taskControler = new TaskControler(new NotificationControler(), serviceDB);
             //реинжиниринг напоминаний - если повторяющееся событие, и дата прошла, подвинуть дату на период, пока дата не станет > текущей или > его duration
-            //taskControler.reingin();
+            taskControler.reingin();
 
             Reminder_ResizeEnd(null, null);
 
-            taskControler.TaskAppeared += SubscribeForNotification;
+            //taskControler.TaskAppeared += SubscribeForNotification;
             PrintDayTasks(DateTime.Now.ToShortDateString());
 
             taskControler.Add(taskControler.getDailyTasks(DateTime.Now));
@@ -78,9 +75,11 @@ namespace Reminder_desktop_application
         {
         }
 
-        private void SubscribeForNotification(Task task)
+        private void SubscribeForNotification(TaskModel task)
         {
-            task.TaskStarted += ShootOutNotification;
+            //task.TaskStarted += ShootOutNotification;
+
+            PrintDayTasks(DateTime.Now.ToShortDateString());
         }
 
         private void PrintDayTasks(string date)
@@ -91,6 +90,7 @@ namespace Reminder_desktop_application
                                        System.Globalization.CultureInfo.InvariantCulture);
 
             notesDataGrid.AutoGenerateColumns = false;
+            var tmp = taskControler.getDailyTasks(myDate);
             notesDataGrid.DataSource = taskControler.getDailyTasks(myDate);
 
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
@@ -121,13 +121,7 @@ namespace Reminder_desktop_application
 
 
         }
-
-        private void PrintingTheTask(Task task)
-        {
-            
-            notesDataGrid.Rows.Add(task.text,task.remind_flag?task.next_date.ToShortTimeString():"",task.price);
-
-        }
+        
 
         private void reminderDateTime_ValueChanged(object sender, EventArgs e)
         {
@@ -199,7 +193,7 @@ namespace Reminder_desktop_application
                 {
                     try
                     {
-                        Task temp = ((List<Task>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index];
+                        TaskModel temp = ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index];
                         taskControler.Remove(temp);
                         PrintDayTasks(datePicker.Value.ToShortDateString());
                     }
@@ -213,10 +207,21 @@ namespace Reminder_desktop_application
 
         private void notesDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            Task temp = ((List<Task>)notesDataGrid.DataSource)[e.RowIndex];
+            TaskModel temp = ((List<TaskModel>)notesDataGrid.DataSource)[e.RowIndex];
             temp.price = Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString().Replace(".",","));
 
             taskControler.Edit(temp);
+        }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void statsBtn_Click(object sender, EventArgs e)
+        {
+            StatisticsForm form = new StatisticsForm(taskControler);
+            form.ShowDialog();
         }
     }
 }
