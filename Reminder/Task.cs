@@ -1,4 +1,5 @@
 ﻿using Quartz;
+using Reminder;
 using System;
 using System.Windows.Forms;
 
@@ -6,10 +7,9 @@ namespace Reminder_desktop_application
 {
     public class Task
     {
-        FileStreamer fileStreamer = new FileStreamer();
         public JobKey JobKey { get; set; }
 
-        public string guid { get; set; }
+        public Guid guid { get; set; }
         public string text { get; set; }
         public DateTime next_date { get; set; }
         public bool remind_flag { get; set; }
@@ -17,7 +17,7 @@ namespace Reminder_desktop_application
         public int duration_min { get; set; }
         public double price { get; set; }
 
-
+        TaskServiceDB serviceDB;
         public string time { get { return remind_flag ? next_date.ToShortTimeString() : ""; } }
 
         public delegate void NotificationEventHandler(object sender, EventArgs e);
@@ -25,7 +25,7 @@ namespace Reminder_desktop_application
         public event NotificationEventHandler TaskStarted;
         
         
-        public Task(string guid ,string text, DateTime next_date, bool remind_flag, int period_min, int duration_min, double price)
+        public Task(Guid guid ,string text, DateTime next_date, bool remind_flag, int period_min, int duration_min, double price, TaskServiceDB s)
         {
             this.guid = guid;
             this.text = text;
@@ -35,14 +35,24 @@ namespace Reminder_desktop_application
             this.duration_min = duration_min;
             this.price = price;
 
+            serviceDB = s;
+
             JobKey = new JobKey(text+" date:"+next_date.ToString());
         }
 
         public void OnNotificationStarted(object sender, EventArgs e)
         {
-            changeNextDate();            
-            fileStreamer.editTask(this);
-
+            changeNextDate();
+            serviceDB.editTask(new TaskModel
+            {
+                Id = guid,
+                text = this.text,
+                next_date = this.next_date,
+                remind_flag = this.remind_flag,
+                period_min = this.period_min,
+                duration_min = this.duration_min,
+                price = this.price
+            });
             // тут оповещение вк и почты
 
             TaskNotification notificationForm = new TaskNotification(this);

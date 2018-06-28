@@ -81,3 +81,4 @@ D:\Projects\C#\ReminderApp\Reminder\obj\Debug\Reminder.csproj.CoreCompileInputs.
 D:\Projects\C#\ReminderApp\Reminder\obj\Debug\Reminder.exe
 D:\Projects\C#\ReminderApp\Reminder\obj\Debug\Reminder.pdb
 D:\Projects\C#\ReminderApp\Reminder\obj\Debug\Reminder.Migrations.Edit_Task_Key.resources
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder.Migrations.Edit_Task_Key.resources
