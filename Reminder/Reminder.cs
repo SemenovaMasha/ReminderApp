@@ -22,6 +22,8 @@ namespace Reminder_desktop_application
 
             context = c;
             serviceDB = new TaskServiceDB(context);
+            serviceDB.createSettingsIfNotExists();
+
             taskControler = new TaskControler(new NotificationControler(), serviceDB);
             //реинжиниринг напоминаний - если повторяющееся событие, и дата прошла, подвинуть дату на период, пока дата не станет > текущей или > его duration
             taskControler.reingin();
@@ -32,8 +34,7 @@ namespace Reminder_desktop_application
             PrintDayTasks(DateTime.Now.ToShortDateString());
 
             taskControler.Add(taskControler.getDailyTasks(DateTime.Now));
-
-            int j = 0;
+            
         }
 
         private void Reminder_FormClosing(object sender, FormClosingEventArgs e)
@@ -215,7 +216,8 @@ namespace Reminder_desktop_application
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-
+            SettingsForm form = new SettingsForm(serviceDB);
+            form.ShowDialog();
         }
 
         private void statsBtn_Click(object sender, EventArgs e)

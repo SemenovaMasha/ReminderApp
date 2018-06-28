@@ -34,20 +34,22 @@
             // GetToken
             // 
             this.GetToken.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.GetToken.Location = new System.Drawing.Point(0, 0);
+            this.GetToken.Location = new System.Drawing.Point(20, 60);
             this.GetToken.MinimumSize = new System.Drawing.Size(20, 20);
             this.GetToken.Name = "GetToken";
-            this.GetToken.Size = new System.Drawing.Size(481, 388);
+            this.GetToken.Size = new System.Drawing.Size(661, 497);
             this.GetToken.TabIndex = 0;
+            this.GetToken.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.GetToken_DocumentCompleted);
             // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 388);
+            this.ClientSize = new System.Drawing.Size(701, 577);
             this.Controls.Add(this.GetToken);
             this.Name = "AuthorizationForm";
             this.Text = "AuthorizationForm";
+            this.Load += new System.EventHandler(this.AuthorizationForm_Load);
             this.ResumeLayout(false);
 
         }

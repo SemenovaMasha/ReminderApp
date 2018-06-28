@@ -34,12 +34,12 @@
             this.vkNotificationChbx = new MetroFramework.Controls.MetroCheckBox();
             this.connectVKBtn = new MetroFramework.Controls.MetroButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.fontSizeBx = new System.Windows.Forms.NumericUpDown();
             this.okBtn = new MetroFramework.Controls.MetroButton();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fontSizeBx)).BeginInit();
             this.SuspendLayout();
             // 
-            // mailNotificationChbx 
+            // mailNotificationChbx
             // 
             this.mailNotificationChbx.AutoSize = true;
             this.mailNotificationChbx.Location = new System.Drawing.Point(24, 64);
@@ -49,7 +49,7 @@
             this.mailNotificationChbx.Text = "Уведомлять по почте";
             this.mailNotificationChbx.UseSelectable = true;
             // 
-            // mailLoginTbx 
+            // mailLoginTbx
             // 
             // 
             // 
@@ -79,7 +79,7 @@
             this.mailLoginTbx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.mailLoginTbx.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroLabel1 
+            // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
             this.metroLabel1.Location = new System.Drawing.Point(25, 85);
@@ -88,7 +88,7 @@
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "Логин:";
             // 
-            // vkNotificationChbx 
+            // vkNotificationChbx
             // 
             this.vkNotificationChbx.AutoSize = true;
             this.vkNotificationChbx.Location = new System.Drawing.Point(25, 126);
@@ -98,17 +98,17 @@
             this.vkNotificationChbx.Text = "Уведомлять в ВК";
             this.vkNotificationChbx.UseSelectable = true;
             // 
-            // connectVKBtn 
+            // connectVKBtn
             // 
-            this.connectVKBtn.Location =
-            new System.Drawing.Point(25, 152);
+            this.connectVKBtn.Location = new System.Drawing.Point(25, 152);
             this.connectVKBtn.Name = "connectVKBtn";
             this.connectVKBtn.Size = new System.Drawing.Size(215, 28);
             this.connectVKBtn.TabIndex = 4;
             this.connectVKBtn.Text = "Подключить ВК";
             this.connectVKBtn.UseSelectable = true;
+            this.connectVKBtn.Click += new System.EventHandler(this.connectVKBtn_Click);
             // 
-            // metroLabel2 
+            // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.Location = new System.Drawing.Point(24, 209);
@@ -117,29 +117,29 @@
             this.metroLabel2.TabIndex = 5;
             this.metroLabel2.Text = "Размер шрифта:";
             // 
-            // numericUpDown1 
+            // fontSizeBx
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(139, 211);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-18,
-0,
-0,
-0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
-8,
-0,
-0,
-0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(59, 20);
-            this.numericUpDown1.TabIndex = 6;
-            this.numericUpDown1.Value = new decimal(new int[] {
-8,
-0,
-0,
-0});
+            this.fontSizeBx.Location = new System.Drawing.Point(139, 210);
+            this.fontSizeBx.Maximum = new decimal(new int[] {
+            18,
+            0,
+            0,
+            0});
+            this.fontSizeBx.Minimum = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
+            this.fontSizeBx.Name = "fontSizeBx";
+            this.fontSizeBx.Size = new System.Drawing.Size(59, 20);
+            this.fontSizeBx.TabIndex = 6;
+            this.fontSizeBx.Value = new decimal(new int[] {
+            8,
+            0,
+            0,
+            0});
             // 
-            // okBtn 
+            // okBtn
             // 
             this.okBtn.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.okBtn.Location = new System.Drawing.Point(81, 259);
@@ -148,14 +148,15 @@
             this.okBtn.TabIndex = 7;
             this.okBtn.Text = "OK";
             this.okBtn.UseSelectable = true;
+            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
-            // SettingsForm 
+            // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(268, 313);
             this.Controls.Add(this.okBtn);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.fontSizeBx);
             this.Controls.Add(this.metroLabel2);
             this.Controls.Add(this.connectVKBtn);
             this.Controls.Add(this.vkNotificationChbx);
@@ -164,7 +165,7 @@
             this.Controls.Add(this.mailNotificationChbx);
             this.Name = "SettingsForm";
             this.Text = "Настройки";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fontSizeBx)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,7 +179,7 @@
         private MetroFramework.Controls.MetroCheckBox vkNotificationChbx;
         private MetroFramework.Controls.MetroButton connectVKBtn;
         private MetroFramework.Controls.MetroLabel metroLabel2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown fontSizeBx;
         private MetroFramework.Controls.MetroButton okBtn;
     }
 }

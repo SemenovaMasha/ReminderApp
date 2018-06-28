@@ -18,5 +18,7 @@ namespace Reminder
         public bool mailMessageFlag { get; set; }
         [Required]
         public bool vkMessageFlag { get; set; }
+        [Required]
+        public int fontSize { get; set; }
     }
 }

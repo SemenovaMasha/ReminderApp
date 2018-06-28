@@ -81,6 +81,7 @@
     <Compile Include="AuthorizationForm.Designer.cs">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Crypter.cs" />
     <Compile Include="IControler.cs" />
     <Compile Include="IStreamer.cs" />
     <Compile Include="Migrations\201806281319320_first.cs" />
@@ -94,6 +95,10 @@
     <Compile Include="Migrations\201806281427074_Edit_Task_Key.cs" />
     <Compile Include="Migrations\201806281427074_Edit_Task_Key.Designer.cs">
       <DependentUpon>201806281427074_Edit_Task_Key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806282135531_add_font_size.cs" />
+    <Compile Include="Migrations\201806282135531_add_font_size.Designer.cs">
+      <DependentUpon>201806282135531_add_font_size.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewTaskForm.cs">
@@ -114,6 +119,12 @@
     </Compile>
     <Compile Include="ReminderContext.cs" />
     <Compile Include="RemoveTaskException.cs" />
+    <Compile Include="SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsForm.Designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="StatisticsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +154,9 @@
     <EmbeddedResource Include="Migrations\201806281427074_Edit_Task_Key.resx">
       <DependentUpon>201806281427074_Edit_Task_Key.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806282135531_add_font_size.resx">
+      <DependentUpon>201806282135531_add_font_size.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewTaskForm.resx">
       <DependentUpon>NewTaskForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -157,6 +171,9 @@
     </Compile>
     <EmbeddedResource Include="Reminder.resx">
       <DependentUpon>Reminder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StatisticsForm.resx">
       <DependentUpon>StatisticsForm.cs</DependentUpon>

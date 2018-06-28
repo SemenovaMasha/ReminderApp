@@ -20,6 +20,22 @@ namespace Reminder
             context.Tasks.Add(task);
             context.SaveChanges();
         }
+        public void createSettingsIfNotExists()
+        {
+            int count = context.UserSettings.Count();
+            if (count == 0)
+            {
+                context.UserSettings.Add(new UserSettingsModel
+                {
+                    vkToken = "",
+                    vkMessageFlag = false,
+                    mailMessageFlag = false,
+                    mailUserName = "",
+                    fontSize = 12
+                });
+                context.SaveChanges();
+            }
+        }
 
         public void deleteTask(TaskModel task)
         {
@@ -45,6 +61,49 @@ namespace Reminder
             t.remind_flag = task.remind_flag;
             t.text = task.text;
             context.SaveChanges();
+        }
+
+        public void editSettings(UserSettingsModel settings)
+        {
+            UserSettingsModel t = context.UserSettings.FirstOrDefault(x => x.Id == settings.Id);
+            if (t == null)
+            {
+                throw new Exception("Элемент не найден");
+            }
+            t.Id = settings.Id;
+            t.mailUserName = settings.mailUserName;
+            //t.vkToken = settings.vkToken;
+            t.vkMessageFlag = settings.vkMessageFlag;
+            t.mailMessageFlag = settings.mailMessageFlag;
+
+            context.SaveChanges();
+        }
+        public void editToken(string token)
+        {
+            UserSettingsModel t = context.UserSettings.FirstOrDefault();
+            if (t == null)
+            {
+                throw new Exception("Элемент не найден");
+            }
+            t.vkToken = token==""?"": Crypter.Encrypt(token);
+
+            context.SaveChanges();
+        }
+
+        public string getToken()
+        {
+            UserSettingsModel t = context.UserSettings.FirstOrDefault();
+            if (t == null)
+            {
+                throw new Exception("Элемент не найден");
+            }
+           return Crypter.Decrypt(t.vkToken);
+            
+        }
+
+        public UserSettingsModel getUserSettings()
+        {
+            return context.UserSettings.FirstOrDefault();
         }
 
         public List<TaskModel> getDailyTasks(DateTime day)
