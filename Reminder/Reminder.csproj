@@ -40,9 +40,11 @@
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
@@ -75,17 +77,19 @@
     <Compile Include="FileStreamer.cs" />
     <Compile Include="IControler.cs" />
     <Compile Include="IStreamer.cs" />
-    <Compile Include="Migrations\201806281320381_FirstMigration.cs" />
-    <Compile Include="Migrations\201806281320381_FirstMigration.Designer.cs">
-      <DependentUpon>201806281320381_FirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201806281319320_first.cs" />
+    <Compile Include="Migrations\201806281319320_first.Designer.cs">
+      <DependentUpon>201806281319320_first.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201806281503435_EditedDB.cs" />
-    <Compile Include="Migrations\201806281503435_EditedDB.Designer.cs">
-      <DependentUpon>201806281503435_EditedDB.cs</DependentUpon>
+    <Compile Include="Migrations\201806281326532_second.cs" />
+    <Compile Include="Migrations\201806281326532_second.Designer.cs">
+      <DependentUpon>201806281326532_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806281427074_Edit_Task_Key.cs" />
+    <Compile Include="Migrations\201806281427074_Edit_Task_Key.Designer.cs">
+      <DependentUpon>201806281427074_Edit_Task_Key.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\TaskModel.cs" />
-    <Compile Include="Models\UserSettingsModel.cs" />
     <Compile Include="NewTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,18 +110,23 @@
     <Compile Include="RemoveTaskException.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskControler.cs" />
+    <Compile Include="Models\TaskModel.cs" />
     <Compile Include="TaskNotification.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TaskNotification.designer.cs">
       <DependentUpon>TaskNotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="TaskServiceDB.cs" />
-    <EmbeddedResource Include="Migrations\201806281320381_FirstMigration.resx">
-      <DependentUpon>201806281320381_FirstMigration.cs</DependentUpon>
+    <Compile Include="Models\UserSettingsModel.cs" />
+    <Compile Include="WorkToEmail.cs" />
+    <EmbeddedResource Include="Migrations\201806281319320_first.resx">
+      <DependentUpon>201806281319320_first.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201806281503435_EditedDB.resx">
-      <DependentUpon>201806281503435_EditedDB.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201806281326532_second.resx">
+      <DependentUpon>201806281326532_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281427074_Edit_Task_Key.resx">
+      <DependentUpon>201806281427074_Edit_Task_Key.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewTaskForm.resx">
       <DependentUpon>NewTaskForm.cs</DependentUpon>
@@ -159,5 +168,6 @@
     <Content Include="MetroFramework.txt" />
     <Content Include="Reminder desktop application.csproj" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

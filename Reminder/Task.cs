@@ -1,6 +1,4 @@
 ﻿using Quartz;
-using Reminder;
-using Reminder.Models;
 using System;
 using System.Windows.Forms;
 
@@ -8,8 +6,7 @@ namespace Reminder_desktop_application
 {
     public class Task
     {
-        //FileStreamer fileStreamer = new FileStreamer();
-        TaskServiceDB serviceDB;
+        FileStreamer fileStreamer = new FileStreamer();
         public JobKey JobKey { get; set; }
 
         public string guid { get; set; }
@@ -26,9 +23,9 @@ namespace Reminder_desktop_application
         public delegate void NotificationEventHandler(object sender, EventArgs e);
 
         public event NotificationEventHandler TaskStarted;
-
-
-        public Task(string guid, string text, DateTime next_date, bool remind_flag, int period_min, int duration_min, double price, TaskServiceDB s)
+        
+        
+        public Task(string guid ,string text, DateTime next_date, bool remind_flag, int period_min, int duration_min, double price)
         {
             this.guid = guid;
             this.text = text;
@@ -38,29 +35,20 @@ namespace Reminder_desktop_application
             this.duration_min = duration_min;
             this.price = price;
 
-            serviceDB = s;
-            JobKey = new JobKey(text + " date:" + next_date.ToString());
+            JobKey = new JobKey(text+" date:"+next_date.ToString());
         }
 
         public void OnNotificationStarted(object sender, EventArgs e)
         {
-            changeNextDate();
-            serviceDB.editTask(new TaskModel
-            {
-                Id = guid,
-                text = this.text,
-                next_date = this.next_date,
-                remind_flag = this.remind_flag,
-                period_min = this.period_min,
-                duration_min = this.duration_min,
-                price = this.price
-            });
+            changeNextDate();            
+            fileStreamer.editTask(this);
 
             // тут оповещение вк и почты
 
             TaskNotification notificationForm = new TaskNotification(this);
             notificationForm.ShowDialog();
             notificationForm.TopMost = true;
+            
         }
 
         public void changeNextDate()
@@ -76,10 +64,10 @@ namespace Reminder_desktop_application
         public bool tryChange()
         {
             bool changed = false;
-            if (remind_flag && duration_min > 0 && next_date < DateTime.Now)
+            if (remind_flag&& duration_min>0&&next_date<DateTime.Now)
             {
                 DateTime newDate = next_date.AddMinutes(period_min);
-
+                
                 duration_min -= period_min;
 
                 if (duration_min > 0)
