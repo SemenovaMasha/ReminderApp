@@ -19,6 +19,10 @@ namespace Reminder_desktop_application
         public Reminder()
         {
             InitializeComponent();
+
+            //реинжиниринг напоминаний - если повторяющееся событие, и дата прошла, подвинуть дату на период, пока дата не станет > текущей или > его duration
+            taskControler.reingin();
+
             Reminder_ResizeEnd(null, null);
 
             taskControler.TaskAppeared += SubscribeForNotification;
@@ -32,35 +36,9 @@ namespace Reminder_desktop_application
         private void Reminder_FormClosing(object sender, FormClosingEventArgs e)
         {
             taskControler.Stop();
-            //this.notificationIcon.Dispose();
-           // Application.Exit();
-        }
 
-        private void deleteLink_Click(object sender, EventArgs e)
-        {
-            //if (reminderTasksView.SelectedItems.Count == 1)
-            //{
-            //    DialogResult result = MessageBox.Show("Are you sure?", "Delete", MessageBoxButtons.YesNo);
-            //    if (result == DialogResult.Yes)
-            //    {
-            //        try
-            //        {
-            //            Task temp = (Task)reminderTasksView.SelectedItems[0].Tag;
-            //            taskControler.Remove(temp);
-            //            PrintDayTasks(temp.StartingDate.ToShortDateString());
-            //        }
-            //        catch(RemoveTaskException exp)
-            //        {
-            //            MessageBox.Show(exp.ToString());
-            //        }
-            //    }
-            //}
         }
-
-        private void doneLink_Click(object sender, EventArgs e)
-        {
-            deleteLink_Click(sender, e);
-        }
+        
         private void Reminder_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
@@ -102,8 +80,7 @@ namespace Reminder_desktop_application
         private void PrintDayTasks(string date)
         {
             notesDataGrid.Columns.Clear();
-
-            //загрузка из БД на дату date
+            
             DateTime myDate = DateTime.ParseExact(date, "dd.MM.yyyy",
                                        System.Globalization.CultureInfo.InvariantCulture);
 
@@ -157,7 +134,7 @@ namespace Reminder_desktop_application
 
         private void notificationForm_FormClosing(object sender, EventArgs e)
         {
-            PrintDayTasks(DateTime.Now.ToShortDateString());
+            PrintDayTasks(datePicker.Value.ToShortDateString());
         }
         private void reminderDateTime_Enter(object sender, EventArgs e)
         {
@@ -173,7 +150,7 @@ namespace Reminder_desktop_application
             NewTaskForm form = new NewTaskForm(taskControler,datePicker.Value);
             form.ShowDialog();
             
-            PrintDayTasks(DateTime.Now.ToShortDateString());
+            PrintDayTasks(datePicker.Value.ToShortDateString());
 
             int j = 0;
         }
@@ -209,7 +186,7 @@ namespace Reminder_desktop_application
         private void deleteBtn_Click(object sender, EventArgs e)
         {
 
-            //if (reminderTasksView.SelectedItems.Count == 1)
+            //if (notesDataGrid.SelectedRows[0].Index>=0)
             {
                 //DialogResult result = MessageBox.Show("Are you sure?", "Delete", MessageBoxButtons.YesNo);
                 //if (result == DialogResult.Yes)
@@ -226,6 +203,14 @@ namespace Reminder_desktop_application
                     }
                 }
             }
+        }
+
+        private void notesDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            Task temp = ((List<Task>)notesDataGrid.DataSource)[e.RowIndex];
+            temp.price = Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString().Replace(".",","));
+
+            taskControler.Edit(temp);
         }
     }
 }

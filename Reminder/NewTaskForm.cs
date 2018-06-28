@@ -38,29 +38,29 @@ namespace Reminder_desktop_application
             if (editTask.remind_flag)
             {
                 remindRdbtn.Checked = true;
-                if (editTask.period_sec > 0)
+                if (editTask.period_min > 0)
                 {
                     remindRepeatCkb.Checked = true;
                     
-                    if (editTask.period_sec % 31536000 == 0)
+                    if (editTask.period_min % 525600 == 0)
                     {
                         remindTimePeriodType.SelectedIndex = 3;
-                        remindPeriodTbx.Text = editTask.period_sec / 31536000 + "";
+                        remindPeriodTbx.Text = editTask.period_min / 525600 + "";
                     }
-                    else if (editTask.period_sec % 86400 == 0)
+                    else if (editTask.period_min % 1440 == 0)
                     {
                         remindTimePeriodType.SelectedIndex = 2;
-                        remindPeriodTbx.Text = editTask.period_sec / 86400 + "";
+                        remindPeriodTbx.Text = editTask.period_min / 1440 + "";
                     }
-                    else if (editTask.period_sec % 3600 == 0)
+                    else if (editTask.period_min % 60 == 0)
                     {
                         remindTimePeriodType.SelectedIndex = 1;
-                        remindPeriodTbx.Text = editTask.period_sec / 3600 + "";
+                        remindPeriodTbx.Text = editTask.period_min / 60 + "";
                     }
-                    else if (editTask.period_sec % 60 == 0)
+                    else 
                     {
                         remindTimePeriodType.SelectedIndex = 0;
-                        remindPeriodTbx.Text = editTask.period_sec / 60 + "";
+                        remindPeriodTbx.Text = editTask.period_min + "";
                     }
                 }
             }
@@ -68,13 +68,17 @@ namespace Reminder_desktop_application
                    // period_duration, 
 
         }
+        private string getGuid()
+        {
+            return Guid.NewGuid().ToString();
+        }
 
         private void saveLink_Click(object sender, EventArgs e)
         {
             
             if (usualRdbtn.Checked)
             {
-                Task task = new Task(remindTextTbx.Text, datePck.Value,false, -1, -1, 0);
+                Task task = new Task(getGuid(),remindTextTbx.Text, datePck.Value,false, -1, -1, 0);
                 taskControler.Add(task);
             }
             else 
@@ -86,41 +90,42 @@ namespace Reminder_desktop_application
                     int period_value = Convert.ToInt32(remindPeriodTbx.Text);
                     if (remindTimePeriodType.SelectedIndex == 0)
                     {
-                        period_sec = period_value * 60;
+                        period_sec = period_value;
                     }
                     else if (remindTimePeriodType.SelectedIndex == 1)
                     {
-                        period_sec = period_value * 3600;
+                        period_sec = period_value *60;
                     }
                     else if (remindTimePeriodType.SelectedIndex == 2)
                     {
-                        period_sec = period_value * 86400;
+                        period_sec = period_value * 1440;
                     }
                     else if (remindTimePeriodType.SelectedIndex == 3)
                     {
-                        period_sec = period_value * 31536000;
+                        period_sec = period_value * 525600;
                     }
                     
                     period_value = Convert.ToInt32(remindDurationTbx.Text);
                     if (remindTimeDurationType.SelectedIndex == 0)
                     {
-                        period_duration = period_value * 60;
+                        period_duration = period_value ;
                     }
                     else if (remindTimeDurationType.SelectedIndex == 1)
                     {
-                        period_duration = period_value * 3600;
+                        period_duration = period_value * 60;
                     }
                     else if (remindTimeDurationType.SelectedIndex == 2)
                     {
-                        period_duration = period_value * 86400;
+                        period_duration = period_value * 1440;
                     }
                     else if (remindTimeDurationType.SelectedIndex == 3)
                     {
-                        period_duration = period_value * 31536000;
+                        period_duration = period_value * 525600;
                     }
                 }
 
-                Task task = new Task(remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(remindTimePck.Value.TimeOfDay), true,  period_sec,
+                Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
+                    true,  period_sec,
                     period_duration,0);
 
                 taskControler.Add(task);
@@ -134,9 +139,9 @@ namespace Reminder_desktop_application
             return new DateTime(date.Year, date.Month, date.Day, 0, 0, 0);
         }
 
-        public static DateTime GetTimeZeroDate(DateTime date)
+        public static DateTime GetTimeZeroSeconds(DateTime date)
         {
-            return new DateTime(0,0,0, date.Hour,date.Minute,date.Second);
+            return new DateTime(date.Year, date.Month, date.Day, date.Hour,date.Minute,0);
         }
 
         private void cancelLink_Click(object sender, EventArgs e)
