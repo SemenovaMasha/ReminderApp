@@ -113,14 +113,17 @@
     <Compile Include="TaskNotification.designer.cs">
       <DependentUpon>TaskNotification.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="UserSettingsModel.cs" />
-    <Compile Include="WorkToEmail.cs" />
     <EmbeddedResource Include="Migrations\201806281319320_first.resx">
       <DependentUpon>201806281319320_first.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281326532_second.resx">
       <DependentUpon>201806281326532_second.cs</DependentUpon>
     </EmbeddedResource>
+=======
+    <Compile Include="WorkToEmail.cs" />
+>>>>>>> 70b121a2da1d25523481927d468295e3305e6401
     <EmbeddedResource Include="NewTaskForm.resx">
       <DependentUpon>NewTaskForm.cs</DependentUpon>
     </EmbeddedResource>
