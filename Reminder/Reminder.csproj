@@ -85,6 +85,10 @@
     <Compile Include="Migrations\201806281326532_second.Designer.cs">
       <DependentUpon>201806281326532_second.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806281427074_Edit_Task_Key.cs" />
+    <Compile Include="Migrations\201806281427074_Edit_Task_Key.Designer.cs">
+      <DependentUpon>201806281427074_Edit_Task_Key.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewTaskForm.cs">
       <SubType>Form</SubType>
@@ -120,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281326532_second.resx">
       <DependentUpon>201806281326532_second.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281427074_Edit_Task_Key.resx">
+      <DependentUpon>201806281427074_Edit_Task_Key.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewTaskForm.resx">
       <DependentUpon>NewTaskForm.cs</DependentUpon>
