@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Reminder;
+using Reminder.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,7 +15,7 @@ namespace Reminder_desktop_application
     public partial class NewTaskForm : MetroFramework.Forms.MetroForm
     {
         TaskControler taskControler;
-        private Task editTask;
+        private TaskModel editTask;
         public NewTaskForm(TaskControler controler)
         {
             InitializeComponent();
@@ -28,7 +30,7 @@ namespace Reminder_desktop_application
             remindTimePck.Value = date;
         }
 
-        public NewTaskForm(TaskControler controler, Task editTask) : this(controler)
+        public NewTaskForm(TaskControler controler, TaskModel editTask) : this(controler)
         {
             this.editTask = editTask;
             remindTextTbx.Text = editTask.text;
@@ -78,7 +80,7 @@ namespace Reminder_desktop_application
             
             if (usualRdbtn.Checked)
             {
-                Task task = new Task(getGuid(),remindTextTbx.Text, datePck.Value,false, -1, -1, 0);
+                Task task = new Task(getGuid(),remindTextTbx.Text, datePck.Value,false, -1, -1, 0, this.taskControler.serviceDB);
                 taskControler.Add(task);
             }
             else 
@@ -126,7 +128,7 @@ namespace Reminder_desktop_application
 
                 Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
                     true,  period_sec,
-                    period_duration,0);
+                    period_duration,0, this.taskControler.serviceDB);
 
                 taskControler.Add(task);
                 

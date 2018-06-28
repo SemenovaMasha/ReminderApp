@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MetroFramework.Controls;
+using Reminder;
+using Reminder.Models;
 
 namespace Reminder_desktop_application
 {
@@ -11,17 +13,22 @@ namespace Reminder_desktop_application
          *  Lazy
          */
 
-        public TaskControler taskControler = new TaskControler(new FileStreamer(), new NotificationControler());
+         // public TaskControler taskControler = new TaskControler(new FileStreamer(), new NotificationControler());
+        public TaskControler taskControler;
         public List<Task> allDayTaks;
         public Dictionary<string, List<Task>> tasksForEeachDay;
         public Task taskToNotify;
+        public ReminderContext context;
+       TaskServiceDB serviceDB;
 
-        public Reminder()
+        public Reminder(ReminderContext c)
         {
             InitializeComponent();
-
+            context = c;
+            serviceDB = new TaskServiceDB(context);
+            taskControler = new TaskControler(new NotificationControler(),serviceDB);
             //реинжиниринг напоминаний - если повторяющееся событие, и дата прошла, подвинуть дату на период, пока дата не станет > текущей или > его duration
-            taskControler.reingin();
+          //  taskControler.reingin();
 
             Reminder_ResizeEnd(null, null);
 
@@ -176,7 +183,7 @@ namespace Reminder_desktop_application
         {
             if (e.ColumnIndex != 2)
             {
-                NewTaskForm form = new NewTaskForm(taskControler, ((List<Task>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index]);
+                NewTaskForm form = new NewTaskForm(taskControler, ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index]);
                 form.ShowDialog();
 
                 PrintDayTasks(datePicker.Value.ToShortDateString());
@@ -193,8 +200,8 @@ namespace Reminder_desktop_application
                 {
                     try
                     {
-                        Task temp = ((List<Task>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index];
-                        taskControler.Remove(temp);
+                        TaskModel temp = ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index];
+                        taskControler.Remove(new Task(temp.Id, temp.text, temp.next_date,temp.remind_flag,(int)temp.period_min,(int)temp.duration_min,(double)temp.price,serviceDB ));
                         PrintDayTasks(datePicker.Value.ToShortDateString());
                     }
                     catch (RemoveTaskException exp)
@@ -211,6 +218,11 @@ namespace Reminder_desktop_application
             temp.price = Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString().Replace(".",","));
 
             taskControler.Edit(temp);
+        }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

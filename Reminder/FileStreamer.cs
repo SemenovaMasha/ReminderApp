@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace Reminder_desktop_application
 {
-    public class FileStreamer : IStreamer<string, List<Task>>
+    public class FileStreamer /*: Streamer<string, List<Task>>*/
     {
-        private string FILE_NAME = System.Configuration.ConfigurationManager.AppSettings["filePath"];
+        /*private string FILE_NAME = System.Configuration.ConfigurationManager.AppSettings["filePath"];
         public string[] data;
         
         public void addData(Task task)
@@ -50,7 +50,7 @@ namespace Reminder_desktop_application
         }
    
         //реинжиниринг
-        public void reingin()
+       public void reingin()
         {
             string strOldText;
             string n = "";
@@ -123,7 +123,7 @@ namespace Reminder_desktop_application
         }
 
         //загрузка записей на день
-        public List<Task> getDailyTasks(DateTime day)
+       public List<Task> getDailyTasks(DateTime day)
         {
             List<Task> list = new List<Task>();
 
@@ -153,6 +153,6 @@ namespace Reminder_desktop_application
             {
                 throw new FileNotFoundException(e.ToString());
             }
-        }
+        }*/
     }
 }

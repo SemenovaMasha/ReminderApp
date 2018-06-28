@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Reminder;
+using Reminder.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,15 +8,17 @@ namespace Reminder_desktop_application
 {
     public class TaskControler : IControler<Task>
     {
-        IStreamer<string, List<Task>> dataStreamer;
+        //IStreamer<string, List<Task>> dataStreamer;
         IControler<Task> Controler;
-        FileStreamer fileStreamer = new FileStreamer();
+        //FileStreamer fileStreamer = new FileStreamer();
+       // public ReminderContext context;
+        public TaskServiceDB serviceDB;
         List<Task> dailyTasks = new List<Task>();
 
-        public TaskControler(IStreamer<string, List<Task>> streamer, IControler<Task> controler)
+        public TaskControler(IControler<Task> controler, TaskServiceDB s)
         {
-            dataStreamer = streamer;
             Controler = controler;
+            serviceDB =s;
         }
 
         public delegate void NewTaskAppearedHandler(Task task);
@@ -23,14 +27,14 @@ namespace Reminder_desktop_application
         public List<Task> DailyTasks { get { return dailyTasks; } }
 
 
-        public void Add(List<Task> tasks)
+        public void Add(List<TaskModel> tasks)
         {
-            foreach(Task task in tasks)
+            foreach(TaskModel task in tasks)
             {
                 if (task.remind_flag)
                 {
                     {
-                        Controler.Add(task);
+                        Controler.Add(new Task(task.Id, task.text, task.next_date, task.remind_flag, (int)task.period_min, (int)task.duration_min, (double)task.price, serviceDB));
                     }
                 }
             }
@@ -46,20 +50,47 @@ namespace Reminder_desktop_application
                 }
             }
             
-            fileStreamer.addData(task);
+            serviceDB.addTask(new TaskModel
+            {
+                Id = task.guid,
+                text = task.text,
+                next_date = task.next_date,
+                remind_flag = task.remind_flag,
+                period_min = task.period_min,
+                duration_min = task.duration_min,
+                price = task.price
+            });
 
         }
 
         public void Edit(Task task)
         {
-            fileStreamer.editTask(task);
+            serviceDB.editTask(new TaskModel
+            {
+                Id = task.guid,
+                text = task.text,
+                next_date = task.next_date,
+                remind_flag = task.remind_flag,
+                period_min = task.period_min,
+                duration_min = task.duration_min,
+                price = task.price
+            });
 
         }
         public void Remove(Task task)
         {
             try
             {
-                fileStreamer.deleteTask(task);
+                serviceDB.deleteTask(new TaskModel
+                {
+                    Id = task.guid,
+                    text = task.text,
+                    next_date = task.next_date,
+                    remind_flag = task.remind_flag,
+                    period_min = task.period_min,
+                    duration_min = task.duration_min,
+                    price = task.price
+                });
                 Controler.Remove(task);
             }
             catch (Exception e)
@@ -74,13 +105,14 @@ namespace Reminder_desktop_application
         }
         
 
-        public List<Task> getDailyTasks(DateTime day)
+        public List<TaskModel> getDailyTasks(DateTime day)
         {
-            return fileStreamer.getDailyTasks(day);
+            return serviceDB.getDailyTasks(day);
         }
-        public void reingin()
+
+        /*public void reingin()
         {
-            fileStreamer.reingin();
-        }
+            serviceDB.reingin();
+        }*/
     }
 }
