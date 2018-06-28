@@ -21,3 +21,32 @@ c:\users\masha\documents\visual studio 2017\Projects\Reminder\Reminder\bin\Debug
 c:\users\masha\documents\visual studio 2017\Projects\Reminder\Reminder\bin\Debug\Common.Logging.xml
 c:\users\masha\documents\visual studio 2017\Projects\Reminder\Reminder\bin\Debug\Common.Logging.Core.pdb
 c:\users\masha\documents\visual studio 2017\Projects\Reminder\Reminder\bin\Debug\Common.Logging.Core.xml
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Reminder.exe.config
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder.exe
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder.pdb
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Reminder.exe
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Reminder.pdb
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Common.Logging.Core.dll
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Common.Logging.dll
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\EntityFramework.dll
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\EntityFramework.SqlServer.dll
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\MetroFramework.Design.dll
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\MetroFramework.dll
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\MetroFramework.Fonts.dll
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Quartz.dll
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Common.Logging.pdb
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Common.Logging.xml
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Common.Logging.Core.pdb
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Common.Logging.Core.xml
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\EntityFramework.xml
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\EntityFramework.SqlServer.xml
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Quartz.pdb
+c:\ИНТЕНСИВ\ReminderApp\Reminder\bin\Debug\Quartz.xml
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder.csprojResolveAssemblyReference.cache
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder_desktop_application.NewTaskForm.resources
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder.Properties.Resources.resources
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder_desktop_application.Reminder.resources
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder_desktop_application.TaskNotification.resources
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder.csproj.GenerateResource.Cache
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder.Migrations.first.resources
+c:\ИНТЕНСИВ\ReminderApp\Reminder\obj\Debug\Reminder.Migrations.second.resources

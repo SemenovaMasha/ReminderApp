@@ -38,6 +38,14 @@
     <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
     </Reference>
@@ -51,6 +59,7 @@
       <HintPath>..\packages\Quartz.2.4.1\lib\net40\Quartz.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Remoting" />
@@ -68,6 +77,15 @@
     <Compile Include="FileStreamer.cs" />
     <Compile Include="IControler.cs" />
     <Compile Include="IStreamer.cs" />
+    <Compile Include="Migrations\201806281319320_first.cs" />
+    <Compile Include="Migrations\201806281319320_first.Designer.cs">
+      <DependentUpon>201806281319320_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806281326532_second.cs" />
+    <Compile Include="Migrations\201806281326532_second.Designer.cs">
+      <DependentUpon>201806281326532_second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,15 +102,24 @@
     <Compile Include="Reminder.designer.cs">
       <DependentUpon>Reminder.cs</DependentUpon>
     </Compile>
+    <Compile Include="ReminderContext.cs" />
     <Compile Include="RemoveTaskException.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskControler.cs" />
+    <Compile Include="TaskModel.cs" />
     <Compile Include="TaskNotification.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TaskNotification.designer.cs">
       <DependentUpon>TaskNotification.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserSettingsModel.cs" />
+    <EmbeddedResource Include="Migrations\201806281319320_first.resx">
+      <DependentUpon>201806281319320_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281326532_second.resx">
+      <DependentUpon>201806281326532_second.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NewTaskForm.resx">
       <DependentUpon>NewTaskForm.cs</DependentUpon>
     </EmbeddedResource>
