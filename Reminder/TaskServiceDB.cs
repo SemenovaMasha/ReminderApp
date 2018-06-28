@@ -1,5 +1,4 @@
-﻿using Reminder.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +49,7 @@ namespace Reminder
 
         public List<TaskModel> getDailyTasks(DateTime day)
         {
-            List<TaskModel> list = context.Tasks.Where(t => t.next_date.Date== day.Date).ToList();//из БД только дату нужно!
+            List<TaskModel> list = context.Tasks.Where(t => t.next_date.Day == day.Day).ToList();//из БД только дату нужно!
             return list;
         }
 

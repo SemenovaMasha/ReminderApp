@@ -1,6 +1,5 @@
 ﻿using Quartz;
 using Reminder;
-using Reminder.Models;
 using System;
 using System.Windows.Forms;
 
@@ -8,11 +7,9 @@ namespace Reminder_desktop_application
 {
     public class Task
     {
-        //FileStreamer fileStreamer = new FileStreamer();
-        TaskServiceDB serviceDB;
         public JobKey JobKey { get; set; }
 
-        public string guid { get; set; }
+        public Guid guid { get; set; }
         public string text { get; set; }
         public DateTime next_date { get; set; }
         public bool remind_flag { get; set; }
@@ -20,15 +17,15 @@ namespace Reminder_desktop_application
         public int duration_min { get; set; }
         public double price { get; set; }
 
-
+        TaskServiceDB serviceDB;
         public string time { get { return remind_flag ? next_date.ToShortTimeString() : ""; } }
 
         public delegate void NotificationEventHandler(object sender, EventArgs e);
 
         public event NotificationEventHandler TaskStarted;
-
-
-        public Task(string guid, string text, DateTime next_date, bool remind_flag, int period_min, int duration_min, double price, TaskServiceDB s)
+        
+        
+        public Task(Guid guid ,string text, DateTime next_date, bool remind_flag, int period_min, int duration_min, double price, TaskServiceDB s)
         {
             this.guid = guid;
             this.text = text;
@@ -39,7 +36,8 @@ namespace Reminder_desktop_application
             this.price = price;
 
             serviceDB = s;
-            JobKey = new JobKey(text + " date:" + next_date.ToString());
+
+            JobKey = new JobKey(text+" date:"+next_date.ToString());
         }
 
         public void OnNotificationStarted(object sender, EventArgs e)
@@ -55,12 +53,12 @@ namespace Reminder_desktop_application
                 duration_min = this.duration_min,
                 price = this.price
             });
-
             // тут оповещение вк и почты
 
             TaskNotification notificationForm = new TaskNotification(this);
             notificationForm.ShowDialog();
             notificationForm.TopMost = true;
+            
         }
 
         public void changeNextDate()
@@ -76,10 +74,10 @@ namespace Reminder_desktop_application
         public bool tryChange()
         {
             bool changed = false;
-            if (remind_flag && duration_min > 0 && next_date < DateTime.Now)
+            if (remind_flag&& duration_min>0&&next_date<DateTime.Now)
             {
                 DateTime newDate = next_date.AddMinutes(period_min);
-
+                
                 duration_min -= period_min;
 
                 if (duration_min > 0)

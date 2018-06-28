@@ -1,5 +1,4 @@
 ﻿using Reminder;
-using Reminder.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,14 +10,13 @@ namespace Reminder_desktop_application
         //IStreamer<string, List<Task>> dataStreamer;
         IControler<Task> Controler;
         //FileStreamer fileStreamer = new FileStreamer();
-       // public ReminderContext context;
-        public TaskServiceDB serviceDB;
         List<Task> dailyTasks = new List<Task>();
+        public TaskServiceDB serviceDB;
 
         public TaskControler(IControler<Task> controler, TaskServiceDB s)
         {
             Controler = controler;
-            serviceDB =s;
+            serviceDB = s;
         }
 
         public delegate void NewTaskAppearedHandler(Task task);
@@ -29,7 +27,7 @@ namespace Reminder_desktop_application
 
         public void Add(List<TaskModel> tasks)
         {
-            foreach(TaskModel task in tasks)
+            foreach (TaskModel task in tasks)
             {
                 if (task.remind_flag)
                 {
@@ -49,7 +47,7 @@ namespace Reminder_desktop_application
                     Controler.Add(task);
                 }
             }
-            
+
             serviceDB.addTask(new TaskModel
             {
                 Id = task.guid,
@@ -60,7 +58,6 @@ namespace Reminder_desktop_application
                 duration_min = task.duration_min,
                 price = task.price
             });
-
         }
 
         public void Edit(Task task)
@@ -109,10 +106,9 @@ namespace Reminder_desktop_application
         {
             return serviceDB.getDailyTasks(day);
         }
-
-        /*public void reingin()
-        {
-            serviceDB.reingin();
-        }*/
+        //public void reingin()
+        //{
+        //    fileStreamer.reingin();
+        //}
     }
 }

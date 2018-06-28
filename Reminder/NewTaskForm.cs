@@ -1,5 +1,4 @@
 ﻿using Reminder;
-using Reminder.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -70,9 +69,9 @@ namespace Reminder_desktop_application
                    // period_duration, 
 
         }
-        private string getGuid()
+        private Guid getGuid()
         {
-            return Guid.NewGuid().ToString();
+            return Guid.NewGuid();
         }
 
         private void saveLink_Click(object sender, EventArgs e)

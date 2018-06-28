@@ -13,7 +13,7 @@ namespace Reminder_desktop_application
             {
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                Application.Run(new Reminder());
+                Application.Run(new Reminder(db));
             }
         }
     }
