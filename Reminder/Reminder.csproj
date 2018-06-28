@@ -106,14 +106,14 @@
     <Compile Include="RemoveTaskException.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="TaskControler.cs" />
-    <Compile Include="TaskModel.cs" />
+    <Compile Include="Models\TaskModel.cs" />
     <Compile Include="TaskNotification.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TaskNotification.designer.cs">
       <DependentUpon>TaskNotification.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserSettingsModel.cs" />
+    <Compile Include="Models\UserSettingsModel.cs" />
     <Compile Include="WorkToEmail.cs" />
     <EmbeddedResource Include="Migrations\201806281319320_first.resx">
       <DependentUpon>201806281319320_first.cs</DependentUpon>
@@ -161,5 +161,6 @@
     <Content Include="MetroFramework.txt" />
     <Content Include="Reminder desktop application.csproj" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
