@@ -132,7 +132,12 @@
     <Compile Include="Migrations\201806290907386_Add_vkUser.Designer.cs">
       <DependentUpon>201806290907386_Add_vkUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806291758397_addTableUserModel.cs" />
+    <Compile Include="Migrations\201806291758397_addTableUserModel.Designer.cs">
+      <DependentUpon>201806291758397_addTableUserModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\UserModel.cs" />
     <Compile Include="NewTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,6 +197,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806290907386_Add_vkUser.resx">
       <DependentUpon>201806290907386_Add_vkUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806291758397_addTableUserModel.resx">
+      <DependentUpon>201806291758397_addTableUserModel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewTaskForm.resx">
       <DependentUpon>NewTaskForm.cs</DependentUpon>
