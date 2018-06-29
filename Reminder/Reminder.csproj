@@ -128,6 +128,10 @@
     <Compile Include="Migrations\201806282135531_add_font_size.Designer.cs">
       <DependentUpon>201806282135531_add_font_size.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806290907386_Add_vkUser.cs" />
+    <Compile Include="Migrations\201806290907386_Add_vkUser.Designer.cs">
+      <DependentUpon>201806290907386_Add_vkUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NewTaskForm.cs">
       <SubType>Form</SubType>
@@ -185,6 +189,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806282135531_add_font_size.resx">
       <DependentUpon>201806282135531_add_font_size.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806290907386_Add_vkUser.resx">
+      <DependentUpon>201806290907386_Add_vkUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewTaskForm.resx">
       <DependentUpon>NewTaskForm.cs</DependentUpon>
