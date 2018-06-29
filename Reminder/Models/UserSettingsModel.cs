@@ -14,6 +14,8 @@ namespace Reminder
         public int Id { get; set; }
         public string mailUserName { get; set; }
         public string vkToken { get; set; }
+        [NotMapped]
+        public string vkUser { get; set; }
         [Required]
         public bool mailMessageFlag { get; set; }
         [Required]

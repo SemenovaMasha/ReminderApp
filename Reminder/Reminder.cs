@@ -13,15 +13,16 @@ namespace Reminder_desktop_application
          */
 
         public TaskControler taskControler;
-        public ReminderContext context;
+        //public ReminderContext context;
         TaskServiceDB serviceDB;
 
-        public Reminder(ReminderContext c)
+        public Reminder()
         {
+            
             InitializeComponent();
 
-            context = c;
-            serviceDB = new TaskServiceDB(context);
+            //context = c;
+            serviceDB = new TaskServiceDB();
             serviceDB.createSettingsIfNotExists();
 
             taskControler = new TaskControler(new NotificationControler(), serviceDB);

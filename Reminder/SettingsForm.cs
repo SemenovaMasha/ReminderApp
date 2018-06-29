@@ -47,11 +47,11 @@ namespace Reminder_desktop_application
         {
             if (hasToken)
             {
-                context.editToken("");
+                context.editToken("","");
             }
             else
             {
-                AuthorizationForm form = new AuthorizationForm();
+                AuthorizationForm form = new AuthorizationForm(context);
                 form.ShowDialog();
 
                 form.getToken();

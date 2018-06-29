@@ -10,9 +10,9 @@ namespace Reminder
     {
         private ReminderContext context;
 
-        public TaskServiceDB(ReminderContext context)
+        public TaskServiceDB()
         {
-            this.context = context;
+            this.context = new ReminderContext();
         }
 
         public void addTask(TaskModel task)
@@ -78,14 +78,15 @@ namespace Reminder
 
             context.SaveChanges();
         }
-        public void editToken(string token)
+        public void editToken(string token,string login)
         {
             UserSettingsModel t = context.UserSettings.FirstOrDefault();
             if (t == null)
             {
                 throw new Exception("Элемент не найден");
             }
-            t.vkToken = token==""?"": Crypter.Encrypt(token);
+            t.vkToken = token == "" ? "" : Crypter.Encrypt(token);
+            t.vkUser = login == "" ? "" : Crypter.Encrypt(login);
 
             context.SaveChanges();
         }

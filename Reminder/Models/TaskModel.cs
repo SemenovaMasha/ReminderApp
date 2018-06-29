@@ -56,7 +56,7 @@ namespace Reminder
         {
             changeNextDate();
             ReminderContext context = new ReminderContext();
-            TaskServiceDB serviceDB = new TaskServiceDB(context);
+            TaskServiceDB serviceDB = new TaskServiceDB();
             serviceDB.editTask(this);
 
 
