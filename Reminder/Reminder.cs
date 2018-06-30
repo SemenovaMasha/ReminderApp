@@ -192,7 +192,7 @@ namespace Reminder_desktop_application
 
         private void notesDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex>0)
+            if (e.ColumnIndex != 2 && e.RowIndex >= 0)
             {
                 NewTaskForm form = new NewTaskForm(taskControler, ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index]);
                 form.ShowDialog();
