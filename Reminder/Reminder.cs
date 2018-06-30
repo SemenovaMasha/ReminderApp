@@ -187,13 +187,12 @@ namespace Reminder_desktop_application
 
         private void nextDayBtn_Click(object sender, EventArgs e)
         {
-
             datePicker.Value= datePicker.Value.AddDays(1);
         }
 
         private void notesDataGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex != 2)
+            if (e.ColumnIndex>0)
             {
                 NewTaskForm form = new NewTaskForm(taskControler, ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index]);
                 form.ShowDialog();
@@ -204,11 +203,10 @@ namespace Reminder_desktop_application
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-
-            //if (notesDataGrid.SelectedRows[0].Index>=0)
+            if (notesDataGrid.SelectedRows.Count>0)
             {
-                //DialogResult result = MessageBox.Show("Are you sure?", "Delete", MessageBoxButtons.YesNo);
-                //if (result == DialogResult.Yes)
+                DialogResult result = MessageBox.Show("Are you sure?", "Delete", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
                 {
                     try
                     {
@@ -221,6 +219,10 @@ namespace Reminder_desktop_application
                         MessageBox.Show(exp.ToString());
                     }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Выберете заметку для удаления", null, MessageBoxButtons.OK);
             }
         }
 
