@@ -72,10 +72,6 @@ namespace Reminder_desktop_application
                    // period_duration, 
 
         }
-        private Guid getGuid()
-        {
-            return Guid.NewGuid();
-        }
 
         private void saveLink_Click(object sender, EventArgs e)
         {
@@ -253,18 +249,20 @@ namespace Reminder_desktop_application
         
         private void usualRdbtn_CheckedChanged(object sender, EventArgs e)
         {
-                remindTimePck.Enabled = false;
-                remindRepeatCkb.Checked = false;
-                remindRepeatCkb.Enabled = false;
+            remindTimePck.Visible = false;
+            remindRepeatCkb.Checked = false;
+            remindRepeatCkb.Visible = false;
+            remindTimeLbl.Visible = false;
 
             remindRepeatCkb_CheckedChanged(null, null);
         }
 
         private void remindRdbtn_CheckedChanged(object sender, EventArgs e)
         {
-                remindTimePck.Enabled = true;
-                remindRepeatCkb.Checked = false;
-                remindRepeatCkb.Enabled = true;
+            remindTimePck.Visible = true;
+            remindRepeatCkb.Checked = false;
+            remindRepeatCkb.Visible = true;
+            remindTimeLbl.Visible = true;
 
             remindRepeatCkb_CheckedChanged(null, null);
         }
@@ -273,20 +271,20 @@ namespace Reminder_desktop_application
         {
             if (!remindRepeatCkb.Checked)
             {
-                remindPeriodTbx.Enabled = false;
-                remindTimePeriodType.Enabled = false;
-                remindDurationTbx.Enabled = false;
-                remindTimeDurationType.Enabled = false;
-                metroLabel4.Enabled = false;
+                remindPeriodTbx.Visible = false;
+                remindTimePeriodType.Visible = false;
+                remindDurationTbx.Visible = false;
+                remindTimeDurationType.Visible = false;
+                metroLabel4.Visible = false;
                 //для metroLabel4 норм цвет подобрать
             }
             else
             {
-                remindPeriodTbx.Enabled = true;
-                remindTimePeriodType.Enabled = true;
-                remindDurationTbx.Enabled = true;
-                remindTimeDurationType.Enabled = true;
-                metroLabel4.Enabled = true;
+                remindPeriodTbx.Visible = true;
+                remindTimePeriodType.Visible = true;
+                remindDurationTbx.Visible = true;
+                remindTimeDurationType.Visible = true;
+                metroLabel4.Visible = true;
             }
         }
     }
