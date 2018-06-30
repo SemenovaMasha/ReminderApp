@@ -1,4 +1,4 @@
-﻿using Reminder.Models;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -16,6 +16,5 @@ namespace Reminder
 
         public DbSet<TaskModel> Tasks { get; set; }
         public DbSet<UserSettingsModel> UserSettings { get; set; }
-        public DbSet<UserModel> UserModels { get; set; }
     }
 }

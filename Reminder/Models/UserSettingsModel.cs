@@ -21,5 +21,14 @@ namespace Reminder
         public bool vkMessageFlag { get; set; }
         [Required]
         public int fontSize { get; set; }
+
+        [Required]
+        public string login { get; set; }
+
+        [Required]
+        public string password { get; set; }
+
+        public string secretWord { get; set; }
+
     }
 }

@@ -144,8 +144,11 @@
     <Compile Include="Migrations\201806291758397_addTableUserModel.Designer.cs">
       <DependentUpon>201806291758397_addTableUserModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201806300913051_updateUserSettings.cs" />
+    <Compile Include="Migrations\201806300913051_updateUserSettings.Designer.cs">
+      <DependentUpon>201806300913051_updateUserSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\UserModel.cs" />
     <Compile Include="NewTaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,6 +211,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806291758397_addTableUserModel.resx">
       <DependentUpon>201806291758397_addTableUserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806300913051_updateUserSettings.resx">
+      <DependentUpon>201806300913051_updateUserSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewTaskForm.resx">
       <DependentUpon>NewTaskForm.cs</DependentUpon>
