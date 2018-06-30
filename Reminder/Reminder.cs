@@ -68,7 +68,8 @@ namespace Reminder_desktop_application
         private void Reminder_FormClosing(object sender, FormClosingEventArgs e)
         {
             taskControler.Stop();
-
+                Application.Exit();
+            
         }
         
         private void Reminder_Resize(object sender, EventArgs e)

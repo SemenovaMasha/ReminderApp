@@ -9,18 +9,24 @@ namespace Reminder_desktop_application
         TaskServiceDB context;
         //Reminder_desktop_application.Reminder r = new Reminder_desktop_application.Reminder();
 
-        public FormMainAuthoriz()
-        {
-            this.Text = "Авторизация";
-            InitializeComponent();
-            //r.Enabled = false;
-        }
-
         UserSettingsModel user;
         string login;
         string password;
         bool flagIsFirst;
         ReminderContext con;
+
+        public FormMainAuthoriz()
+        {
+            this.Text = "Авторизация";
+            InitializeComponent();
+            //r.Enabled = false;
+
+            //если надо очистить данные логина/пароля снять комментирование и закомментировать снова
+            //context = new TaskServiceDB();
+            //user = context.getUserSettings();
+            //context.auth("x", "x");
+        }
+
 
         public bool IsFirstAutoriz()
         {
@@ -60,11 +66,10 @@ namespace Reminder_desktop_application
         {
             if (flagIsFirst)
             {
+                context = new TaskServiceDB();
                 user = context.getUserSettings();
                 con = new ReminderContext();
-                user.login = loginTbx.Text;
-                user.password = passwordTbx.Text;
-                con.SaveChanges();
+                context.auth(loginTbx.Text, passwordTbx.Text);
 
                 this.Hide();
                 Reminder reminder = new Reminder();
@@ -100,7 +105,7 @@ namespace Reminder_desktop_application
             }
         }
 
-        void AuthorizationForm_Closed(object sender, EventArgs e)
+        void AuthorizationForm_FormClosing(object sender, EventArgs e)
         {
             TaskServiceDB context = new TaskServiceDB();
             UserSettingsModel model = context.getUserSettings();
@@ -108,11 +113,6 @@ namespace Reminder_desktop_application
             vk.tokenAuthorization(context.getToken());
             vk.SendMessage(28970351, "Здравствуйте, я забыл(а) свои данные для входа в программу. Пожалуйста, свяжитесь со мной.");
             MessageBox.Show("Сообщение в техподдержку отправлено, с вами свяжутся в ближайшее время.");
-        }
-
-        void Reminider_Cloded(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

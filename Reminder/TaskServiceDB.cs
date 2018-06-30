@@ -65,6 +65,14 @@ namespace Reminder_desktop_application
             context.SaveChanges();
         }
 
+        public void auth(string login, string password)
+        {
+            UserSettingsModel t = context.UserSettings.FirstOrDefault();
+            t.login = login;
+            t.password = password;
+            context.SaveChanges();
+        }
+
         public void editSettings(UserSettingsModel settings)
         {
             UserSettingsModel t = context.UserSettings.FirstOrDefault();
