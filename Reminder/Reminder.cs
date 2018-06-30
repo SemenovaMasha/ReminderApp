@@ -38,7 +38,8 @@ namespace Reminder_desktop_application
                 string tokken = serviceDB.getToken();
                 string iduser = model.vkUser;
 
-                workVk.start(tokken, iduser, model.secretWord, serviceDB.getDailyTasks(DateTime.Now));
+                var g = serviceDB.getDailyTasks(DateTime.Now);
+                workVk.start(tokken, iduser, model.secretWord, serviceDB);
             }
             catch
             {
@@ -123,6 +124,7 @@ namespace Reminder_desktop_application
             column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             column1.FillWeight = 60;
             column1.ReadOnly = true;
+            column1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             notesDataGrid.Columns.Add(column1);
 
             DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();
@@ -142,6 +144,7 @@ namespace Reminder_desktop_application
             column3.FillWeight = 15;
             notesDataGrid.Columns.Add(column3);
 
+            sumLbl.Text = "Итого: "+taskControler.getDailySum(myDate);
 
         }
         
@@ -201,7 +204,6 @@ namespace Reminder_desktop_application
                 NewTaskForm form = new NewTaskForm(taskControler, ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index]);
                 form.ShowDialog();
 
-                PrintDayTasks(datePicker.Value.ToShortDateString());
             }
         }
 
@@ -236,6 +238,8 @@ namespace Reminder_desktop_application
             temp.price = Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString().Replace(".",","));
 
             taskControler.Edit(temp);
+
+            sumLbl.Text = "Итого: " + taskControler.getDailySum(datePicker.Value);
         }
 
         private void settingsBtn_Click(object sender, EventArgs e)

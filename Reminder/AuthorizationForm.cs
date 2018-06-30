@@ -20,6 +20,10 @@ namespace Reminder_desktop_application
             this.Text = "Авторизация VK";
             this.context = context;
             InitializeComponent();
+
+
+
+
         }
 
         private void AuthorizationForm_Load(object sender, EventArgs e)
@@ -72,7 +76,7 @@ namespace Reminder_desktop_application
                 string tokken = context.getToken();
                 string iduser = model.vkUser;
 
-                workVk.start(tokken, iduser, model.secretWord, context.getDailyTasks(DateTime.Now));
+                workVk.start(tokken, iduser, model.secretWord, context);
             }
             catch
             {

@@ -47,6 +47,7 @@ namespace Reminder_desktop_application
             this.nextDayBtn = new MetroFramework.Controls.MetroLink();
             this.prevDayBtn = new MetroFramework.Controls.MetroLink();
             this.statsBtn = new MetroFramework.Controls.MetroLink();
+            this.sumLbl = new MetroFramework.Controls.MetroLabel();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.notesDataGrid)).BeginInit();
             this.SuspendLayout();
@@ -66,19 +67,19 @@ namespace Reminder_desktop_application
             this.openToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 52);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(104, 48);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 24);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 24);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -90,6 +91,7 @@ namespace Reminder_desktop_application
             this.notesDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.notesDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.notesDataGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.notesDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.notesDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -103,6 +105,7 @@ namespace Reminder_desktop_application
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.notesDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.notesDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.notesDataGrid.ColumnHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -128,7 +131,7 @@ namespace Reminder_desktop_application
             this.notesDataGrid.RowHeadersVisible = false;
             this.notesDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.notesDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.notesDataGrid.Size = new System.Drawing.Size(402, 372);
+            this.notesDataGrid.Size = new System.Drawing.Size(415, 350);
             this.notesDataGrid.TabIndex = 8;
             this.notesDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.notesDataGrid_CellDoubleClick);
             this.notesDataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.notesDataGrid_CellEndEdit);
@@ -138,9 +141,9 @@ namespace Reminder_desktop_application
             this.datePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.datePicker.Location = new System.Drawing.Point(57, 94);
-            this.datePicker.MinimumSize = new System.Drawing.Size(0, 30);
+            this.datePicker.MinimumSize = new System.Drawing.Size(0, 29);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(334, 30);
+            this.datePicker.Size = new System.Drawing.Size(347, 29);
             this.datePicker.TabIndex = 7;
             this.datePicker.ValueChanged += new System.EventHandler(this.reminderDateTime_ValueChanged_1);
             // 
@@ -149,7 +152,7 @@ namespace Reminder_desktop_application
             this.settingsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.settingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingsBtn.Image")));
             this.settingsBtn.ImageSize = 28;
-            this.settingsBtn.Location = new System.Drawing.Point(363, 58);
+            this.settingsBtn.Location = new System.Drawing.Point(376, 58);
             this.settingsBtn.Name = "settingsBtn";
             this.settingsBtn.Size = new System.Drawing.Size(28, 28);
             this.settingsBtn.TabIndex = 9;
@@ -161,7 +164,7 @@ namespace Reminder_desktop_application
             this.deleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
             this.deleteBtn.ImageSize = 28;
-            this.deleteBtn.Location = new System.Drawing.Point(329, 58);
+            this.deleteBtn.Location = new System.Drawing.Point(342, 58);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(28, 28);
             this.deleteBtn.TabIndex = 10;
@@ -173,7 +176,7 @@ namespace Reminder_desktop_application
             this.addBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addBtn.Image = ((System.Drawing.Image)(resources.GetObject("addBtn.Image")));
             this.addBtn.ImageSize = 28;
-            this.addBtn.Location = new System.Drawing.Point(296, 58);
+            this.addBtn.Location = new System.Drawing.Point(309, 58);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(28, 28);
             this.addBtn.TabIndex = 11;
@@ -185,7 +188,7 @@ namespace Reminder_desktop_application
             this.nextDayBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nextDayBtn.Image = ((System.Drawing.Image)(resources.GetObject("nextDayBtn.Image")));
             this.nextDayBtn.ImageSize = 28;
-            this.nextDayBtn.Location = new System.Drawing.Point(397, 94);
+            this.nextDayBtn.Location = new System.Drawing.Point(410, 94);
             this.nextDayBtn.Name = "nextDayBtn";
             this.nextDayBtn.Size = new System.Drawing.Size(28, 28);
             this.nextDayBtn.TabIndex = 12;
@@ -208,20 +211,32 @@ namespace Reminder_desktop_application
             this.statsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.statsBtn.Image = ((System.Drawing.Image)(resources.GetObject("statsBtn.Image")));
             this.statsBtn.ImageSize = 28;
-            this.statsBtn.Location = new System.Drawing.Point(397, 58);
+            this.statsBtn.Location = new System.Drawing.Point(410, 58);
             this.statsBtn.Name = "statsBtn";
             this.statsBtn.Size = new System.Drawing.Size(28, 28);
             this.statsBtn.TabIndex = 14;
             this.statsBtn.UseSelectable = true;
             this.statsBtn.Click += new System.EventHandler(this.statsBtn_Click);
             // 
+            // sumLbl
+            // 
+            this.sumLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sumLbl.AutoSize = true;
+            this.sumLbl.Location = new System.Drawing.Point(342, 483);
+            this.sumLbl.Name = "sumLbl";
+            this.sumLbl.Size = new System.Drawing.Size(59, 19);
+            this.sumLbl.TabIndex = 15;
+            this.sumLbl.Text = "Итого: 0";
+            this.sumLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // Reminder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(448, 524);
+            this.ClientSize = new System.Drawing.Size(461, 522);
+            this.Controls.Add(this.sumLbl);
             this.Controls.Add(this.statsBtn);
             this.Controls.Add(this.prevDayBtn);
             this.Controls.Add(this.nextDayBtn);
@@ -242,6 +257,7 @@ namespace Reminder_desktop_application
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.notesDataGrid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -259,6 +275,7 @@ namespace Reminder_desktop_application
         private MetroFramework.Controls.MetroLink nextDayBtn;
         private MetroFramework.Controls.MetroLink prevDayBtn;
         private MetroFramework.Controls.MetroLink statsBtn;
+        private MetroFramework.Controls.MetroLabel sumLbl;
     }
 }
 
