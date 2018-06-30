@@ -111,7 +111,7 @@ namespace Reminder
 
         public List<TaskModel> getDailyTasks(DateTime day)
         {
-            List<TaskModel> list = context.Tasks.Where(t => t.next_date.Day == day.Day).ToList();//из БД только дату нужно!
+            List<TaskModel> list = context.Tasks.Where(t => t.next_date.Day == day.Day & t.next_date.Month == day.Month & t.next_date.Year == day.Year).ToList();
             return list;
         }
         public List<TaskModel> getYearTasks(DateTime day)
