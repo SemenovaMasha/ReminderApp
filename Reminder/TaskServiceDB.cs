@@ -67,16 +67,17 @@ namespace Reminder
 
         public void editSettings(UserSettingsModel settings)
         {
-            UserSettingsModel t = context.UserSettings.FirstOrDefault(x => x.Id == settings.Id);
+            UserSettingsModel t = context.UserSettings.FirstOrDefault();
             if (t == null)
             {
                 throw new Exception("Элемент не найден");
             }
-            t.Id = settings.Id;
+            //t.Id = settings.Id;
             t.mailUserName = settings.mailUserName;
             //t.vkToken = settings.vkToken;
             t.vkMessageFlag = settings.vkMessageFlag;
             t.mailMessageFlag = settings.mailMessageFlag;
+            t.fontSize = settings.fontSize;
 
             context.SaveChanges();
         }
