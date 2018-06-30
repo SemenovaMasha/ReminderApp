@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reminder
+namespace Reminder_desktop_application
 {
         public delegate void NotificationEventHandler(object sender, EventArgs e);
     public class TaskModel

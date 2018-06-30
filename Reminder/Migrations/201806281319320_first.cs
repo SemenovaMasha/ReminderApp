@@ -1,4 +1,4 @@
-namespace Reminder.Migrations
+namespace Reminder_desktop_application.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;

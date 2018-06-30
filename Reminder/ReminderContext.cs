@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reminder
+namespace Reminder_desktop_application
 {
     public class ReminderContext : DbContext
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using MetroFramework.Controls;
-using Reminder;
+using Reminder_desktop_application;
 
 namespace Reminder_desktop_application
 {
@@ -22,6 +22,10 @@ namespace Reminder_desktop_application
         {
             
             InitializeComponent();
+            //this.Hide();
+            //FormMainAuthoriz form = new FormMainAuthoriz();
+            //form.ShowDialog();
+
 
             //context = c;
             serviceDB = new TaskServiceDB();
@@ -205,7 +209,7 @@ namespace Reminder_desktop_application
         {
             if (notesDataGrid.SelectedRows.Count>0)
             {
-                DialogResult result = MessageBox.Show("Are you sure?", "Delete", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Вы уверены что хотите удалить?", "Удалить", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     try

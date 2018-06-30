@@ -1,4 +1,4 @@
-﻿using Reminder;
+﻿using Reminder_desktop_application;
 using System;
 using System.Windows.Forms;
 
@@ -11,7 +11,7 @@ namespace Reminder_desktop_application
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Reminder());
+            Application.Run(new FormMainAuthoriz());
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Reminder;
+﻿using Reminder_desktop_application;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,7 +72,7 @@ namespace Reminder_desktop_application
                 form.ShowDialog();
 
                 // form.getToken();
-                connectVKBtn.Text == "Отключить Вконтакте"
+                connectVKBtn.Text = "Отключить Вконтакте";
             }
             this.connectVKBtn.Refresh();
         }

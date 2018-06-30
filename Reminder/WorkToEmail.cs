@@ -6,7 +6,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reminder
+namespace Reminder_desktop_application
 {
     class WorkToEmail
     {

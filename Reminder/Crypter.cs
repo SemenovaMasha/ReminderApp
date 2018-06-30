@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Reminder
+namespace Reminder_desktop_application
 {
     public static class Crypter
     {

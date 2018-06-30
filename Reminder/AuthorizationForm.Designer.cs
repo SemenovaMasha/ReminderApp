@@ -1,4 +1,4 @@
-﻿namespace Reminder
+﻿namespace Reminder_desktop_application
 {
     partial class AuthorizationForm
     {

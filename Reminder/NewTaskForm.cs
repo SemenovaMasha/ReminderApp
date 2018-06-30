@@ -1,4 +1,4 @@
-﻿using Reminder;
+﻿using Reminder_desktop_application;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
