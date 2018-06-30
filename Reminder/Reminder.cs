@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using MetroFramework.Controls;
 using Reminder_desktop_application;
-using Reminder;
 using System.Drawing;
 
 namespace Reminder_desktop_application
@@ -34,6 +33,7 @@ namespace Reminder_desktop_application
             serviceDB.createSettingsIfNotExists();
 
             notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", serviceDB.getFontSize()); 
+            sumLbl.Font= new Font("Segoe UI", serviceDB.getFontSize());
 
             model = serviceDB.getUserSettings();
             workVk = new WorkToVk();
@@ -253,6 +253,7 @@ namespace Reminder_desktop_application
             form.ShowDialog();
 
             notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", serviceDB.getFontSize());
+            sumLbl.Font = new Font("Segoe UI", serviceDB.getFontSize());
         }
 
         private void statsBtn_Click(object sender, EventArgs e)
