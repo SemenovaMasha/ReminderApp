@@ -73,9 +73,17 @@ namespace Reminder_desktop_application
         {
             return serviceDB.getDailyTasks(day);
         }
+        public double getDailySum(DateTime day)
+        {
+            return serviceDB.getDailySum(day);
+        }
         public List<TaskModel> getYearTasks(DateTime year)
         {
             return serviceDB.getYearTasks(year);
+        }
+        public double getYearSum(DateTime year)
+        {
+            return serviceDB.getYearSum(year);
         }
 
         public void reingin()

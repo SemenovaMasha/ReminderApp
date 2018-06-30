@@ -125,6 +125,24 @@ namespace Reminder
             List<TaskModel> list = context.Tasks.Where(t => t.next_date.Day == day.Day & t.next_date.Month == day.Month & t.next_date.Year == day.Year).ToList();
             return list;
         }
+        public double getDailySum(DateTime day)
+        {
+            var list = context.Tasks.Where(t => t.next_date.Day == day.Day & t.next_date.Month == day.Month & t.next_date.Year == day.Year);
+
+            if (list.Count() == 0)
+                return 0;
+            else
+                return (double)list.Sum(x => x.price);
+        }
+        public double getYearSum(DateTime year)
+        {
+            var list = context.Tasks.Where(t => t.next_date.Year == year.Year);
+
+            if (list.Count() == 0)
+                return 0;
+            else
+                return (double)list.Sum(x => x.price);
+        }
         public List<TaskModel> getYearTasks(DateTime day)
         {
             List<TaskModel> list = context.Tasks.Where(t => t.next_date.Year == day.Year).ToList();

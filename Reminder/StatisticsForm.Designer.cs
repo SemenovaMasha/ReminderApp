@@ -41,6 +41,7 @@
             this.statsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.nextDayBtn = new MetroFramework.Controls.MetroLink();
             this.prevDayBtn = new MetroFramework.Controls.MetroLink();
+            this.sumLbl = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.statsGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsChart)).BeginInit();
             this.SuspendLayout();
@@ -107,7 +108,7 @@
             this.statsGrid.RowHeadersVisible = false;
             this.statsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.statsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.statsGrid.Size = new System.Drawing.Size(362, 196);
+            this.statsGrid.Size = new System.Drawing.Size(362, 175);
             this.statsGrid.TabIndex = 1;
             // 
             // month
@@ -169,11 +170,21 @@
             this.prevDayBtn.UseSelectable = true;
             this.prevDayBtn.Click += new System.EventHandler(this.prevDayBtn_Click);
             // 
+            // sumLbl
+            // 
+            this.sumLbl.AutoSize = true;
+            this.sumLbl.Location = new System.Drawing.Point(281, 288);
+            this.sumLbl.Name = "sumLbl";
+            this.sumLbl.Size = new System.Drawing.Size(59, 19);
+            this.sumLbl.TabIndex = 17;
+            this.sumLbl.Text = "Итого: 0";
+            // 
             // StatisticsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(409, 607);
+            this.Controls.Add(this.sumLbl);
             this.Controls.Add(this.prevDayBtn);
             this.Controls.Add(this.nextDayBtn);
             this.Controls.Add(this.statsChart);
@@ -184,6 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.statsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsChart)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -196,5 +208,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sum;
         private MetroFramework.Controls.MetroLink nextDayBtn;
         private MetroFramework.Controls.MetroLink prevDayBtn;
+        private MetroFramework.Controls.MetroLabel sumLbl;
     }
 }

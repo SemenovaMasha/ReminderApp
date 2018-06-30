@@ -61,7 +61,7 @@ namespace Reminder_desktop_application
 
                 statsGrid.Rows.Add(seriesArray[i], sumPoints[i]);
             }
-            
+            sumLbl.Text ="Итого: "+ controler.getYearSum(dateDtPkc.Value);
         }
 
         private void nextDayBtn_Click(object sender, EventArgs e)

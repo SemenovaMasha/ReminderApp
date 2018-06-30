@@ -140,6 +140,7 @@ namespace Reminder_desktop_application
             column3.FillWeight = 15;
             notesDataGrid.Columns.Add(column3);
 
+            sumLbl.Text = "Итого: "+taskControler.getDailySum(myDate);
 
         }
         
@@ -199,7 +200,6 @@ namespace Reminder_desktop_application
                 NewTaskForm form = new NewTaskForm(taskControler, ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index]);
                 form.ShowDialog();
 
-                PrintDayTasks(datePicker.Value.ToShortDateString());
             }
         }
 
@@ -234,6 +234,8 @@ namespace Reminder_desktop_application
             temp.price = Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString().Replace(".",","));
 
             taskControler.Edit(temp);
+
+            sumLbl.Text = "Итого: " + taskControler.getDailySum(datePicker.Value);
         }
 
         private void settingsBtn_Click(object sender, EventArgs e)
