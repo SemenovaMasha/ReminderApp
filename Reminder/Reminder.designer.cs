@@ -136,10 +136,10 @@ namespace Reminder_desktop_application
             // 
             this.datePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.datePicker.Location = new System.Drawing.Point(74, 94);
+            this.datePicker.Location = new System.Drawing.Point(57, 94);
             this.datePicker.MinimumSize = new System.Drawing.Size(0, 29);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(300, 29);
+            this.datePicker.Size = new System.Drawing.Size(334, 29);
             this.datePicker.TabIndex = 7;
             this.datePicker.ValueChanged += new System.EventHandler(this.reminderDateTime_ValueChanged_1);
             // 
@@ -147,10 +147,10 @@ namespace Reminder_desktop_application
             // 
             this.settingsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.settingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingsBtn.Image")));
-            this.settingsBtn.ImageSize = 45;
-            this.settingsBtn.Location = new System.Drawing.Point(363, 63);
+            this.settingsBtn.ImageSize = 28;
+            this.settingsBtn.Location = new System.Drawing.Point(363, 58);
             this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(28, 25);
+            this.settingsBtn.Size = new System.Drawing.Size(28, 28);
             this.settingsBtn.TabIndex = 9;
             this.settingsBtn.UseSelectable = true;
             this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
@@ -159,10 +159,10 @@ namespace Reminder_desktop_application
             // 
             this.deleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
-            this.deleteBtn.ImageSize = 45;
-            this.deleteBtn.Location = new System.Drawing.Point(329, 63);
+            this.deleteBtn.ImageSize = 28;
+            this.deleteBtn.Location = new System.Drawing.Point(329, 58);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(28, 25);
+            this.deleteBtn.Size = new System.Drawing.Size(28, 28);
             this.deleteBtn.TabIndex = 10;
             this.deleteBtn.UseSelectable = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
@@ -171,10 +171,10 @@ namespace Reminder_desktop_application
             // 
             this.addBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addBtn.Image = ((System.Drawing.Image)(resources.GetObject("addBtn.Image")));
-            this.addBtn.ImageSize = 45;
-            this.addBtn.Location = new System.Drawing.Point(295, 63);
+            this.addBtn.ImageSize = 28;
+            this.addBtn.Location = new System.Drawing.Point(296, 58);
             this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(28, 25);
+            this.addBtn.Size = new System.Drawing.Size(28, 28);
             this.addBtn.TabIndex = 11;
             this.addBtn.UseSelectable = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
@@ -183,10 +183,10 @@ namespace Reminder_desktop_application
             // 
             this.nextDayBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nextDayBtn.Image = ((System.Drawing.Image)(resources.GetObject("nextDayBtn.Image")));
-            this.nextDayBtn.ImageSize = 45;
-            this.nextDayBtn.Location = new System.Drawing.Point(380, 94);
+            this.nextDayBtn.ImageSize = 28;
+            this.nextDayBtn.Location = new System.Drawing.Point(397, 94);
             this.nextDayBtn.Name = "nextDayBtn";
-            this.nextDayBtn.Size = new System.Drawing.Size(45, 29);
+            this.nextDayBtn.Size = new System.Drawing.Size(28, 28);
             this.nextDayBtn.TabIndex = 12;
             this.nextDayBtn.UseSelectable = true;
             this.nextDayBtn.Click += new System.EventHandler(this.nextDayBtn_Click);
@@ -194,10 +194,10 @@ namespace Reminder_desktop_application
             // prevDayBtn
             // 
             this.prevDayBtn.Image = ((System.Drawing.Image)(resources.GetObject("prevDayBtn.Image")));
-            this.prevDayBtn.ImageSize = 45;
+            this.prevDayBtn.ImageSize = 28;
             this.prevDayBtn.Location = new System.Drawing.Point(23, 94);
             this.prevDayBtn.Name = "prevDayBtn";
-            this.prevDayBtn.Size = new System.Drawing.Size(45, 29);
+            this.prevDayBtn.Size = new System.Drawing.Size(28, 28);
             this.prevDayBtn.TabIndex = 13;
             this.prevDayBtn.UseSelectable = true;
             this.prevDayBtn.Click += new System.EventHandler(this.prevDayBtn_Click);
@@ -206,10 +206,10 @@ namespace Reminder_desktop_application
             // 
             this.statsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.statsBtn.Image = ((System.Drawing.Image)(resources.GetObject("statsBtn.Image")));
-            this.statsBtn.ImageSize = 45;
-            this.statsBtn.Location = new System.Drawing.Point(397, 63);
+            this.statsBtn.ImageSize = 28;
+            this.statsBtn.Location = new System.Drawing.Point(397, 58);
             this.statsBtn.Name = "statsBtn";
-            this.statsBtn.Size = new System.Drawing.Size(28, 25);
+            this.statsBtn.Size = new System.Drawing.Size(28, 28);
             this.statsBtn.TabIndex = 14;
             this.statsBtn.UseSelectable = true;
             this.statsBtn.Click += new System.EventHandler(this.statsBtn_Click);
