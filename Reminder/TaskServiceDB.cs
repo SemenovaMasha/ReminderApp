@@ -31,7 +31,9 @@ namespace Reminder
                     vkMessageFlag = false,
                     mailMessageFlag = false,
                     mailUserName = "",
-                    fontSize = 12
+                    fontSize = 12,
+                    login = "x",
+                    password="x"
                 });
                 context.SaveChanges();
             }
