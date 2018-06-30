@@ -118,6 +118,12 @@
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Crypter.cs" />
+    <Compile Include="FormMainAuthoriz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMainAuthoriz.Designer.cs">
+      <DependentUpon>FormMainAuthoriz.cs</DependentUpon>
+    </Compile>
     <Compile Include="IControler.cs" />
     <Compile Include="IStreamer.cs" />
     <Compile Include="Migrations\201806281319320_first.cs" />
@@ -194,6 +200,9 @@
     <Compile Include="WorkToVk.cs" />
     <EmbeddedResource Include="AuthorizationForm.resx">
       <DependentUpon>AuthorizationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMainAuthoriz.resx">
+      <DependentUpon>FormMainAuthoriz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806281319320_first.resx">
       <DependentUpon>201806281319320_first.cs</DependentUpon>

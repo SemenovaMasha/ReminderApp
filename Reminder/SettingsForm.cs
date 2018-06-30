@@ -49,7 +49,8 @@ namespace Reminder_desktop_application
             model.vkMessageFlag = vkNotificationChbx.Checked;
             model.mailMessageFlag = mailNotificationChbx.Checked;
             model.mailUserName = mailLoginTbx.Text;
-            model.fontSize = Convert.ToInt32(fontSizeBx.Value); ;
+            model.fontSize = Convert.ToInt32(fontSizeBx.Value);
+            model.secretWord = keyWordTbx.Text;
 
             context.editSettings(model);
             this.Close();

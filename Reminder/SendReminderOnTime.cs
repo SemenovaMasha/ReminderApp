@@ -23,7 +23,7 @@ namespace Reminder
 
             if (user.vkMessageFlag)
                     {
-                vk.tokenAuthorization(context.getToken());
+                        vk.tokenAuthorization(context.getToken());
                         vk.SendMessage(Convert.ToInt64(user.vkUser), text);
                     }
 

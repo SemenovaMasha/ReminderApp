@@ -99,8 +99,14 @@ namespace Reminder
             {
                 throw new Exception("Элемент не найден");
             }
-           return Crypter.Decrypt(t.vkToken);
-            
+            try
+            {
+                return Crypter.Decrypt(t.vkToken);
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         public UserSettingsModel getUserSettings()
