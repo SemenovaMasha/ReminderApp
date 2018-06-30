@@ -26,6 +26,9 @@ namespace Reminder_desktop_application
 
             dateDtPkc_ValueChanged(null, null);
 
+
+            statsGrid.DefaultCellStyle.Font = new Font("Segoe UI", controler.getFontSize());
+
         }
 
         private void dateDtPkc_ValueChanged(object sender, EventArgs e)

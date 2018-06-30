@@ -122,6 +122,23 @@ namespace Reminder_desktop_application
             }
         }
 
+        public int getFontSize()
+        {
+            UserSettingsModel t = context.UserSettings.FirstOrDefault();
+            if (t == null)
+            {
+                throw new Exception("Элемент не найден");
+            }
+            try
+            {
+                return t.fontSize;
+            }
+            catch
+            {
+                return 12;
+            }
+        }
+
         public UserSettingsModel getUserSettings()
         {
             var h = context.UserSettings.ToList();

@@ -90,7 +90,7 @@ namespace Reminder_desktop_application
                 Count = 1
             }).Messages[0];
 
-            Timer aTimer = new System.Timers.Timer(10000);
+            Timer aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
             aTimer.Enabled = true;

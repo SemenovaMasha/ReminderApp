@@ -34,7 +34,11 @@ namespace Reminder_desktop_application
                 // письмо представляет код html
                 IsBodyHtml = true
             };
-            smtp.Send(m);
+            try
+            {
+                smtp.Send(m);
+            }
+            catch { }
         }
     }
 }
