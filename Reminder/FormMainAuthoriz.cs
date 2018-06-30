@@ -13,6 +13,7 @@ namespace Reminder_desktop_application
         string login;
         string password;
         bool flagIsFirst;
+        public bool IsEdit;
         ReminderContext con;
 
         public FormMainAuthoriz()
@@ -27,7 +28,6 @@ namespace Reminder_desktop_application
             //context.auth("x", "x");
         }
 
-
         public bool IsFirstAutoriz()
         {
             context = new TaskServiceDB();
@@ -38,10 +38,12 @@ namespace Reminder_desktop_application
             if (login == "x" && password == "x")
             {
                 MessageBox.Show("Вы зашли впервые, введите данные для доступа к приложениию в дальнейшем.");
+                IsEdit = false;
                 return true;
             }
             else
             {
+                IsEdit = false;
                 return false;
             }
 
@@ -64,26 +66,54 @@ namespace Reminder_desktop_application
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            if (flagIsFirst)
+            context = new TaskServiceDB();
+            if (IsEdit)
             {
-                context = new TaskServiceDB();
-                user = context.getUserSettings();
-                con = new ReminderContext();
-                context.auth(loginTbx.Text, passwordTbx.Text);
-
-                this.Hide();
-                Reminder reminder = new Reminder();
-                reminder.Show();
+                try
+                {
+                    context.auth(loginTbx.Text, passwordTbx.Text);
+                    MessageBox.Show("Сохранение прошло успешно.");
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Сохранение не удалось.");
+                }
             }
             else
             {
-                autoriz(login, password);
+                if (flagIsFirst)
+                {
+                    context = new TaskServiceDB();
+                    try
+                    {
+                        user = context.getUserSettings();
+                    }
+                    catch
+                    {
+                        context.createSettingsIfNotExists();
+                    }
+
+                    con = new ReminderContext();
+                    context.auth(loginTbx.Text, passwordTbx.Text);
+
+                    this.Hide();
+                    Reminder reminder = new Reminder();
+                    reminder.Show();
+                }
+                else
+                {
+                    autoriz(login, password);
+                }
             }
         }
 
         private void FormMainAuthoriz_Load(object sender, EventArgs e)
         {
-            flagIsFirst = IsFirstAutoriz();
+            if (!IsEdit)
+            {
+                flagIsFirst = IsFirstAutoriz();
+            }
         }
 
         private void metroButton1_Click(object sender, EventArgs e)

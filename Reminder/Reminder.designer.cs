@@ -67,19 +67,19 @@ namespace Reminder_desktop_application
             this.openToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(104, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(115, 52);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 24);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 24);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -141,9 +141,9 @@ namespace Reminder_desktop_application
             this.datePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.datePicker.Location = new System.Drawing.Point(57, 94);
-            this.datePicker.MinimumSize = new System.Drawing.Size(0, 29);
+            this.datePicker.MinimumSize = new System.Drawing.Size(0, 30);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(309, 29);
+            this.datePicker.Size = new System.Drawing.Size(309, 30);
             this.datePicker.TabIndex = 7;
             this.datePicker.ValueChanged += new System.EventHandler(this.reminderDateTime_ValueChanged_1);
             // 
@@ -224,14 +224,14 @@ namespace Reminder_desktop_application
             this.sumLbl.AutoSize = true;
             this.sumLbl.Location = new System.Drawing.Point(304, 358);
             this.sumLbl.Name = "sumLbl";
-            this.sumLbl.Size = new System.Drawing.Size(59, 19);
+            this.sumLbl.Size = new System.Drawing.Size(62, 20);
             this.sumLbl.TabIndex = 15;
             this.sumLbl.Text = "Итого: 0";
             this.sumLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // Reminder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;

@@ -77,5 +77,18 @@ namespace Reminder_desktop_application
             }
             this.connectVKBtn.Refresh();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            FormMainAuthoriz formMainAuthoriz = new FormMainAuthoriz();
+            formMainAuthoriz.IsEdit = true;
+            formMainAuthoriz.ShowDialog();
+            
+        }
     }
 }

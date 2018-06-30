@@ -36,10 +36,10 @@
             // 
             // okBtn
             // 
-            this.okBtn.Location = new System.Drawing.Point(112, 183);
+            this.okBtn.Location = new System.Drawing.Point(195, 183);
             this.okBtn.Margin = new System.Windows.Forms.Padding(4);
             this.okBtn.Name = "okBtn";
-            this.okBtn.Size = new System.Drawing.Size(123, 28);
+            this.okBtn.Size = new System.Drawing.Size(161, 28);
             this.okBtn.TabIndex = 11;
             this.okBtn.Text = "OK";
             this.okBtn.UseSelectable = true;
@@ -111,10 +111,10 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(206, 28);
+            this.metroButton1.Location = new System.Drawing.Point(20, 183);
             this.metroButton1.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(123, 28);
+            this.metroButton1.Size = new System.Drawing.Size(153, 28);
             this.metroButton1.TabIndex = 12;
             this.metroButton1.Text = "Я забыл(а) данные";
             this.metroButton1.UseSelectable = true;

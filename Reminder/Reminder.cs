@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using MetroFramework.Controls;
 using Reminder_desktop_application;
-using Reminder;
 using System.Drawing;
 
 namespace Reminder_desktop_application
