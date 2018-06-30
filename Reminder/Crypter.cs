@@ -9,37 +9,47 @@ namespace Reminder
 {
     public static class Crypter
     {
-        static RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
-        static string key = rsa.ToXmlString(true);
+        static string hash = "rEm@iN10eR";
 
         public static string Decrypt(string text)
         {
             byte[] dec = null;
-
-            rsa.FromXmlString(key);
-            dec = rsa.Decrypt(Convert.FromBase64String(text), true);
-
-            return _toString(dec);
-        }
-
-        private static string _toString(byte[] decrContent)
-        {
-            return Encoding.UTF8.GetString(decrContent);
-        }
-
-        private static byte[] _toByte(string text)
-        {
-            return Encoding.UTF8.GetBytes(text);
+            byte[] data = Convert.FromBase64String(text);
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            {
+                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tD = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                {
+                    ICryptoTransform tr = tD.CreateDecryptor();
+                    dec = tr.TransformFinalBlock(data, 0, data.Length);
+                }
+            }
+            if (dec == null)
+            {
+                throw new Exception("Ошибка при расшифровке");
+            }
+            return UTF8Encoding.UTF8.GetString(dec);
         }
 
         public static string Encrypt(string text)
         {
             byte[] enc = null;
-
-            rsa.FromXmlString(key);
-            enc = rsa.Encrypt(_toByte(text), true);
-
+            byte[] data = UTF32Encoding.UTF8.GetBytes(text);
+            using (MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider())
+            {
+                byte[] keys = md5.ComputeHash(UTF8Encoding.UTF8.GetBytes(hash));
+                using (TripleDESCryptoServiceProvider tD = new TripleDESCryptoServiceProvider() { Key = keys, Mode = CipherMode.ECB, Padding = PaddingMode.PKCS7 })
+                {
+                    ICryptoTransform tr = tD.CreateEncryptor();
+                    enc = tr.TransformFinalBlock(data, 0, data.Length);
+                }
+            }
+            if (enc == null)
+            {
+                throw new Exception("Ошибка при шифровке");
+            }
             return Convert.ToBase64String(enc);
         }
+
     }
 }
