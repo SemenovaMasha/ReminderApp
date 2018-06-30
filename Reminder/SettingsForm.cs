@@ -19,14 +19,15 @@ namespace Reminder_desktop_application
 
         public SettingsForm(TaskServiceDB context)
         {
-            m = context.getUserSettings();
             this.context = context;
+            m = context.getUserSettings();
             InitializeComponent();
             keyWordTbx.TextAlign = HorizontalAlignment.Right;
 
             vkNotificationChbx.Checked = m.vkMessageFlag;
             mailNotificationChbx.Checked = m.mailMessageFlag;
             mailLoginTbx.Text = m.mailUserName;
+            keyWordTbx.Text = m.secretWord;
             fontSizeBx.Value = m.fontSize;
          //   hasToken = m.vkToken != "";
             if (m.vkToken is null)
@@ -43,13 +44,14 @@ namespace Reminder_desktop_application
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            TaskServiceDB context = new TaskServiceDB();
+            //TaskServiceDB context = new TaskServiceDB();
             UserSettingsModel model = context.getUserSettings();
 
             model.vkMessageFlag = vkNotificationChbx.Checked;
             model.mailMessageFlag = mailNotificationChbx.Checked;
             model.mailUserName = mailLoginTbx.Text;
-            model.fontSize = Convert.ToInt32(fontSizeBx.Value); ;
+            model.secretWord = keyWordTbx.Text;
+            model.fontSize = Convert.ToInt32(fontSizeBx.Value);
 
             context.editSettings(model);
             this.Close();

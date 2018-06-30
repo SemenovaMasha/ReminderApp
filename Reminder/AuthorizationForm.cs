@@ -19,6 +19,10 @@ namespace Reminder
         {
             this.context = context;
             InitializeComponent();
+
+
+
+
         }
 
         private void AuthorizationForm_Load(object sender, EventArgs e)
@@ -64,7 +68,7 @@ namespace Reminder
                 string tokken = context.getToken();
                 string iduser = model.vkUser;
 
-                workVk.start(tokken, iduser, model.secretWord, context.getDailyTasks(DateTime.Now));
+                workVk.start(tokken, iduser, model.secretWord, context);
             }
             catch
             {

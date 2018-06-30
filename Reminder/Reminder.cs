@@ -34,7 +34,8 @@ namespace Reminder_desktop_application
                 string tokken = serviceDB.getToken();
                 string iduser = model.vkUser;
 
-                workVk.start(tokken, iduser, model.secretWord, serviceDB.getDailyTasks(DateTime.Now));
+                var g = serviceDB.getDailyTasks(DateTime.Now);
+                workVk.start(tokken, iduser, model.secretWord, serviceDB);
             }
             catch
             {
@@ -119,6 +120,7 @@ namespace Reminder_desktop_application
             column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             column1.FillWeight = 60;
             column1.ReadOnly = true;
+            column1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             notesDataGrid.Columns.Add(column1);
 
             DataGridViewTextBoxColumn column2 = new DataGridViewTextBoxColumn();

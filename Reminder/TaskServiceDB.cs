@@ -67,16 +67,22 @@ namespace Reminder
 
         public void editSettings(UserSettingsModel settings)
         {
-            UserSettingsModel t = context.UserSettings.First();
-           // t.Id = settings.Id;
+            UserSettingsModel t = context.UserSettings.FirstOrDefault();
+
             t.mailUserName = settings.mailUserName;
             t.vkToken = settings.vkToken;
             if (t.vkUser != null)
-            { t.vkMessageFlag = settings.vkMessageFlag;  }
+            {
+                t.vkMessageFlag = settings.vkMessageFlag;
+            }
             t.mailMessageFlag = settings.mailMessageFlag;
             t.secretWord = settings.secretWord;
 
+
             context.SaveChanges();
+
+            var g = context.UserSettings.FirstOrDefault();
+
         }
         public void editToken(string token,string login)
         {
@@ -88,7 +94,6 @@ namespace Reminder
             t.vkToken = token == "" ? "" : Crypter.Encrypt(token);
             //   t.vkUser = login == "" ? "" : Crypter.Encrypt(login);
             t.vkUser = login;
-
             context.SaveChanges();
         }
 
@@ -105,7 +110,8 @@ namespace Reminder
 
         public UserSettingsModel getUserSettings()
         {
-            return context.UserSettings.Where(c=>c.Id == 1).First();
+            var h = context.UserSettings.ToList();
+            return context.UserSettings.FirstOrDefault();
         }
 
         public List<TaskModel> getDailyTasks(DateTime day)

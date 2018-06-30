@@ -61,24 +61,27 @@ namespace Reminder
         }
 
         string spisok = "";
-
-        public void start(string tokken, string userId, string keyWord, List<TaskModel> list)
+        TaskServiceDB service;
+        public void start(string tokken, string userId, string keyWord, TaskServiceDB service)
         {
+            date = DateTime.Now;
             this.token = tokken;
             this.userId = userId;
             this.keyWord = keyWord;
+            this.service = service;
 
-            list = list.Where(c => c.next_date > DateTime.Now).ToList();
+            //var list = service.getDailyTasks(DateTime.Now);
+            //list = list.Where(c => c.next_date > DateTime.Now).ToList();
 
-            foreach (TaskModel word in list)
-            {
-                spisok += word.text + "\n";
-            }
+            //foreach (TaskModel word in list)
+            //{
+            //    spisok += word.text + "\n";
+            //}
 
-            if (spisok == "")
-            {
-                spisok = "Напоминаний на сегодня больше нет.";
-            }
+            //if (spisok == "")
+            //{
+            //    spisok = "Напоминаний на сегодня больше нет.";
+            //}
 
             tokenAuthorization(token);
 
@@ -87,18 +90,20 @@ namespace Reminder
                 Count = 1
             }).Messages[0];
 
-            Timer aTimer = new System.Timers.Timer(2000);
+            Timer aTimer = new System.Timers.Timer(10000);
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
         }
+
+        DateTime date;
         VkNet.Model.Message LastMessage = null;
         VkNet.Model.Message CurrentMessage = null;
         int count;
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            
+            Console.WriteLine(date);
             try
             {
 
@@ -106,27 +111,42 @@ namespace Reminder
                 {
                     Count = 1
                 }).Messages[0];
+                //LastMessage = CurrentMessage;
 
-                long id = Convert.ToInt64(CurrentMessage.UserId);
-
-                //MessageBox.Show(CurrentMessage.UserId+"!"+ CheckedUserID);
-
+                //long id = Convert.ToInt64(CurrentMessage.UserId);
+                
                 if (
-                    CurrentMessage.UserId == Convert.ToInt64(userId) &&
-                    !CurrentMessage.Date.Equals(LastMessage.Date) && 
-                    CurrentMessage.Body != LastMessage.Body)
+                    CurrentMessage.UserId == Convert.ToInt64(userId) 
+                    //&&!CurrentMessage.Date.Equals(LastMessage.Date) && 
+                    //CurrentMessage.Body != LastMessage.Body
+                    )
                 {
 
                     if (CurrentMessage.Body.Equals(keyWord + "#"))
                     {
-                        SendMessage((long)(id), spisok);
-                        count--;
-                        LastMessage = vk.Messages.Get(new MessagesGetParams
-                        {
-                            Count = 1
-                        }).Messages[0];
 
-                        CurrentMessage = null;
+                        var list = service.getDailyTasks(DateTime.Now);
+                        list = list.Where(c => c.next_date > DateTime.Now).ToList();
+
+                        spisok = "";
+                        foreach (TaskModel word in list)
+                        {
+                            spisok += word.text + "\n";
+                        }
+
+                        if (spisok == "")
+                        {
+                            spisok = "Напоминаний на сегодня больше нет.";
+                        }
+
+                        SendMessage(Convert.ToInt64(userId), spisok);
+                        count--;
+                        //LastMessage = vk.Messages.Get(new MessagesGetParams
+                        //{
+                        //    Count = 1
+                        //}).Messages[0];
+
+                        //CurrentMessage = null;
                     }
                 }
             }

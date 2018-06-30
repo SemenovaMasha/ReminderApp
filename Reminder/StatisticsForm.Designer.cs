@@ -77,6 +77,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.statsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.statsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.statsGrid.ColumnHeadersVisible = false;
             this.statsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.month,
             this.sum});
