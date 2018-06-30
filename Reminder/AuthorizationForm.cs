@@ -17,6 +17,7 @@ namespace Reminder
         TaskServiceDB context;
         public AuthorizationForm(TaskServiceDB context)
         {
+            this.Text = "Авторизация VK";
             this.context = context;
             InitializeComponent();
 
@@ -59,8 +60,15 @@ namespace Reminder
             model = context.getUserSettings();
             WorkToVk workVk = new WorkToVk();
             workVk.loginAuthorization(loginTbx.Text, passwordTbx.Text);
-            model.vkToken = Crypter.Encrypt(workVk.token);
-            model.vkUser = workVk.userId.ToString();
+            if (workVk.token is null)
+            {
+                model.vkToken = "";
+            }
+            else
+            {
+                model.vkToken = Crypter.Encrypt(workVk.token);
+                model.vkUser = workVk.userId.ToString();
+            }
 
             context.editToken(workVk.token, workVk.userId);
             try

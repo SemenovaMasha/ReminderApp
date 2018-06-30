@@ -90,6 +90,7 @@
             // remindTimeDurationType
             // 
             this.remindTimeDurationType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.remindTimeDurationType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.remindTimeDurationType.FormattingEnabled = true;
             this.remindTimeDurationType.Items.AddRange(new object[] {
             "минут",
@@ -112,6 +113,7 @@
             // remindTimePeriodType
             // 
             this.remindTimePeriodType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.remindTimePeriodType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.remindTimePeriodType.FormattingEnabled = true;
             this.remindTimePeriodType.Items.AddRange(new object[] {
             "минут",
