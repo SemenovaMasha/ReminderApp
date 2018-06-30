@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Windows.Forms;
 using MetroFramework.Controls;
 using Reminder;
+using System.Drawing;
 
 namespace Reminder_desktop_application
 {
@@ -26,6 +27,9 @@ namespace Reminder_desktop_application
             //context = c;
             serviceDB = new TaskServiceDB();
             serviceDB.createSettingsIfNotExists();
+
+            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", serviceDB.getFontSize()); 
+
             model = serviceDB.getUserSettings();
             workVk = new WorkToVk();
 
@@ -207,7 +211,7 @@ namespace Reminder_desktop_application
         {
             if (notesDataGrid.SelectedRows.Count>0)
             {
-                DialogResult result = MessageBox.Show("Are you sure?", "Delete", MessageBoxButtons.YesNo);
+                DialogResult result = MessageBox.Show("Вы уверены?", "Удаление", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     try
@@ -242,6 +246,8 @@ namespace Reminder_desktop_application
         {
             SettingsForm form = new SettingsForm(serviceDB);
             form.ShowDialog();
+
+            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", serviceDB.getFontSize());
         }
 
         private void statsBtn_Click(object sender, EventArgs e)

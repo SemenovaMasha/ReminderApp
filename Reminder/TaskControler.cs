@@ -85,6 +85,10 @@ namespace Reminder_desktop_application
         {
             return serviceDB.getYearSum(year);
         }
+        public int getFontSize()
+        {
+            return serviceDB.getFontSize();
+        }
 
         public void reingin()
         {

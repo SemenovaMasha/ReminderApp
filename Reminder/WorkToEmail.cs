@@ -34,7 +34,11 @@ namespace Reminder
                 // письмо представляет код html
                 IsBodyHtml = true
             };
-            smtp.Send(m);
+            try
+            {
+                smtp.Send(m);
+            }
+            catch { }
         }
     }
 }

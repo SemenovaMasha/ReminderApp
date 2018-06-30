@@ -54,7 +54,7 @@
             this.dateDtPkc.Location = new System.Drawing.Point(57, 63);
             this.dateDtPkc.MinimumSize = new System.Drawing.Size(0, 29);
             this.dateDtPkc.Name = "dateDtPkc";
-            this.dateDtPkc.Size = new System.Drawing.Size(295, 29);
+            this.dateDtPkc.Size = new System.Drawing.Size(371, 29);
             this.dateDtPkc.TabIndex = 0;
             this.dateDtPkc.ValueChanged += new System.EventHandler(this.dateDtPkc_ValueChanged);
             // 
@@ -108,7 +108,7 @@
             this.statsGrid.RowHeadersVisible = false;
             this.statsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.statsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.statsGrid.Size = new System.Drawing.Size(362, 175);
+            this.statsGrid.Size = new System.Drawing.Size(438, 175);
             this.statsGrid.TabIndex = 1;
             // 
             // month
@@ -143,7 +143,7 @@
             series1.ChartArea = "ChartArea1";
             series1.Name = "Series1";
             this.statsChart.Series.Add(series1);
-            this.statsChart.Size = new System.Drawing.Size(362, 265);
+            this.statsChart.Size = new System.Drawing.Size(438, 287);
             this.statsChart.TabIndex = 2;
             this.statsChart.Text = "statsChart";
             // 
@@ -152,7 +152,7 @@
             this.nextDayBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nextDayBtn.Image = ((System.Drawing.Image)(resources.GetObject("nextDayBtn.Image")));
             this.nextDayBtn.ImageSize = 28;
-            this.nextDayBtn.Location = new System.Drawing.Point(358, 63);
+            this.nextDayBtn.Location = new System.Drawing.Point(434, 63);
             this.nextDayBtn.Name = "nextDayBtn";
             this.nextDayBtn.Size = new System.Drawing.Size(28, 28);
             this.nextDayBtn.TabIndex = 15;
@@ -172,8 +172,9 @@
             // 
             // sumLbl
             // 
+            this.sumLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sumLbl.AutoSize = true;
-            this.sumLbl.Location = new System.Drawing.Point(281, 288);
+            this.sumLbl.Location = new System.Drawing.Point(357, 291);
             this.sumLbl.Name = "sumLbl";
             this.sumLbl.Size = new System.Drawing.Size(59, 19);
             this.sumLbl.TabIndex = 17;
@@ -183,13 +184,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 607);
+            this.ClientSize = new System.Drawing.Size(485, 629);
             this.Controls.Add(this.sumLbl);
             this.Controls.Add(this.prevDayBtn);
             this.Controls.Add(this.nextDayBtn);
             this.Controls.Add(this.statsChart);
             this.Controls.Add(this.statsGrid);
             this.Controls.Add(this.dateDtPkc);
+            this.MinimumSize = new System.Drawing.Size(258, 428);
             this.Name = "StatisticsForm";
             this.Text = "Статистика";
             ((System.ComponentModel.ISupportInitialize)(this.statsGrid)).EndInit();
