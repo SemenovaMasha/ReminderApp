@@ -1,5 +1,5 @@
 ﻿using Quartz;
-using Reminder;
+using Reminder_desktop_application;
 using System;
 using System.Threading.Tasks;
 

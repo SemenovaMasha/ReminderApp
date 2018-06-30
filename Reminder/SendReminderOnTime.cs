@@ -6,7 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 
-namespace Reminder
+namespace Reminder_desktop_application
 {
     class SendReminderOnTime
     {

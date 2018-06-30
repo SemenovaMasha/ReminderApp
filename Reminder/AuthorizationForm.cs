@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Reminder
+namespace Reminder_desktop_application
 {
     public partial class AuthorizationForm : MetroFramework.Forms.MetroForm
     {

@@ -1,18 +1,18 @@
-namespace Reminder.Migrations
+namespace Reminder_desktop_application.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Reminder.ReminderContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Reminder_desktop_application.ReminderContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
         }
 
-        protected override void Seed(Reminder.ReminderContext context)
+        protected override void Seed(Reminder_desktop_application.ReminderContext context)
         {
             //  This method will be called after migrating to the latest version.
 

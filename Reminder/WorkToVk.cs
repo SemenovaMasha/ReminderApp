@@ -8,7 +8,7 @@ using VkNet;
 using VkNet.Model;
 using VkNet.Model.RequestParams;
 
-namespace Reminder
+namespace Reminder_desktop_application
 {
     class WorkToVk
     {
