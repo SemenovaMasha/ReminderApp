@@ -29,14 +29,13 @@ namespace Reminder_desktop_application
             mailLoginTbx.Text = m.mailUserName;
             fontSizeBx.Value = m.fontSize;
          //   hasToken = m.vkToken != "";
-            if (m.vkToken is null)
+            if (m.vkToken is null || m.vkToken == "")
             {
                 connectVKBtn.Text = "Подключить Вконтакте";
             }
             else
             {
                 connectVKBtn.Text = "Отключить Вконтакте";
-
             }
 
         }
@@ -71,8 +70,9 @@ namespace Reminder_desktop_application
             {
                 AuthorizationForm form = new AuthorizationForm(context);
                 form.ShowDialog();
-                
-               // form.getToken();
+
+                // form.getToken();
+                connectVKBtn.Text == "Отключить Вконтакте"
             }
             this.connectVKBtn.Refresh();
         }
