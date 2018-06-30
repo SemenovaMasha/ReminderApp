@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Reminder_desktop_application;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -46,14 +47,31 @@ namespace Reminder
             return token;
         }
 
+        UserSettingsModel model;
+
         private void okBtn_Click(object sender, EventArgs e)
         {
 
+            model = context.getUserSettings();
             WorkToVk workVk = new WorkToVk();
             workVk.loginAuthorization(loginTbx.Text, passwordTbx.Text);
+            model.vkToken = Crypter.Encrypt(workVk.token);
+            model.vkUser = workVk.userId.ToString();
 
             context.editToken(workVk.token, workVk.userId);
-            int k=0;
+            try
+            {
+                string tokken = context.getToken();
+                string iduser = model.vkUser;
+
+                workVk.start(tokken, iduser, model.secretWord, context.getDailyTasks(DateTime.Now));
+            }
+            catch
+            {
+                MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
+            }
+
+            this.Close();
         }
     }
 }

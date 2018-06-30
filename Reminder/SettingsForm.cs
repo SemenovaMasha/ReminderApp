@@ -13,49 +13,67 @@ namespace Reminder_desktop_application
 {
     public partial class SettingsForm : MetroFramework.Forms.MetroForm
     {
+        UserSettingsModel m;
         TaskServiceDB context;
-        bool hasToken;
+       // bool hasToken;
+
         public SettingsForm(TaskServiceDB context)
         {
+            m = context.getUserSettings();
             this.context = context;
             InitializeComponent();
-
-            UserSettingsModel m = context.getUserSettings();
+            keyWordTbx.TextAlign = HorizontalAlignment.Right;
 
             vkNotificationChbx.Checked = m.vkMessageFlag;
             mailNotificationChbx.Checked = m.mailMessageFlag;
             mailLoginTbx.Text = m.mailUserName;
             fontSizeBx.Value = m.fontSize;
-            hasToken = m.vkToken != "";
-            connectVKBtn.Text = hasToken ? "Отключить Вконтакте" : "Подключить Вконтакте";
+         //   hasToken = m.vkToken != "";
+            if (m.vkToken is null)
+            {
+                connectVKBtn.Text = "Подключить Вконтакте";
+            }
+            else
+            {
+                connectVKBtn.Text = "Отключить Вконтакте";
+
+            }
+
         }
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            UserSettingsModel model = new UserSettingsModel
-            {
-               // vkToken = vkNotificationChbx.Checked?   :"",
-                vkMessageFlag = vkNotificationChbx.Checked,
-                mailMessageFlag = mailNotificationChbx.Checked,
-                mailUserName = mailLoginTbx.Text,
-                fontSize = Convert.ToInt32(fontSizeBx.Value)
-            };
+            TaskServiceDB context = new TaskServiceDB();
+            UserSettingsModel model = context.getUserSettings();
+
+            model.vkMessageFlag = vkNotificationChbx.Checked;
+            model.mailMessageFlag = mailNotificationChbx.Checked;
+            model.mailUserName = mailLoginTbx.Text;
+            model.fontSize = Convert.ToInt32(fontSizeBx.Value); ;
+
             context.editSettings(model);
+            this.Close();
         }
 
         private void connectVKBtn_Click(object sender, EventArgs e)
         {
-            if (hasToken)
+            m = context.getUserSettings();
+            if (connectVKBtn.Text == "Отключить Вконтакте")
             {
-                context.editToken("","");
+                m.vkToken = null;
+                m.vkUser = null;
+                vkNotificationChbx.Checked = false;
+
+                connectVKBtn.Text = "Подключить Вконтакте";
             }
             else
             {
                 AuthorizationForm form = new AuthorizationForm(context);
                 form.ShowDialog();
-
-                form.getToken();
+                
+               // form.getToken();
             }
+            this.connectVKBtn.Refresh();
         }
     }
 }

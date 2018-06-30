@@ -167,6 +167,7 @@
     </Compile>
     <Compile Include="ReminderContext.cs" />
     <Compile Include="RemoveTaskException.cs" />
+    <Compile Include="SendReminderOnTime.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>

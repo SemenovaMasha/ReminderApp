@@ -14,10 +14,17 @@ namespace Reminder
     {
         public string token;
         public string userId;
+        public string keyWord;
         private VkApi vk = new VkApi();
+        TaskServiceDB contextDB;
+        UserSettingsModel model;
+        ReminderContext context;
 
         public void loginAuthorization(string login, string password)
         {
+            context = new ReminderContext();
+                contextDB = new TaskServiceDB();
+            model = contextDB.getUserSettings();
             try
             {
                 vk.Authorize(new ApiAuthParams
@@ -26,41 +33,55 @@ namespace Reminder
                     Login = login,
                     Password = password,
                     Settings = VkNet.Enums.Filters.Settings.All
-            });
-                //Timerr();
+                });
                 token = vk.Token;
                 userId = vk.UserId.ToString();
+
+                context.SaveChanges();
+
             }
-            catch
+            catch (Exception ex)
             {
-                //MessageBox.Show("Авторизация не удалась");
+
             }
         }
-        private void tokenAuthorization(string tokken)
+        public void tokenAuthorization(string tokken)
         {
-            try { 
+            try
+            {
                 vk.Authorize(new ApiAuthParams
                 {
                     AccessToken = tokken
                 });
-                //Timerr();
-                //return vk.Token;
             }
-            catch
+            catch (Exception ex)
             {
-                //MessageBox.Show("Авторизация не удалась");
-                //return "";
+
             }
         }
 
-        public void start(string tokken,string userId)
+        string spisok = "";
+
+        public void start(string tokken, string userId, string keyWord, List<TaskModel> list)
         {
             this.token = tokken;
             this.userId = userId;
+            this.keyWord = keyWord;
 
+            list = list.Where(c => c.next_date > DateTime.Now).ToList();
+
+            foreach (TaskModel word in list)
+            {
+                spisok += word.text + "\n";
+            }
+
+            if (spisok == "")
+            {
+                spisok = "Напоминаний на сегодня больше нет.";
+            }
 
             tokenAuthorization(token);
-            
+
             LastMessage = vk.Messages.Get(new MessagesGetParams
             {
                 Count = 1
@@ -73,32 +94,40 @@ namespace Reminder
         }
         VkNet.Model.Message LastMessage = null;
         VkNet.Model.Message CurrentMessage = null;
+        int count;
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
+            
             try
             {
+
                 CurrentMessage = vk.Messages.Get(new MessagesGetParams
                 {
                     Count = 1
                 }).Messages[0];
 
+                long id = Convert.ToInt64(CurrentMessage.UserId);
+
                 //MessageBox.Show(CurrentMessage.UserId+"!"+ CheckedUserID);
 
                 if (
                     CurrentMessage.UserId == Convert.ToInt64(userId) &&
-                    !CurrentMessage.Date.Equals(LastMessage.Date))
+                    !CurrentMessage.Date.Equals(LastMessage.Date) && 
+                    CurrentMessage.Body != LastMessage.Body)
                 {
 
-                    if (CurrentMessage.Body.Equals("список#"))
+                    if (CurrentMessage.Body.Equals(keyWord + "#"))
                     {
-                        SendMessage((long)(CurrentMessage.UserId), "списочек");
-                    }
+                        SendMessage((long)(id), spisok);
+                        count--;
+                        LastMessage = vk.Messages.Get(new MessagesGetParams
+                        {
+                            Count = 1
+                        }).Messages[0];
 
-                    LastMessage = vk.Messages.Get(new MessagesGetParams
-                    {
-                        Count = 1
-                    }).Messages[0];
+                        CurrentMessage = null;
+                    }
                 }
             }
             catch (Exception ex)
@@ -107,7 +136,7 @@ namespace Reminder
             }
         }
 
-        private void SendMessage(long ID, string Body)
+        public void SendMessage(long ID, string Body)
         {
             vk.Messages.Send(new MessagesSendParams
             {

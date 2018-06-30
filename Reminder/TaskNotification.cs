@@ -25,6 +25,8 @@ namespace Reminder_desktop_application
         public void LoadTask()
         {
             notificationBox.Text = taskToNotify.text;
+            SendReminderOnTime send = new SendReminderOnTime();
+            send.start(taskToNotify.text);
         }
 
         private void doneLink_Click(object sender, EventArgs e)

@@ -15,6 +15,8 @@ namespace Reminder_desktop_application
         public TaskControler taskControler;
         //public ReminderContext context;
         TaskServiceDB serviceDB;
+        WorkToVk workVk;
+        UserSettingsModel model;
 
         public Reminder()
         {
@@ -24,6 +26,21 @@ namespace Reminder_desktop_application
             //context = c;
             serviceDB = new TaskServiceDB();
             serviceDB.createSettingsIfNotExists();
+            model = serviceDB.getUserSettings();
+            workVk = new WorkToVk();
+
+            try
+            {
+                string tokken = serviceDB.getToken();
+                string iduser = model.vkUser;
+
+                workVk.start(tokken, iduser, model.secretWord, serviceDB.getDailyTasks(DateTime.Now));
+            }
+            catch
+            {
+                MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
+            }
+            
 
             taskControler = new TaskControler(new NotificationControler(), serviceDB);
             //реинжиниринг напоминаний - если повторяющееся событие, и дата прошла, подвинуть дату на период, пока дата не станет > текущей или > его duration
