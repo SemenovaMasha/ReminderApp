@@ -222,7 +222,7 @@ namespace Reminder_desktop_application
             // 
             this.sumLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.sumLbl.AutoSize = true;
-            this.sumLbl.Location = new System.Drawing.Point(287, 358);
+            this.sumLbl.Location = new System.Drawing.Point(304, 358);
             this.sumLbl.Name = "sumLbl";
             this.sumLbl.Size = new System.Drawing.Size(59, 19);
             this.sumLbl.TabIndex = 15;
