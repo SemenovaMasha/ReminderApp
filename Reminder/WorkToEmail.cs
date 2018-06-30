@@ -16,7 +16,7 @@ namespace Reminder
         /// <param name="Message"></param>
         public void Send(string recipientEmail, string message)
         { 
-            SmtpClient smtp = new SmtpClient("smtp.mail.ru", 465);
+            SmtpClient smtp = new SmtpClient("smtp.mail.ru");
             smtp.Credentials = new NetworkCredential("zametki_and_napominaniya@inbox.ru", "cewgondyoSwesp7");
             smtp.EnableSsl = true;
 
