@@ -75,7 +75,7 @@ namespace Reminder_desktop_application
         public bool tryChange()
         {
             bool changed = false;
-            if (remind_flag && duration_min > 0 && next_date < DateTime.Now)
+            if (remind_flag && duration_min > 0 && next_date< DateTime.Now.AddMinutes(10))
             {
                 DateTime newDate = next_date.AddMinutes((int)(period_min));
 

@@ -6,6 +6,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reminder));
 
         /// <summary>
         /// Clean up any resources being used.
@@ -94,7 +95,9 @@
             this.MinimumSize = new System.Drawing.Size(291, 225);
             this.Name = "TaskNotification";
             this.Resizable = false;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Text = "Напоминание";
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }

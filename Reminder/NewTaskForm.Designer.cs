@@ -6,6 +6,7 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
+        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reminder));
 
         /// <summary>
         /// Clean up any resources being used.
@@ -284,6 +285,7 @@
             this.MaximumSize = new System.Drawing.Size(578, 503);
             this.MinimumSize = new System.Drawing.Size(493, 503);
             this.Name = "NewTaskForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Resizable = false;
             this.Text = "Запись";
             this.ResumeLayout(false);
