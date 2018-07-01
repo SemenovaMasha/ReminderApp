@@ -65,6 +65,7 @@
             this.statsGrid.AllowUserToResizeRows = false;
             this.statsGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.statsGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.statsGrid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.statsGrid.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.statsGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -174,9 +175,10 @@
             // 
             this.sumLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sumLbl.AutoSize = true;
-            this.sumLbl.Location = new System.Drawing.Point(357, 291);
+            this.sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.sumLbl.Location = new System.Drawing.Point(358, 289);
             this.sumLbl.Name = "sumLbl";
-            this.sumLbl.Size = new System.Drawing.Size(59, 19);
+            this.sumLbl.Size = new System.Drawing.Size(76, 25);
             this.sumLbl.TabIndex = 17;
             this.sumLbl.Text = "Итого: 0";
             // 

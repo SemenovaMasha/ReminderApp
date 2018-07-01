@@ -32,7 +32,14 @@ namespace Reminder_desktop_application
             serviceDB = new TaskServiceDB();
             serviceDB.createSettingsIfNotExists();
 
-            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", serviceDB.getFontSize()); 
+            int fontSize = serviceDB.getFontSize();
+            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", fontSize);
+            if (fontSize >= 15)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
+            else if (fontSize > 10)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Medium;
+            else
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Small;
 
             model = serviceDB.getUserSettings();
             workVk = new WorkToVk();
@@ -252,7 +259,14 @@ namespace Reminder_desktop_application
             SettingsForm form = new SettingsForm(serviceDB);
             form.ShowDialog();
 
-            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", serviceDB.getFontSize());
+            int fontSize = serviceDB.getFontSize();
+            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", fontSize);
+            if (fontSize >= 15)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
+            else if (fontSize > 10)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Medium;
+            else
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Small;
         }
 
         private void statsBtn_Click(object sender, EventArgs e)

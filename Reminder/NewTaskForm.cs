@@ -21,6 +21,8 @@ namespace Reminder_desktop_application
             taskControler = controler;
 
             usualRdbtn.Checked = true;
+            remindTimePeriodType.SelectedIndex = 0;
+            remindTimeDurationType.SelectedIndex = 1;
         }
 
         public NewTaskForm(TaskControler controler, DateTime date) : this(controler)

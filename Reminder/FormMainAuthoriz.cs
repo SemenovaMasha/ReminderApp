@@ -31,6 +31,8 @@ namespace Reminder_desktop_application
         public bool IsFirstAutoriz()
         {
             context = new TaskServiceDB();
+
+            context.createSettingsIfNotExists();
             user = context.getUserSettings();
             login = user.login;
             password = user.password;
