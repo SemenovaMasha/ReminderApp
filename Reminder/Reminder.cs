@@ -23,34 +23,41 @@ namespace Reminder_desktop_application
         {
             
             InitializeComponent();
-            //this.Hide();
-            //FormMainAuthoriz form = new FormMainAuthoriz();
-            //form.ShowDialog();
+    
+             //this.Hide();
+             //FormMainAuthoriz form = new FormMainAuthoriz();
+             //form.ShowDialog();
 
 
-            //context = c;
-            serviceDB = new TaskServiceDB();
+             //context = c;
+             serviceDB = new TaskServiceDB();
             serviceDB.createSettingsIfNotExists();
 
             notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", serviceDB.getFontSize()); 
 
             model = serviceDB.getUserSettings();
             workVk = new WorkToVk();
-
-            try
+            
+            if (model.vkToken != null && model.vkMessageFlag != false)
             {
-                string tokken = serviceDB.getToken();
-                string iduser = model.vkUser;
+                try
+                {
+                    string tokken = serviceDB.getToken();
+                    string iduser = model.vkUser;
 
-                var g = serviceDB.getDailyTasks(DateTime.Now);
-                workVk.start(tokken, iduser, model.secretWord, serviceDB);
+                    var g = serviceDB.getDailyTasks(DateTime.Now);
+                    workVk.start(tokken, iduser, model.secretWord, serviceDB);
+                }
+                catch
+                {
+                    MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
+                }
             }
-            catch
+            else
             {
-                MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
+                model.vkMessageFlag = false;
             }
             
-
             taskControler = new TaskControler(new NotificationControler(), serviceDB);
             //реинжиниринг напоминаний - если повторяющееся событие, и дата прошла, подвинуть дату на период, пока дата не станет > текущей или > его duration
             taskControler.reingin();
@@ -183,13 +190,12 @@ namespace Reminder_desktop_application
             
             PrintDayTasks(datePicker.Value.ToShortDateString());
 
-            int j = 0;
+         //   int j = 0;
         }
 
         private void reminderDateTime_ValueChanged_1(object sender, EventArgs e)
         {
             PrintDayTasks(datePicker.Value.ToShortDateString());
-
         }
 
         private void prevDayBtn_Click(object sender, EventArgs e)

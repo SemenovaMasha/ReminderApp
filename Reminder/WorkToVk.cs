@@ -85,10 +85,10 @@ namespace Reminder_desktop_application
 
             tokenAuthorization(token);
 
-            LastMessage = vk.Messages.Get(new MessagesGetParams
-            {
-                Count = 1
-            }).Messages[0];
+            //LastMessage = vk.Messages.Get(new MessagesGetParams
+            //{
+            //    Count = 1
+            //}).Messages[0];
 
             Timer aTimer = new System.Timers.Timer(2000);
             aTimer.Elapsed += OnTimedEvent;
@@ -150,7 +150,7 @@ namespace Reminder_desktop_application
                     }
                 }
             }
-            catch (Exception ex)
+             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }

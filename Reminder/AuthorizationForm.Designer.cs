@@ -31,6 +31,8 @@
             this.loginTbx = new MetroFramework.Controls.MetroTextBox();
             this.passwordTbx = new MetroFramework.Controls.MetroTextBox();
             this.okBtn = new MetroFramework.Controls.MetroButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // loginTbx
@@ -49,7 +51,7 @@
             this.loginTbx.CustomButton.UseSelectable = true;
             this.loginTbx.CustomButton.Visible = false;
             this.loginTbx.Lines = new string[0];
-            this.loginTbx.Location = new System.Drawing.Point(55, 71);
+            this.loginTbx.Location = new System.Drawing.Point(128, 73);
             this.loginTbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.loginTbx.MaxLength = 32767;
             this.loginTbx.Name = "loginTbx";
@@ -81,7 +83,7 @@
             this.passwordTbx.CustomButton.UseSelectable = true;
             this.passwordTbx.CustomButton.Visible = false;
             this.passwordTbx.Lines = new string[0];
-            this.passwordTbx.Location = new System.Drawing.Point(55, 106);
+            this.passwordTbx.Location = new System.Drawing.Point(128, 108);
             this.passwordTbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.passwordTbx.MaxLength = 32767;
             this.passwordTbx.Name = "passwordTbx";
@@ -99,7 +101,7 @@
             // 
             // okBtn
             // 
-            this.okBtn.Location = new System.Drawing.Point(84, 165);
+            this.okBtn.Location = new System.Drawing.Point(128, 158);
             this.okBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(137, 28);
@@ -108,22 +110,43 @@
             this.okBtn.UseSelectable = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(16, 79);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 17);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "E-mail / Номер:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(61, 112);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(61, 17);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Пароль:";
+            // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(298, 215);
+            this.ClientSize = new System.Drawing.Size(350, 215);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.passwordTbx);
             this.Controls.Add(this.loginTbx);
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximumSize = new System.Drawing.Size(298, 215);
-            this.MinimumSize = new System.Drawing.Size(298, 215);
+            this.MaximumSize = new System.Drawing.Size(350, 215);
+            this.MinimumSize = new System.Drawing.Size(350, 215);
             this.Name = "AuthorizationForm";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Авторизация VK";
             this.Load += new System.EventHandler(this.AuthorizationForm_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -132,5 +155,7 @@
         private MetroFramework.Controls.MetroTextBox loginTbx;
         private MetroFramework.Controls.MetroTextBox passwordTbx;
         private MetroFramework.Controls.MetroButton okBtn;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

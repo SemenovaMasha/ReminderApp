@@ -14,12 +14,14 @@ namespace Reminder_desktop_application
         string password;
         bool flagIsFirst;
         public bool IsEdit;
-        ReminderContext con;
+      //  ReminderContext con;
 
         public FormMainAuthoriz()
         {
             this.Text = "Авторизация";
             InitializeComponent();
+
+
             //r.Enabled = false;
 
             //если надо очистить данные логина/пароля снять комментирование и закомментировать снова
@@ -38,6 +40,7 @@ namespace Reminder_desktop_application
             if (login == "x" && password == "x")
             {
                 MessageBox.Show("Вы зашли впервые, введите данные для доступа к приложениию в дальнейшем.");
+                metroButton2.Visible = true;
                 IsEdit = false;
                 return true;
             }
@@ -51,16 +54,12 @@ namespace Reminder_desktop_application
 
         public void autoriz(string login, string password)
         {
-            if (loginTbx.Text == login && passwordTbx.Text == password)
+            if (user.login == login && user.password == password)
             {
                 MessageBox.Show("Авторизация прошла успешно.");
                 this.Hide();
                 Reminder reminder = new Reminder();
                 reminder.Show();
-            }
-            else if (loginTbx.Text.Trim() == "" && passwordTbx.Text.Trim() == "")
-            {
-                MessageBox.Show("Поля не могут быть пустыми.");
             }
             else
             {
@@ -122,9 +121,9 @@ namespace Reminder_desktop_application
                 }
                 else
                 {
-                    if (login.Trim() != "" && password.Trim() != "")
+                    if (loginTbx.Text.Trim() != "" && passwordTbx.Text.Trim() != "")
                     {
-                        autoriz(login, password);
+                        autoriz(loginTbx.Text, passwordTbx.Text);
                     }
                     else
                     {
@@ -138,8 +137,31 @@ namespace Reminder_desktop_application
         {
             if (!IsEdit)
             {
-                flagIsFirst = IsFirstAutoriz();
+                if(!(flagIsFirst = IsFirstAutoriz()))
+                {
+                    if (user.login == "empty" && user.password == "empty")
+                    {
+                        Hide();
+                        ShowInTaskbar = false;
+                        Reminder reminder = new Reminder();
+                        reminder.Show();
+
+                    }
+                }
+                else
+                {
+                    metroButton2.Visible = true;
+                }
             }
+            else
+            {
+                metroButton2.Visible = true;
+            }
+
+            //if (user.login == "empty" && user.password == "empty")
+            //{
+            //    this.Hide();
+            //}
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -169,6 +191,16 @@ namespace Reminder_desktop_application
             vk.tokenAuthorization(context.getToken());
             vk.SendMessage(28970351, "Здравствуйте, я забыл(а) свои данные для входа в программу. Пожалуйста, свяжитесь со мной.");
             MessageBox.Show("Сообщение в техподдержку отправлено, с вами свяжутся в ближайшее время.");
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            context = new TaskServiceDB();
+            context.auth("empty", "empty");
+            MessageBox.Show("При входе авторизация больше не потребуется. Если вы хотите установить защиту, вы можете сделать это в настройках программы.");
+            this.Hide();
+            //Reminder reminder = new Reminder();
+            //reminder.Show();
         }
     }
 }
