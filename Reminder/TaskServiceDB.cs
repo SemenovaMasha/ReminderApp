@@ -177,18 +177,7 @@ namespace Reminder_desktop_application
         public List<TaskModel> GetList()
         {
             List<TaskModel> result = context.Tasks.ToList();
-
-            foreach (TaskModel task in result)
-            {
-                try
-                {
-                    Console.WriteLine(task.JobKey.ToString());
-                }
-                catch
-                {
-                    Console.WriteLine("Asd");
-                }
-            }
+            
             return result;
         }
         

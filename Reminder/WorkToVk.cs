@@ -103,7 +103,6 @@ namespace Reminder_desktop_application
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
-            Console.WriteLine(date);
             try
             {
 
