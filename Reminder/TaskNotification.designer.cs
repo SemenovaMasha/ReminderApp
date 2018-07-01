@@ -90,6 +90,7 @@
             this.Controls.Add(this.doneLink);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.TopMost = true;
             this.MaximumSize = new System.Drawing.Size(291, 225);
             this.MinimumSize = new System.Drawing.Size(291, 225);
             this.Name = "TaskNotification";

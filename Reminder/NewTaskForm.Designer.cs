@@ -284,6 +284,7 @@
             this.MaximumSize = new System.Drawing.Size(578, 503);
             this.MinimumSize = new System.Drawing.Size(493, 503);
             this.Name = "NewTaskForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Resizable = false;
             this.Text = "Запись";
             this.ResumeLayout(false);

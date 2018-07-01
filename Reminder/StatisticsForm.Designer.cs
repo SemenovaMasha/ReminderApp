@@ -204,6 +204,7 @@
             this.Name = "StatisticsForm";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Статистика";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             ((System.ComponentModel.ISupportInitialize)(this.statsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsChart)).EndInit();
             this.ResumeLayout(false);
