@@ -43,6 +43,7 @@ namespace Reminder_desktop_application
 
         private void okBtn_Click(object sender, EventArgs e)
         {
+            loadBtn.Visible = true;
             //TaskServiceDB context = new TaskServiceDB();
             UserSettingsModel model = context.getUserSettings();
 
@@ -58,17 +59,19 @@ namespace Reminder_desktop_application
 
         private void connectVKBtn_Click(object sender, EventArgs e)
         {
+            loadBtn.Visible = true;
             m = context.getUserSettings();
             if (connectVKBtn.Text == "Отключить Вконтакте")
             {
                 m.vkToken = null;
                 m.vkUser = null;
                 vkNotificationChbx.Checked = false;
-
+                loadBtn.Visible = false;
                 connectVKBtn.Text = "Подключить Вконтакте";
             }
             else
             {
+                loadBtn.Visible = false;
                 AuthorizationForm form = new AuthorizationForm(context);
                 form.ShowDialog();
 

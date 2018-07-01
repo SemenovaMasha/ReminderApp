@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reminder));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorizationForm));
             this.loginTbx = new MetroFramework.Controls.MetroTextBox();
             this.passwordTbx = new MetroFramework.Controls.MetroTextBox();
             this.okBtn = new MetroFramework.Controls.MetroButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.loadBtn = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // loginTbx
@@ -42,10 +43,10 @@
             // 
             // 
             this.loginTbx.CustomButton.Image = null;
-            this.loginTbx.CustomButton.Location = new System.Drawing.Point(228, 2);
-            this.loginTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginTbx.CustomButton.Location = new System.Drawing.Point(171, 2);
+            this.loginTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.loginTbx.CustomButton.Name = "";
-            this.loginTbx.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.loginTbx.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.loginTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.loginTbx.CustomButton.TabIndex = 1;
             this.loginTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -53,7 +54,7 @@
             this.loginTbx.CustomButton.Visible = false;
             this.loginTbx.Lines = new string[0];
             this.loginTbx.Location = new System.Drawing.Point(128, 73);
-            this.loginTbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.loginTbx.Margin = new System.Windows.Forms.Padding(4);
             this.loginTbx.MaxLength = 32767;
             this.loginTbx.Name = "loginTbx";
             this.loginTbx.PasswordChar = '\0';
@@ -74,10 +75,10 @@
             // 
             // 
             this.passwordTbx.CustomButton.Image = null;
-            this.passwordTbx.CustomButton.Location = new System.Drawing.Point(228, 2);
-            this.passwordTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordTbx.CustomButton.Location = new System.Drawing.Point(171, 2);
+            this.passwordTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTbx.CustomButton.Name = "";
-            this.passwordTbx.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.passwordTbx.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.passwordTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.passwordTbx.CustomButton.TabIndex = 1;
             this.passwordTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -85,7 +86,7 @@
             this.passwordTbx.CustomButton.Visible = false;
             this.passwordTbx.Lines = new string[0];
             this.passwordTbx.Location = new System.Drawing.Point(128, 108);
-            this.passwordTbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.passwordTbx.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTbx.MaxLength = 32767;
             this.passwordTbx.Name = "passwordTbx";
             this.passwordTbx.PasswordChar = '*';
@@ -103,7 +104,7 @@
             // okBtn
             // 
             this.okBtn.Location = new System.Drawing.Point(128, 158);
-            this.okBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.okBtn.Margin = new System.Windows.Forms.Padding(4);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(137, 28);
             this.okBtn.TabIndex = 2;
@@ -129,21 +130,33 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Пароль:";
             // 
+            // loadBtn
+            // 
+            this.loadBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.loadBtn.Image = ((System.Drawing.Image)(resources.GetObject("loadBtn.Image")));
+            this.loadBtn.ImageSize = 28;
+            this.loadBtn.Location = new System.Drawing.Point(292, 158);
+            this.loadBtn.Name = "loadBtn";
+            this.loadBtn.Size = new System.Drawing.Size(28, 28);
+            this.loadBtn.TabIndex = 10;
+            this.loadBtn.UseSelectable = true;
+            this.loadBtn.Visible = false;
+            // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 215);
+            this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.passwordTbx);
             this.Controls.Add(this.loginTbx);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(350, 215);
             this.MinimumSize = new System.Drawing.Size(350, 215);
             this.Name = "AuthorizationForm";
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Авторизация VK";
             this.Load += new System.EventHandler(this.AuthorizationForm_Load);
@@ -159,5 +172,6 @@
         private MetroFramework.Controls.MetroButton okBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private MetroFramework.Controls.MetroLink loadBtn;
     }
 }

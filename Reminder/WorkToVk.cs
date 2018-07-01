@@ -100,7 +100,7 @@ namespace Reminder_desktop_application
         DateTime date;
         VkNet.Model.Message LastMessage = null;
         VkNet.Model.Message CurrentMessage = null;
-        int count;
+     //   int count;
         bool send;
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)

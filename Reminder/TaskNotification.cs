@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -24,6 +25,10 @@ namespace Reminder_desktop_application
 
         public void LoadTask()
         {
+        //    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"E:\sound.wav");
+            SoundPlayer soundPlayer = new SoundPlayer(Environment.CurrentDirectory + "\\notify.wav");
+            soundPlayer.Load();
+            soundPlayer.PlaySync();
             notificationBox.Text = taskToNotify.text;
             SendReminderOnTime send = new SendReminderOnTime();
             send.start(taskToNotify.text);

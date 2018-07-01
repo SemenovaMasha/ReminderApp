@@ -28,7 +28,7 @@
         /// </summary> 
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reminder));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.mailNotificationChbx = new MetroFramework.Controls.MetroCheckBox();
             this.mailLoginTbx = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -41,6 +41,7 @@
             this.keyWordTbx = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.loadBtn = new MetroFramework.Controls.MetroLink();
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeBx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +49,7 @@
             // 
             this.mailNotificationChbx.AutoSize = true;
             this.mailNotificationChbx.Location = new System.Drawing.Point(32, 79);
-            this.mailNotificationChbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mailNotificationChbx.Margin = new System.Windows.Forms.Padding(4);
             this.mailNotificationChbx.Name = "mailNotificationChbx";
             this.mailNotificationChbx.Size = new System.Drawing.Size(152, 17);
             this.mailNotificationChbx.TabIndex = 0;
@@ -61,10 +62,10 @@
             // 
             // 
             this.mailLoginTbx.CustomButton.Image = null;
-            this.mailLoginTbx.CustomButton.Location = new System.Drawing.Point(248, 2);
-            this.mailLoginTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mailLoginTbx.CustomButton.Location = new System.Drawing.Point(186, 2);
+            this.mailLoginTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.mailLoginTbx.CustomButton.Name = "";
-            this.mailLoginTbx.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.mailLoginTbx.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.mailLoginTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mailLoginTbx.CustomButton.TabIndex = 1;
             this.mailLoginTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -72,7 +73,7 @@
             this.mailLoginTbx.CustomButton.Visible = false;
             this.mailLoginTbx.Lines = new string[0];
             this.mailLoginTbx.Location = new System.Drawing.Point(108, 105);
-            this.mailLoginTbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mailLoginTbx.Margin = new System.Windows.Forms.Padding(4);
             this.mailLoginTbx.MaxLength = 32767;
             this.mailLoginTbx.Name = "mailLoginTbx";
             this.mailLoginTbx.PasswordChar = '\0';
@@ -101,7 +102,7 @@
             // 
             this.vkNotificationChbx.AutoSize = true;
             this.vkNotificationChbx.Location = new System.Drawing.Point(33, 155);
-            this.vkNotificationChbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.vkNotificationChbx.Margin = new System.Windows.Forms.Padding(4);
             this.vkNotificationChbx.Name = "vkNotificationChbx";
             this.vkNotificationChbx.Size = new System.Drawing.Size(125, 17);
             this.vkNotificationChbx.TabIndex = 3;
@@ -111,7 +112,7 @@
             // connectVKBtn
             // 
             this.connectVKBtn.Location = new System.Drawing.Point(33, 187);
-            this.connectVKBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.connectVKBtn.Margin = new System.Windows.Forms.Padding(4);
             this.connectVKBtn.Name = "connectVKBtn";
             this.connectVKBtn.Size = new System.Drawing.Size(287, 34);
             this.connectVKBtn.TabIndex = 4;
@@ -132,7 +133,7 @@
             // fontSizeBx
             // 
             this.fontSizeBx.Location = new System.Drawing.Point(195, 325);
-            this.fontSizeBx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fontSizeBx.Margin = new System.Windows.Forms.Padding(4);
             this.fontSizeBx.Maximum = new decimal(new int[] {
             18,
             0,
@@ -156,7 +157,7 @@
             // 
             this.okBtn.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.okBtn.Location = new System.Drawing.Point(117, 420);
-            this.okBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.okBtn.Margin = new System.Windows.Forms.Padding(4);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(111, 38);
             this.okBtn.TabIndex = 7;
@@ -180,10 +181,10 @@
             // 
             // 
             this.keyWordTbx.CustomButton.Image = null;
-            this.keyWordTbx.CustomButton.Location = new System.Drawing.Point(311, 2);
-            this.keyWordTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.keyWordTbx.CustomButton.Location = new System.Drawing.Point(233, 2);
+            this.keyWordTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4);
             this.keyWordTbx.CustomButton.Name = "";
-            this.keyWordTbx.CustomButton.Size = new System.Drawing.Size(31, 28);
+            this.keyWordTbx.CustomButton.Size = new System.Drawing.Size(23, 23);
             this.keyWordTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.keyWordTbx.CustomButton.TabIndex = 1;
             this.keyWordTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -192,7 +193,7 @@
             this.keyWordTbx.Lines = new string[] {
         "список"};
             this.keyWordTbx.Location = new System.Drawing.Point(31, 270);
-            this.keyWordTbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.keyWordTbx.Margin = new System.Windows.Forms.Padding(4);
             this.keyWordTbx.MaxLength = 32767;
             this.keyWordTbx.Name = "keyWordTbx";
             this.keyWordTbx.PasswordChar = '\0';
@@ -229,11 +230,24 @@
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // loadBtn
+            // 
+            this.loadBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.loadBtn.Image = ((System.Drawing.Image)(resources.GetObject("loadBtn.Image")));
+            this.loadBtn.ImageSize = 28;
+            this.loadBtn.Location = new System.Drawing.Point(250, 425);
+            this.loadBtn.Name = "loadBtn";
+            this.loadBtn.Size = new System.Drawing.Size(28, 28);
+            this.loadBtn.TabIndex = 12;
+            this.loadBtn.UseSelectable = true;
+            this.loadBtn.Visible = false;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(357, 470);
+            this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
@@ -246,11 +260,10 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.mailLoginTbx);
             this.Controls.Add(this.mailNotificationChbx);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(357, 470);
             this.MinimumSize = new System.Drawing.Size(357, 470);
             this.Name = "SettingsForm";
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Настройки";
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeBx)).EndInit();
@@ -273,5 +286,6 @@
         private MetroFramework.Controls.MetroTextBox keyWordTbx;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroLink loadBtn;
     }
 }

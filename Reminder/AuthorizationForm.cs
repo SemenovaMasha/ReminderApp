@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,6 +18,7 @@ namespace Reminder_desktop_application
         TaskServiceDB context;
         public AuthorizationForm(TaskServiceDB context)
         {
+            
             this.Text = "Авторизация VK";
             this.context = context;
             InitializeComponent();
@@ -54,12 +56,13 @@ namespace Reminder_desktop_application
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-
+            loadBtn.Visible = true;
             model = context.getUserSettings();
             WorkToVk workVk = new WorkToVk();
             
             if (!workVk.loginAuthorization(loginTbx.Text, passwordTbx.Text))
             {
+                loadBtn.Visible = false;
                 passwordTbx.Text = null;
                 MessageBox.Show("Авторизация не удалась. Попробуйте снова или обратитесь на сайт vk.com для восстановления данных.");
             }
