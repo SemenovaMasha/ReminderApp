@@ -19,18 +19,18 @@ namespace Reminder_desktop_application
         public void start(string text)
         {
             context = new TaskServiceDB();
-            user = context.getUserSettings();
+           user  = context.getUserSettings();
 
             if (user.vkMessageFlag)
-            {
-                vk.tokenAuthorization(context.getToken());
-                vk.SendMessage(Convert.ToInt64(user.vkUser), text);
-            }
+                    {
+                        vk.tokenAuthorization(context.getToken());
+                        vk.SendMessage(Convert.ToInt64(user.vkUser), text);
+                    }
 
-            if (user.mailMessageFlag)
-            {
-                mail.Send(user.mailUserName, text);
+                    if (user.mailMessageFlag)
+                    {
+                        mail.Send(user.mailUserName, text);
+                    }
+                }
             }
         }
-    }
-}

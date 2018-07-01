@@ -38,9 +38,7 @@ namespace Reminder_desktop_application
             {
                 smtp.Send(m);
             }
-            catch(Exception ex) {
-                int n;
-            }
+            catch { }
         }
     }
 }

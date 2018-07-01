@@ -23,8 +23,7 @@ namespace Reminder_desktop_application
                 taskToNotify.JobDataMap["Task"] = task;
 
                 TriggerBuilder builder = TriggerBuilder.Create()
-                        .StartAt(task.next_date.AddMinutes(-10));
-                //.StartAt(task.next_date.AddMinutes);
+                        .StartAt(task.next_date);
 
 
                 if (task.period_min > 0)

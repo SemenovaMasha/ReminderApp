@@ -6,7 +6,6 @@
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-        System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reminder));
 
         /// <summary>
         /// Clean up any resources being used.
@@ -197,7 +196,6 @@
             this.MinimumSize = new System.Drawing.Size(258, 428);
             this.Name = "StatisticsForm";
             this.Text = "Статистика";
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             ((System.ComponentModel.ISupportInitialize)(this.statsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsChart)).EndInit();
             this.ResumeLayout(false);
