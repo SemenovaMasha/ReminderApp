@@ -26,9 +26,16 @@ namespace Reminder_desktop_application
 
             dateDtPkc_ValueChanged(null, null);
 
+            
 
-            statsGrid.DefaultCellStyle.Font = new Font("Segoe UI", controler.getFontSize());
-
+            int fontSize = controler.getFontSize();
+            statsGrid.DefaultCellStyle.Font = new Font("Segoe UI", fontSize);
+            if (fontSize >= 15)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
+            else if (fontSize > 10)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Medium;
+            else
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Small;
         }
 
         private void dateDtPkc_ValueChanged(object sender, EventArgs e)

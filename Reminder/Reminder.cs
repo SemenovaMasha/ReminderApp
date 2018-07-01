@@ -33,7 +33,14 @@ namespace Reminder_desktop_application
              serviceDB = new TaskServiceDB();
             serviceDB.createSettingsIfNotExists();
 
-            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", serviceDB.getFontSize()); 
+            int fontSize = serviceDB.getFontSize();
+            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", fontSize);
+            if (fontSize >= 15)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
+            else if (fontSize > 10)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Medium;
+            else
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Small;
 
             model = serviceDB.getUserSettings();
             workVk = new WorkToVk();
@@ -128,6 +135,8 @@ namespace Reminder_desktop_application
             notesDataGrid.AutoGenerateColumns = false;
             var tmp = taskControler.getDailyTasks(myDate);
             notesDataGrid.DataSource = taskControler.getDailyTasks(myDate);
+            this.notesDataGrid.DataError +=
+        new DataGridViewDataErrorEventHandler(notesDataGrid_DataError);
 
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.Name = "text";
@@ -246,11 +255,26 @@ namespace Reminder_desktop_application
         private void notesDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
             TaskModel temp = ((List<TaskModel>)notesDataGrid.DataSource)[e.RowIndex];
-            temp.price = Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString().Replace(".",","));
+            try
+            {
+                temp.price = Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString().Replace(".", ","));
 
-            taskControler.Edit(temp);
+                taskControler.Edit(temp);
 
-            sumLbl.Text = "Итого: " + taskControler.getDailySum(datePicker.Value);
+                sumLbl.Text = "Итого: " + taskControler.getDailySum(datePicker.Value);
+            }
+            catch(NullReferenceException)
+            {
+                temp.price = 0;
+                taskControler.Edit(temp);
+
+                sumLbl.Text = "Итого: " + taskControler.getDailySum(datePicker.Value);
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Проверьте введенные данные");
+            }
+            
         }
 
         private void settingsBtn_Click(object sender, EventArgs e)
@@ -258,13 +282,25 @@ namespace Reminder_desktop_application
             SettingsForm form = new SettingsForm(serviceDB);
             form.ShowDialog();
 
-            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", serviceDB.getFontSize());
+            int fontSize = serviceDB.getFontSize();
+            notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", fontSize);
+            if (fontSize >= 15)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
+            else if (fontSize > 10)
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Medium;
+            else
+                sumLbl.FontSize = MetroFramework.MetroLabelSize.Small;
         }
 
         private void statsBtn_Click(object sender, EventArgs e)
         {
             StatisticsForm form = new StatisticsForm(taskControler);
             form.ShowDialog();
+        }
+
+        private void notesDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+                MessageBox.Show("Проверьте введенные данные");
         }
     }
 }
