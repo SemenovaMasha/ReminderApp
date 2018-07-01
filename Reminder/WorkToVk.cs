@@ -158,11 +158,18 @@ namespace Reminder_desktop_application
 
         public void SendMessage(long ID, string Body)
         {
-            vk.Messages.Send(new MessagesSendParams
+            try
             {
-                UserId = ID,
-                Message = Body
-            });
+                vk.Messages.Send(new MessagesSendParams
+                {
+                    UserId = ID,
+                    Message = Body
+                });
+            }
+            catch
+            {
+                Console.WriteLine();
+            }
         }
     }
 }

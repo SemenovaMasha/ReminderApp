@@ -143,7 +143,8 @@ namespace Reminder_desktop_application
                 {
                     if (user.login == "empty" && user.password == "empty")
                     {
-                        Hide();
+                        //Hide();
+                        this.WindowState = FormWindowState.Minimized;
                         ShowInTaskbar = false;
                         Reminder reminder = new Reminder();
                         reminder.Show();
