@@ -57,7 +57,6 @@ namespace Reminder_desktop_application
             this.notificationIcon.ContextMenuStrip = this.contextMenuStrip1;
             this.notificationIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notificationIcon.Icon")));
             this.notificationIcon.Visible = true;
-            this.notificationIcon.BalloonTipClicked += new System.EventHandler(this.notificationIcon_BalloonTipClicked);
             this.notificationIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.notificationIcon_MouseDoubleClick);
             // 
             // contextMenuStrip1

@@ -26,9 +26,7 @@ namespace Reminder_desktop_application
             {
                 if (task.remind_flag)
                 {
-                    {
-                        Controler.Add(task);
-                    }
+                    Controler.Add(task);
                 }
             }
         }

@@ -53,7 +53,7 @@
             this.cancelLink.Image = ((System.Drawing.Image)(resources.GetObject("cancelLink.Image")));
             this.cancelLink.ImageSize = 40;
             this.cancelLink.Location = new System.Drawing.Point(249, 422);
-            this.cancelLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelLink.Margin = new System.Windows.Forms.Padding(2);
             this.cancelLink.Name = "cancelLink";
             this.cancelLink.Size = new System.Drawing.Size(58, 59);
             this.cancelLink.TabIndex = 2;
@@ -68,7 +68,7 @@
             this.saveLink.Image = ((System.Drawing.Image)(resources.GetObject("saveLink.Image")));
             this.saveLink.ImageSize = 40;
             this.saveLink.Location = new System.Drawing.Point(161, 422);
-            this.saveLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveLink.Margin = new System.Windows.Forms.Padding(2);
             this.saveLink.Name = "saveLink";
             this.saveLink.Size = new System.Drawing.Size(85, 59);
             this.saveLink.TabIndex = 1;
@@ -181,7 +181,7 @@
             // 
             // 
             this.remindTextTbx.CustomButton.Image = null;
-            this.remindTextTbx.CustomButton.Location = new System.Drawing.Point(209, 1);
+            this.remindTextTbx.CustomButton.Location = new System.Drawing.Point(189, 1);
             this.remindTextTbx.CustomButton.Name = "";
             this.remindTextTbx.CustomButton.Size = new System.Drawing.Size(257, 257);
             this.remindTextTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -202,7 +202,7 @@
             this.remindTextTbx.SelectionLength = 0;
             this.remindTextTbx.SelectionStart = 0;
             this.remindTextTbx.ShortcutsEnabled = true;
-            this.remindTextTbx.Size = new System.Drawing.Size(467, 259);
+            this.remindTextTbx.Size = new System.Drawing.Size(447, 259);
             this.remindTextTbx.TabIndex = 22;
             this.remindTextTbx.UseSelectable = true;
             this.remindTextTbx.WaterMark = "Текст...";

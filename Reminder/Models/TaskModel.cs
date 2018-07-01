@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Reminder_desktop_application
 {
-        public delegate void NotificationEventHandler(object sender, EventArgs e);
+    public delegate void NotificationEventHandler();
     public class TaskModel
     {
         [Key]
@@ -50,23 +50,17 @@ namespace Reminder_desktop_application
 
         }
         
-        //public event NotificationEventHandler TaskStarted;
-
         public void OnNotificationStarted(object sender, EventArgs e)
         {
             changeNextDate();
             ReminderContext context = new ReminderContext();
             TaskServiceDB serviceDB = new TaskServiceDB();
             serviceDB.editTask(this);
-
-
-            // тут оповещение вк и почты
-
+                       
             TaskNotification notificationForm = new TaskNotification(this);
             notificationForm.ShowDialog();
             notificationForm.TopMost = true;
 
-            //TaskStarted(null,null);
         }
         
         public void changeNextDate()

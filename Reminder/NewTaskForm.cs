@@ -154,10 +154,7 @@ namespace Reminder_desktop_application
                             price = 0
                         };
                         task.generateJobKey();
-
-
-
-
+                        
                         taskControler.Add(task);
 
                     }
@@ -172,6 +169,8 @@ namespace Reminder_desktop_application
                         editTask.period_min = -1;
                         editTask.duration_min = -1;
                         //editTask.generateJobKey();
+
+                        taskControler.Controler.Remove(editTask);
 
                         taskControler.Edit(editTask);
                     }
