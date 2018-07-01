@@ -103,28 +103,13 @@ namespace Reminder_desktop_application
         {
             this.Close();
         }
-
-        private void ShootOutNotification(object sender, EventArgs e)
-        {
-
-        }
+        
         private void notificationIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             this.Show();
             this.WindowState = FormWindowState.Normal;
         }
-
-        private void notificationIcon_BalloonTipClicked(object sender, EventArgs e)
-        {
-        }
-
-        private void SubscribeForNotification(TaskModel task)
-        {
-            //task.TaskStarted += ShootOutNotification;
-
-            PrintDayTasks(DateTime.Now.ToShortDateString());
-        }
-
+        
         private void PrintDayTasks(string date)
         {
             notesDataGrid.Columns.Clear();
@@ -224,6 +209,7 @@ namespace Reminder_desktop_application
                 NewTaskForm form = new NewTaskForm(taskControler, ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index]);
                 form.ShowDialog();
 
+                PrintDayTasks(datePicker.Value.ToShortDateString());
             }
         }
 

@@ -15,7 +15,6 @@ namespace Reminder_desktop_application
             scheduler = schedulerFactor.GetScheduler();
             scheduler.Start();
         }
-
         public void Add(TaskModel task)
         {
             if (task.next_date > DateTime.Now)
@@ -39,6 +38,7 @@ namespace Reminder_desktop_application
                        .Build();
                 
                 scheduler.ScheduleJob(taskToNotify, trigger);
+                
                 
             }
         }

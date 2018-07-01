@@ -23,6 +23,14 @@ namespace Reminder_desktop_application
             usualRdbtn.Checked = true;
             remindTimePeriodType.SelectedIndex = 0;
             remindTimeDurationType.SelectedIndex = 1;
+
+            int fontSize = taskControler.getFontSize();
+            if (fontSize >= 15)
+                remindTextTbx.FontSize =  MetroFramework.MetroTextBoxSize.Tall;
+            else if (fontSize > 10)
+                remindTextTbx.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            else
+                remindTextTbx.FontSize = MetroFramework.MetroTextBoxSize.Small;
         }
 
         public NewTaskForm(TaskControler controler, DateTime date) : this(controler)
@@ -154,10 +162,7 @@ namespace Reminder_desktop_application
                             price = 0
                         };
                         task.generateJobKey();
-
-
-
-
+                        
                         taskControler.Add(task);
 
                     }
@@ -172,6 +177,8 @@ namespace Reminder_desktop_application
                         editTask.period_min = -1;
                         editTask.duration_min = -1;
                         //editTask.generateJobKey();
+
+                        taskControler.Controler.Remove(editTask);
 
                         taskControler.Edit(editTask);
                     }
