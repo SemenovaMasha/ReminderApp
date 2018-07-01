@@ -58,6 +58,10 @@ namespace Reminder_desktop_application
                 Reminder reminder = new Reminder();
                 reminder.Show();
             }
+            else if (loginTbx.Text.Trim() == "" && passwordTbx.Text.Trim() == "")
+            {
+                MessageBox.Show("Поля не могут быть пустыми.");
+            }
             else
             {
                 MessageBox.Show("Авторизация не удалась, введите данные верно или обратитесь в тех.поддержку.");
@@ -71,9 +75,16 @@ namespace Reminder_desktop_application
             {
                 try
                 {
-                    context.auth(loginTbx.Text, passwordTbx.Text);
-                    MessageBox.Show("Сохранение прошло успешно.");
-                    this.Close();
+                    if (loginTbx.Text.Trim() != "" && passwordTbx.Text.Trim() != "")
+                    {
+                        context.auth(loginTbx.Text, passwordTbx.Text);
+                        MessageBox.Show("Сохранение прошло успешно.");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Поля не могут быть пустыми.");
+                    }
                 }
                 catch
                 {
@@ -94,16 +105,31 @@ namespace Reminder_desktop_application
                         context.createSettingsIfNotExists();
                     }
 
-                    con = new ReminderContext();
-                    context.auth(loginTbx.Text, passwordTbx.Text);
-
-                    this.Hide();
-                    Reminder reminder = new Reminder();
-                    reminder.Show();
+         //           con = new ReminderContext();
+                    if (loginTbx.Text.Trim() != "" && passwordTbx.Text.Trim() != "")
+                    {
+                        context.auth(loginTbx.Text, passwordTbx.Text);
+                        MessageBox.Show("Сохранение прошло успешно.");
+           //           this.Close();
+                        this.Hide();
+                        Reminder reminder = new Reminder();
+                        reminder.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Поля не могут быть пустыми.");
+                    }
                 }
                 else
                 {
-                    autoriz(login, password);
+                    if (login.Trim() != "" && password.Trim() != "")
+                    {
+                        autoriz(login, password);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Поля не могут быть пустыми.");
+                    }
                 }
             }
         }

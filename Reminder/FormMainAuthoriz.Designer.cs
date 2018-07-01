@@ -36,10 +36,10 @@
             // 
             // okBtn
             // 
-            this.okBtn.Location = new System.Drawing.Point(195, 183);
+            this.okBtn.Location = new System.Drawing.Point(109, 161);
             this.okBtn.Margin = new System.Windows.Forms.Padding(4);
             this.okBtn.Name = "okBtn";
-            this.okBtn.Size = new System.Drawing.Size(161, 28);
+            this.okBtn.Size = new System.Drawing.Size(158, 28);
             this.okBtn.TabIndex = 11;
             this.okBtn.Text = "OK";
             this.okBtn.UseSelectable = true;
@@ -61,7 +61,7 @@
             this.passwordTbx.CustomButton.UseSelectable = true;
             this.passwordTbx.CustomButton.Visible = false;
             this.passwordTbx.Lines = new string[0];
-            this.passwordTbx.Location = new System.Drawing.Point(161, 115);
+            this.passwordTbx.Location = new System.Drawing.Point(82, 115);
             this.passwordTbx.Margin = new System.Windows.Forms.Padding(4);
             this.passwordTbx.MaxLength = 32767;
             this.passwordTbx.Name = "passwordTbx";
@@ -71,7 +71,7 @@
             this.passwordTbx.SelectionLength = 0;
             this.passwordTbx.SelectionStart = 0;
             this.passwordTbx.ShortcutsEnabled = true;
-            this.passwordTbx.Size = new System.Drawing.Size(197, 28);
+            this.passwordTbx.Size = new System.Drawing.Size(212, 28);
             this.passwordTbx.TabIndex = 10;
             this.passwordTbx.UseSelectable = true;
             this.passwordTbx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -93,7 +93,7 @@
             this.loginTbx.CustomButton.UseSelectable = true;
             this.loginTbx.CustomButton.Visible = false;
             this.loginTbx.Lines = new string[0];
-            this.loginTbx.Location = new System.Drawing.Point(161, 80);
+            this.loginTbx.Location = new System.Drawing.Point(82, 80);
             this.loginTbx.Margin = new System.Windows.Forms.Padding(4);
             this.loginTbx.MaxLength = 32767;
             this.loginTbx.Name = "loginTbx";
@@ -103,7 +103,7 @@
             this.loginTbx.SelectionLength = 0;
             this.loginTbx.SelectionStart = 0;
             this.loginTbx.ShortcutsEnabled = true;
-            this.loginTbx.Size = new System.Drawing.Size(197, 28);
+            this.loginTbx.Size = new System.Drawing.Size(212, 28);
             this.loginTbx.TabIndex = 9;
             this.loginTbx.UseSelectable = true;
             this.loginTbx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -111,10 +111,10 @@
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(20, 183);
+            this.metroButton1.Location = new System.Drawing.Point(109, 197);
             this.metroButton1.Margin = new System.Windows.Forms.Padding(4);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(153, 28);
+            this.metroButton1.Size = new System.Drawing.Size(158, 28);
             this.metroButton1.TabIndex = 12;
             this.metroButton1.Text = "Я забыл(а) данные";
             this.metroButton1.UseSelectable = true;
@@ -124,11 +124,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 235);
+            this.ClientSize = new System.Drawing.Size(359, 247);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.passwordTbx);
             this.Controls.Add(this.loginTbx);
+            this.MaximumSize = new System.Drawing.Size(359, 247);
+            this.MinimumSize = new System.Drawing.Size(359, 247);
             this.Name = "FormMainAuthoriz";
             this.Text = "Авторизация";
             this.Load += new System.EventHandler(this.FormMainAuthoriz_Load);

@@ -45,12 +45,12 @@ namespace Reminder_desktop_application
             //    token = URL[1];
             //}
         }
-        string token;
+   //     string token;
 
-        public string getToken()
-        {
-            return token;
-        }
+        //public string getToken()
+        //{
+        //    return token;
+        //}
 
         UserSettingsModel model;
 
@@ -62,7 +62,7 @@ namespace Reminder_desktop_application
             workVk.loginAuthorization(loginTbx.Text, passwordTbx.Text);
             if (workVk.token is null)
             {
-                model.vkToken = "";
+                MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
             }
             else
             {
@@ -70,13 +70,28 @@ namespace Reminder_desktop_application
                 model.vkUser = workVk.userId.ToString();
             }
 
-            context.editToken(workVk.token, workVk.userId);
+            if (workVk.token is null)
+            {
+                MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
+            }
+            else
+            {
+                context.editToken(workVk.token, workVk.userId);
+            }
+
             try
             {
-                string tokken = context.getToken();
                 string iduser = model.vkUser;
 
-                workVk.start(tokken, iduser, model.secretWord, context);
+                if (workVk.token is null)
+                {
+                    MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
+                }
+                else
+                {
+                    string tokken = context.getToken();
+                    workVk.start(tokken, iduser, model.secretWord, context);
+                }                
             }
             catch
             {

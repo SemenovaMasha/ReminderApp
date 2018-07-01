@@ -86,6 +86,7 @@ namespace Reminder_desktop_application
         private void metroButton1_Click(object sender, EventArgs e)
         {
             FormMainAuthoriz formMainAuthoriz = new FormMainAuthoriz();
+            formMainAuthoriz.Text = "Редактирование";
             formMainAuthoriz.IsEdit = true;
             formMainAuthoriz.ShowDialog();
             
