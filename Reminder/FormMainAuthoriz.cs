@@ -58,7 +58,7 @@ namespace Reminder_desktop_application
         {
             if (user.login == login && user.password == password)
             {
-                MessageBox.Show("Авторизация прошла успешно.");
+             //   MessageBox.Show("Авторизация прошла успешно.");
                 this.Hide();
                 Reminder reminder = new Reminder();
                 reminder.Show();
@@ -202,8 +202,12 @@ namespace Reminder_desktop_application
             context.auth("empty", "empty");
             MessageBox.Show("При входе авторизация больше не потребуется. Если вы хотите установить защиту, вы можете сделать это в настройках программы.");
             this.Hide();
-            //Reminder reminder = new Reminder();
-            //reminder.Show();
+            if (!IsEdit)
+            {
+                Reminder reminder = new Reminder();
+               reminder.Show();
+            }
+
         }
     }
 }

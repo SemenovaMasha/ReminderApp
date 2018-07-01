@@ -102,10 +102,13 @@ namespace Reminder_desktop_application
         int count;
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
-        {
+                    {
+                       Console.WriteLine(date);
             try
             {
 
+                model = contextDB.getUserSettings();
+                this.keyWord = model.secretWord;
                 CurrentMessage = vk.Messages.Get(new MessagesGetParams
                 {
                     Count = 1
