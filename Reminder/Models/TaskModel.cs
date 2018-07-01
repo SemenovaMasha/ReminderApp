@@ -46,8 +46,6 @@ namespace Reminder_desktop_application
         public void generateJobKey()
         {
             JobKey = new JobKey(text + " date:" + next_date.ToString());
-            Console.WriteLine(text + " date:" + next_date.ToString());
-
         }
         
         public void OnNotificationStarted(object sender, EventArgs e)
@@ -65,7 +63,6 @@ namespace Reminder_desktop_application
         
         public void changeNextDate()
         {
-            Console.WriteLine(next_date+"1!"+ duration_min);
             DateTime newDate = next_date.AddMinutes((int)(period_min));
             duration_min -= period_min;
 
@@ -73,12 +70,10 @@ namespace Reminder_desktop_application
             {
                 next_date = newDate;
             }
-            Console.WriteLine("1"+next_date);
         }
         
         public bool tryChange()
         {
-            Console.WriteLine(next_date + "!" + duration_min);
             bool changed = false;
             if (remind_flag && duration_min > 0 && next_date < DateTime.Now)
             {
@@ -93,7 +88,6 @@ namespace Reminder_desktop_application
 
                 changed = true;
             }
-            Console.WriteLine(next_date);
             return changed;
         }
     }
