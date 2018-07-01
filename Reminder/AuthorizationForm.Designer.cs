@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reminder));
             this.loginTbx = new MetroFramework.Controls.MetroTextBox();
             this.passwordTbx = new MetroFramework.Controls.MetroTextBox();
             this.okBtn = new MetroFramework.Controls.MetroButton();
@@ -142,6 +143,7 @@
             this.MaximumSize = new System.Drawing.Size(350, 215);
             this.MinimumSize = new System.Drawing.Size(350, 215);
             this.Name = "AuthorizationForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Авторизация VK";
             this.Load += new System.EventHandler(this.AuthorizationForm_Load);

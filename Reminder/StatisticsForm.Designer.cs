@@ -196,6 +196,7 @@
             this.MinimumSize = new System.Drawing.Size(258, 428);
             this.Name = "StatisticsForm";
             this.Text = "Статистика";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             ((System.ComponentModel.ISupportInitialize)(this.statsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsChart)).EndInit();
             this.ResumeLayout(false);

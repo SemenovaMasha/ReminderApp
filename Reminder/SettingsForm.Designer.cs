@@ -28,6 +28,7 @@
         /// </summary> 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Reminder));
             this.mailNotificationChbx = new MetroFramework.Controls.MetroCheckBox();
             this.mailLoginTbx = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
@@ -249,6 +250,7 @@
             this.MaximumSize = new System.Drawing.Size(357, 470);
             this.MinimumSize = new System.Drawing.Size(357, 470);
             this.Name = "SettingsForm";
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Настройки";
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeBx)).EndInit();
