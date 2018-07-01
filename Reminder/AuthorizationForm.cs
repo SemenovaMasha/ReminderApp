@@ -21,9 +21,6 @@ namespace Reminder_desktop_application
             this.context = context;
             InitializeComponent();
 
-
-
-
         }
 
         private void AuthorizationForm_Load(object sender, EventArgs e)
@@ -53,52 +50,27 @@ namespace Reminder_desktop_application
         //}
 
         UserSettingsModel model;
+  //      bool auth;
 
         private void okBtn_Click(object sender, EventArgs e)
         {
 
             model = context.getUserSettings();
             WorkToVk workVk = new WorkToVk();
-            workVk.loginAuthorization(loginTbx.Text, passwordTbx.Text);
-            if (workVk.token is null)
+            
+            if (!workVk.loginAuthorization(loginTbx.Text, passwordTbx.Text))
             {
-                MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
+                passwordTbx.Text = null;
+                MessageBox.Show("Авторизация не удалась. Попробуйте снова или обратитесь на сайт vk.com для восстановления данных.");
             }
             else
             {
                 model.vkToken = Crypter.Encrypt(workVk.token);
                 model.vkUser = workVk.userId.ToString();
-            }
-
-            if (workVk.token is null)
-            {
-                MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
-            }
-            else
-            {
                 context.editToken(workVk.token, workVk.userId);
+                workVk.start(workVk.token, workVk.userId, model.secretWord, context);
+                this.Close();
             }
-
-            try
-            {
-                string iduser = model.vkUser;
-
-                if (workVk.token is null)
-                {
-                    MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
-                }
-                else
-                {
-                    string tokken = context.getToken();
-                    workVk.start(tokken, iduser, model.secretWord, context);
-                }                
-            }
-            catch
-            {
-                MessageBox.Show("Авторизация не удалась. Пройдите заново авторизацию VK.");
-            }
-
-            this.Close();
         }
     }
 }

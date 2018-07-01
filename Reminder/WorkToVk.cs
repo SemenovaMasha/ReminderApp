@@ -20,7 +20,7 @@ namespace Reminder_desktop_application
         UserSettingsModel model;
         ReminderContext context;
 
-        public void loginAuthorization(string login, string password)
+        public bool loginAuthorization(string login, string password)
         {
             context = new ReminderContext();
                 contextDB = new TaskServiceDB();
@@ -38,11 +38,12 @@ namespace Reminder_desktop_application
                 userId = vk.UserId.ToString();
 
                 context.SaveChanges();
+                return true;
 
             }
             catch (Exception ex)
             {
-
+                return false;
             }
         }
         public void tokenAuthorization(string tokken)
@@ -90,7 +91,7 @@ namespace Reminder_desktop_application
             //    Count = 1
             //}).Messages[0];
 
-            Timer aTimer = new System.Timers.Timer(2000);
+            Timer aTimer = new System.Timers.Timer(10000);
             aTimer.Elapsed += OnTimedEvent;
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
@@ -100,13 +101,17 @@ namespace Reminder_desktop_application
         VkNet.Model.Message LastMessage = null;
         VkNet.Model.Message CurrentMessage = null;
         int count;
+        bool send;
 
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
-                    {
-                       Console.WriteLine(date);
+            {
+            LastMessage = new Message();
+            LastMessage.Body = "";
+            Console.WriteLine(date);
+            send = false;
             try
             {
-
+                contextDB = new TaskServiceDB();
                 model = contextDB.getUserSettings();
                 this.keyWord = model.secretWord;
                 CurrentMessage = vk.Messages.Get(new MessagesGetParams
@@ -117,10 +122,9 @@ namespace Reminder_desktop_application
 
                 //long id = Convert.ToInt64(CurrentMessage.UserId);
                 
-                if (
-                    CurrentMessage.UserId == Convert.ToInt64(userId) 
+                if (CurrentMessage.UserId == Convert.ToInt64(model.vkUser) && 
                     //&&!CurrentMessage.Date.Equals(LastMessage.Date) && 
-                    //CurrentMessage.Body != LastMessage.Body
+                    CurrentMessage.Body != LastMessage.Body
                     )
                 {
 
@@ -142,13 +146,10 @@ namespace Reminder_desktop_application
                         }
 
                         SendMessage(Convert.ToInt64(userId), spisok);
-                        count--;
-                        //LastMessage = vk.Messages.Get(new MessagesGetParams
-                        //{
-                        //    Count = 1
-                        //}).Messages[0];
+                        //    count--;
+                        LastMessage.Body = spisok;
 
-                        //CurrentMessage = null;
+                       // CurrentMessage.Body = spisok;
                     }
                 }
             }
@@ -160,13 +161,18 @@ namespace Reminder_desktop_application
 
         public void SendMessage(long ID, string Body)
         {
+
             try
             {
-                vk.Messages.Send(new MessagesSendParams
+                if (!send)
                 {
-                    UserId = ID,
-                    Message = Body
-                });
+                    vk.Messages.Send(new MessagesSendParams
+                    {
+                        UserId = ID,
+                        Message = Body,
+                    });
+                    send = true;
+                }
             }
             catch
             {

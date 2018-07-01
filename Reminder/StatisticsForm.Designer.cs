@@ -51,10 +51,11 @@
             this.dateDtPkc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateDtPkc.CustomFormat = "";
-            this.dateDtPkc.Location = new System.Drawing.Point(57, 63);
-            this.dateDtPkc.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dateDtPkc.Location = new System.Drawing.Point(76, 78);
+            this.dateDtPkc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateDtPkc.MinimumSize = new System.Drawing.Size(0, 30);
             this.dateDtPkc.Name = "dateDtPkc";
-            this.dateDtPkc.Size = new System.Drawing.Size(371, 29);
+            this.dateDtPkc.Size = new System.Drawing.Size(493, 30);
             this.dateDtPkc.TabIndex = 0;
             this.dateDtPkc.ValueChanged += new System.EventHandler(this.dateDtPkc_ValueChanged);
             // 
@@ -94,7 +95,8 @@
             this.statsGrid.EnableHeadersVisualStyles = false;
             this.statsGrid.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.statsGrid.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.statsGrid.Location = new System.Drawing.Point(24, 106);
+            this.statsGrid.Location = new System.Drawing.Point(32, 130);
+            this.statsGrid.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.statsGrid.Name = "statsGrid";
             this.statsGrid.ReadOnly = true;
             this.statsGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -109,7 +111,7 @@
             this.statsGrid.RowHeadersVisible = false;
             this.statsGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.statsGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.statsGrid.Size = new System.Drawing.Size(438, 175);
+            this.statsGrid.Size = new System.Drawing.Size(584, 215);
             this.statsGrid.TabIndex = 1;
             // 
             // month
@@ -139,12 +141,13 @@
             chartArea1.AxisY.MajorGrid.Enabled = false;
             chartArea1.Name = "ChartArea1";
             this.statsChart.ChartAreas.Add(chartArea1);
-            this.statsChart.Location = new System.Drawing.Point(24, 319);
+            this.statsChart.Location = new System.Drawing.Point(32, 393);
+            this.statsChart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.statsChart.Name = "statsChart";
             series1.ChartArea = "ChartArea1";
             series1.Name = "Series1";
             this.statsChart.Series.Add(series1);
-            this.statsChart.Size = new System.Drawing.Size(438, 287);
+            this.statsChart.Size = new System.Drawing.Size(584, 353);
             this.statsChart.TabIndex = 2;
             this.statsChart.Text = "statsChart";
             // 
@@ -153,9 +156,10 @@
             this.nextDayBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nextDayBtn.Image = ((System.Drawing.Image)(resources.GetObject("nextDayBtn.Image")));
             this.nextDayBtn.ImageSize = 28;
-            this.nextDayBtn.Location = new System.Drawing.Point(434, 63);
+            this.nextDayBtn.Location = new System.Drawing.Point(579, 78);
+            this.nextDayBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.nextDayBtn.Name = "nextDayBtn";
-            this.nextDayBtn.Size = new System.Drawing.Size(28, 28);
+            this.nextDayBtn.Size = new System.Drawing.Size(37, 34);
             this.nextDayBtn.TabIndex = 15;
             this.nextDayBtn.UseSelectable = true;
             this.nextDayBtn.Click += new System.EventHandler(this.nextDayBtn_Click);
@@ -164,9 +168,10 @@
             // 
             this.prevDayBtn.Image = ((System.Drawing.Image)(resources.GetObject("prevDayBtn.Image")));
             this.prevDayBtn.ImageSize = 28;
-            this.prevDayBtn.Location = new System.Drawing.Point(23, 63);
+            this.prevDayBtn.Location = new System.Drawing.Point(31, 78);
+            this.prevDayBtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.prevDayBtn.Name = "prevDayBtn";
-            this.prevDayBtn.Size = new System.Drawing.Size(28, 28);
+            this.prevDayBtn.Size = new System.Drawing.Size(37, 34);
             this.prevDayBtn.TabIndex = 16;
             this.prevDayBtn.UseSelectable = true;
             this.prevDayBtn.Click += new System.EventHandler(this.prevDayBtn_Click);
@@ -176,25 +181,28 @@
             this.sumLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sumLbl.AutoSize = true;
             this.sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.sumLbl.Location = new System.Drawing.Point(358, 289);
+            this.sumLbl.Location = new System.Drawing.Point(477, 356);
+            this.sumLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.sumLbl.Name = "sumLbl";
-            this.sumLbl.Size = new System.Drawing.Size(76, 25);
+            this.sumLbl.Size = new System.Drawing.Size(77, 25);
             this.sumLbl.TabIndex = 17;
             this.sumLbl.Text = "Итого: 0";
             // 
             // StatisticsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 629);
+            this.ClientSize = new System.Drawing.Size(647, 774);
             this.Controls.Add(this.sumLbl);
             this.Controls.Add(this.prevDayBtn);
             this.Controls.Add(this.nextDayBtn);
             this.Controls.Add(this.statsChart);
             this.Controls.Add(this.statsGrid);
             this.Controls.Add(this.dateDtPkc);
-            this.MinimumSize = new System.Drawing.Size(258, 428);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(344, 527);
             this.Name = "StatisticsForm";
+            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Статистика";
             ((System.ComponentModel.ISupportInitialize)(this.statsGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.statsChart)).EndInit();
