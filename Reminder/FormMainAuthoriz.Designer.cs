@@ -36,8 +36,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.metroButton2 = new MetroFramework.Controls.MetroButton();
-            this.wait = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.wait)).BeginInit();
+            //this.wait = new System.Windows.Forms.PictureBox();
+     //       ((System.ComponentModel.ISupportInitialize)(this.wait)).BeginInit();
             this.SuspendLayout();
             // 
             // okBtn
@@ -158,21 +158,21 @@
             // 
             // wait
             // 
-            this.wait.Image = ((System.Drawing.Image)(resources.GetObject("wait.Image")));
-            this.wait.Location = new System.Drawing.Point(337, 179);
-            this.wait.Name = "wait";
-            this.wait.Size = new System.Drawing.Size(80, 39);
-            this.wait.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.wait.TabIndex = 16;
-            this.wait.TabStop = false;
-            this.wait.Visible = false;
+            //this.wait.Image = ((System.Drawing.Image)(resources.GetObject("wait.Image")));
+            //this.wait.Location = new System.Drawing.Point(337, 179);
+            //this.wait.Name = "wait";
+            //this.wait.Size = new System.Drawing.Size(80, 39);
+            //this.wait.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            //this.wait.TabIndex = 16;
+            //this.wait.TabStop = false;
+            //this.wait.Visible = false;
             // 
             // FormMainAuthoriz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(465, 241);
-            this.Controls.Add(this.wait);
+      //      this.Controls.Add(this.wait);
             this.Controls.Add(this.metroButton2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -187,7 +187,7 @@
             this.Padding = new System.Windows.Forms.Padding(20, 74, 20, 20);
             this.Text = "Авторизация";
             this.Load += new System.EventHandler(this.FormMainAuthoriz_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.wait)).EndInit();
+      //      ((System.ComponentModel.ISupportInitialize)(this.wait)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,6 +202,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private MetroFramework.Controls.MetroButton metroButton2;
-        private System.Windows.Forms.PictureBox wait;
+   //     private System.Windows.Forms.PictureBox wait;
     }
 }

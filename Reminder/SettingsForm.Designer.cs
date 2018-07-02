@@ -40,7 +40,6 @@
             this.keyWordTbx = new MetroFramework.Controls.MetroTextBox();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.loadBtn = new MetroFramework.Controls.MetroLink();
             this.okBtn = new MetroFramework.Controls.MetroLink();
             this.cancelLink = new MetroFramework.Controls.MetroLink();
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeBx)).BeginInit();
@@ -219,18 +218,6 @@
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
-            // loadBtn
-            // 
-            this.loadBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.loadBtn.Image = ((System.Drawing.Image)(resources.GetObject("loadBtn.Image")));
-            this.loadBtn.ImageSize = 28;
-            this.loadBtn.Location = new System.Drawing.Point(291, 414);
-            this.loadBtn.Name = "loadBtn";
-            this.loadBtn.Size = new System.Drawing.Size(28, 28);
-            this.loadBtn.TabIndex = 12;
-            this.loadBtn.UseSelectable = true;
-            this.loadBtn.Visible = false;
-            // 
             // okBtn
             // 
             this.okBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -268,7 +255,6 @@
             this.ClientSize = new System.Drawing.Size(357, 470);
             this.Controls.Add(this.cancelLink);
             this.Controls.Add(this.okBtn);
-            this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.metroButton1);
             this.Controls.Add(this.metroLabel4);
             this.Controls.Add(this.metroLabel3);
@@ -305,7 +291,6 @@
         private MetroFramework.Controls.MetroTextBox keyWordTbx;
         private MetroFramework.Controls.MetroLabel metroLabel4;
         private MetroFramework.Controls.MetroButton metroButton1;
-        private MetroFramework.Controls.MetroLink loadBtn;
         private MetroFramework.Controls.MetroLink okBtn;
         private MetroFramework.Controls.MetroLink cancelLink;
     }

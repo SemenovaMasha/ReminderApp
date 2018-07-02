@@ -9,6 +9,7 @@ namespace Reminder_desktop_application
         [STAThread]
         static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMainAuthoriz());

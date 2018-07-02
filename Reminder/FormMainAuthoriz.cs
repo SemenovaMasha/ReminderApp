@@ -1,6 +1,7 @@
 ﻿using Reminder;
 using System;
 using System.Drawing;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Reminder_desktop_application
@@ -9,28 +10,25 @@ namespace Reminder_desktop_application
     {
         
         TaskServiceDB context;
-        //Reminder_desktop_application.Reminder r = new Reminder_desktop_application.Reminder();
 
         UserSettingsModel user;
         string login;
         string password;
         bool flagIsFirst;
         public bool IsEdit;
-      //  ReminderContext con;
 
         public FormMainAuthoriz()
         {
             this.Text = "Авторизация";
             InitializeComponent();
 
-
-            //r.Enabled = false;
-
             //если надо очистить данные логина/пароля снять комментирование и закомментировать снова
             //context = new TaskServiceDB();
             //user = context.getUserSettings();
             //context.auth("x", "x");
         }
+
+        WaitForm pleaseWait = new WaitForm();
 
         public bool IsFirstAutoriz()
         {
@@ -43,6 +41,7 @@ namespace Reminder_desktop_application
 
             if (login == "x" && password == "x")
             {
+                pleaseWait.Close();
                 MessageBox.Show("Вы зашли впервые, введите данные для доступа к приложениию в дальнейшем.");
                 metroButton2.Visible = true;
                 IsEdit = false;
@@ -58,22 +57,33 @@ namespace Reminder_desktop_application
 
         public void autoriz(string login, string password)
         {
+
             if (user.login == login && user.password == password)
             {
              //   MessageBox.Show("Авторизация прошла успешно.");
                 this.Hide();
+
+                WaitForm pleaseWait = new WaitForm();
+                pleaseWait.Show();
+                Application.DoEvents();
+                
                 Reminder reminder = new Reminder();
+                pleaseWait.Close();
                 reminder.Show();
             }
             else
             {
+                pleaseWait.Close();
                 MessageBox.Show("Авторизация не удалась, введите данные верно или обратитесь в тех.поддержку.");
             }
         }
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            wait.Visible = true;
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             context = new TaskServiceDB();
             if (IsEdit)
             {
@@ -82,20 +92,19 @@ namespace Reminder_desktop_application
                     if (loginTbx.Text.Trim() != "" && passwordTbx.Text.Trim() != "")
                     {
                         context.auth(loginTbx.Text, passwordTbx.Text);
-
+                        pleaseWait.Close();
                         MessageBox.Show("Сохранение прошло успешно.");
                         this.Close();
                     }
                     else
                     {
-
+                        pleaseWait.Close();
                         MessageBox.Show("Поля не могут быть пустыми.");
-                        
                     }
                 }
                 catch
                 {
-
+                    pleaseWait.Close();
                     MessageBox.Show("Сохранение не удалось.");
                     
                 }
@@ -114,21 +123,19 @@ namespace Reminder_desktop_application
                         context.createSettingsIfNotExists();
                     }
 
-         //           con = new ReminderContext();
                     if (loginTbx.Text.Trim() != "" && passwordTbx.Text.Trim() != "")
                     {
                         context.auth(loginTbx.Text, passwordTbx.Text);
-                        wait.Visible = false;
+                        pleaseWait.Close();
                         MessageBox.Show("Сохранение прошло успешно.");
                        
-                        //           this.Close();
                         this.Hide();
                         Reminder reminder = new Reminder();
                         reminder.Show();
                     }
                     else
                     {
-                        wait.Visible = false;
+                        pleaseWait.Close();
                         MessageBox.Show("Поля не могут быть пустыми.");
                      
                     }
@@ -141,48 +148,54 @@ namespace Reminder_desktop_application
                     }
                     else
                     {
-                        wait.Visible = false;
+                        pleaseWait.Close();
                         MessageBox.Show("Поля не могут быть пустыми.");
 
                     }
                 }
+                pleaseWait.Close();
             }
+            pleaseWait.Close();
         }
 
         private void FormMainAuthoriz_Load(object sender, EventArgs e)
         {
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             if (!IsEdit)
             {
                 if(!(flagIsFirst = IsFirstAutoriz()))
                 {
                     if (user.login == "empty" && user.password == "empty")
                     {
-                        //Hide();
                         this.WindowState = FormWindowState.Minimized;
                         ShowInTaskbar = false;
                         Reminder reminder = new Reminder();
+                        pleaseWait.Close();
                         reminder.Show();
-
                     }
                 }
                 else
                 {
+                    pleaseWait.Close();
                     metroButton2.Visible = true;
                 }
             }
             else
             {
+                pleaseWait.Close();
                 metroButton2.Visible = true;
             }
-
-            //if (user.login == "empty" && user.password == "empty")
-            //{
-            //    this.Hide();
-            //}
+            pleaseWait.Close();
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
         {
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
             TaskServiceDB context = new TaskServiceDB();
             UserSettingsModel model = context.getUserSettings();
             WorkToVk vk = new WorkToVk();
@@ -190,13 +203,12 @@ namespace Reminder_desktop_application
             {
                 vk.tokenAuthorization(context.getToken());
                 vk.SendMessage(28970351, "Здравствуйте, я забыл(а) свои данные для входа в программу. Пожалуйста, свяжитесь со мной.");
-                wait.Visible = false;
+                pleaseWait.Close();
                 MessageBox.Show("Сообщение в техподдержку отправлено, с вами свяжутся в ближайшее время.");
-
             }
             catch
             {
-                wait.Visible = false;
+                pleaseWait.Close();
                 MessageBox.Show("Вы не авторизованы ВК. Зайдите и нажмите на кнопку 'Я забыла(а) пароль' еще раз.");
 
                 AuthorizationForm form = new AuthorizationForm(context);
@@ -204,30 +216,24 @@ namespace Reminder_desktop_application
             }
         }
 
-        void AuthorizationForm_FormClosing(object sender, EventArgs e)
-        {
-            TaskServiceDB context = new TaskServiceDB();
-            UserSettingsModel model = context.getUserSettings();
-            WorkToVk vk = new WorkToVk();
-            vk.tokenAuthorization(context.getToken());
-            vk.SendMessage(28970351, "Здравствуйте, я забыл(а) свои данные для входа в программу. Пожалуйста, свяжитесь со мной.");
-            wait.Visible = false;
-            MessageBox.Show("Сообщение в техподдержку отправлено, с вами свяжутся в ближайшее время.");
-
-        }
-
         private void metroButton2_Click(object sender, EventArgs e)
         {
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             context = new TaskServiceDB();
             context.auth("empty", "empty");
-            wait.Visible = false;
+            //   wait.Visible = false;
+            pleaseWait.Close();
             MessageBox.Show("При входе авторизация больше не потребуется. Если вы хотите установить защиту, вы можете сделать это в настройках программы.");
             
             this.Hide();
             if (!IsEdit)
             {
                 Reminder reminder = new Reminder();
-               reminder.Show();
+                pleaseWait.Close();
+                reminder.Show();
             }
 
         }

@@ -1,4 +1,5 @@
-﻿using Reminder_desktop_application;
+﻿using Reminder;
+using Reminder_desktop_application;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,15 +57,19 @@ namespace Reminder_desktop_application
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            loadBtn.Visible = true;
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
+  
             model = context.getUserSettings();
             WorkToVk workVk = new WorkToVk();
             
             if (!workVk.loginAuthorization(loginTbx.Text, passwordTbx.Text))
             {
-                loadBtn.Visible = false;
+            
                 passwordTbx.Text = null;
                 result = false;
+                pleaseWait.Close();
                 MessageBox.Show("Авторизация не удалась. Попробуйте снова или обратитесь на сайт vk.com для восстановления данных.");
             }
             else
@@ -74,6 +79,7 @@ namespace Reminder_desktop_application
                 context.editToken(workVk.token, workVk.userId);
                 workVk.start(workVk.token, workVk.userId, model.secretWord, context);
                 result = true;
+                pleaseWait.Close();
                 this.Close();
             }
         }

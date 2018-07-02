@@ -1,4 +1,5 @@
-﻿using Reminder_desktop_application;
+﻿using Reminder;
+using Reminder_desktop_application;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,10 @@ namespace Reminder_desktop_application
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            loadBtn.Visible = true;
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             UserSettingsModel model = context.getUserSettings();
 
             model.vkMessageFlag = vkNotificationChbx.Checked;
@@ -51,6 +55,7 @@ namespace Reminder_desktop_application
             model.fontSize = Convert.ToInt32(fontSizeBx.Value);
 
             context.editSettings(model);
+            pleaseWait.Close();
             this.Close();
         }
 
@@ -60,18 +65,18 @@ namespace Reminder_desktop_application
             t.SetToolTip(mailLoginTbx, "На введенный адрес будут приходить уведомления");
             t.SetToolTip(keyWordTbx, "Ключевое слово, написав которое в сообщении ВК, вы получите список ваших уведомлений на сегодня.");
 
-            loadBtn.Visible = true;
+         //   loadBtn.Visible = true;
             var m = context.getUserSettings();
             if (connectVKBtn.Text == "Отключить Вконтакте")
             {
                 context.tokenToNull();
                 vkNotificationChbx.Checked = false;
-                loadBtn.Visible = false;
+       //         loadBtn.Visible = false;
                 connectVKBtn.Text = "Подключить Вконтакте";
             }
             else
             {
-                loadBtn.Visible = false;
+      //          loadBtn.Visible = false;
                 AuthorizationForm form = new AuthorizationForm(context);
                 form.ShowDialog();
                 if (form.result)

@@ -201,6 +201,12 @@
     </Compile>
     <Compile Include="Models\UserSettingsModel.cs" />
     <Compile Include="TaskServiceDB.cs" />
+    <Compile Include="WaitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaitForm.Designer.cs">
+      <DependentUpon>WaitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WorkToEmail.cs" />
     <Compile Include="WorkToVk.cs" />
     <EmbeddedResource Include="AuthorizationForm.resx">
@@ -249,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="TaskNotification.resx">
       <DependentUpon>TaskNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WaitForm.resx">
+      <DependentUpon>WaitForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>

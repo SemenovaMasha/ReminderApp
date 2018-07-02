@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
 using VkNet;
@@ -60,11 +61,13 @@ namespace Reminder_desktop_application
 
             }
         }
-
+        
         string spisok = "";
         TaskServiceDB service;
         public void start(string tokken, string userId, string keyWord, TaskServiceDB service)
         {
+          
+
             date = DateTime.Now;
             this.token = tokken;
             this.userId = userId;
@@ -91,11 +94,14 @@ namespace Reminder_desktop_application
             //    Count = 1
             //}).Messages[0];
 
-            Timer aTimer = new System.Timers.Timer(10000);
-            aTimer.Elapsed += OnTimedEvent;
+            Thread mythread = new Thread(tamer);
+
             aTimer.AutoReset = true;
             aTimer.Enabled = true;
+            mythread.Start();
         }
+
+        System.Timers.Timer aTimer = new System.Timers.Timer(1000);
 
         DateTime date;
         VkNet.Model.Message LastMessage = null;
@@ -103,8 +109,14 @@ namespace Reminder_desktop_application
      //   int count;
         bool send;
 
+        private void tamer()
+        {
+            aTimer.Elapsed += OnTimedEvent;
+        }
+
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
             {
+
             LastMessage = new Message();
             LastMessage.Body = "";
             Console.WriteLine(date);

@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using MetroFramework.Controls;
 using Reminder_desktop_application;
 using System.Drawing;
+using Reminder;
 
 namespace Reminder_desktop_application
 {
@@ -18,12 +19,12 @@ namespace Reminder_desktop_application
         TaskServiceDB serviceDB;
         WorkToVk workVk;
         UserSettingsModel model;
-
+        
         public Reminder()
         {
             
             InitializeComponent();
-    
+
              //this.Hide();
              //FormMainAuthoriz form = new FormMainAuthoriz();
              //form.ShowDialog();
@@ -184,7 +185,12 @@ namespace Reminder_desktop_application
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             NewTaskForm form = new NewTaskForm(taskControler,datePicker.Value);
+            pleaseWait.Close();
             form.ShowDialog();
             
             PrintDayTasks(datePicker.Value.ToShortDateString());
@@ -220,8 +226,13 @@ namespace Reminder_desktop_application
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             if (notesDataGrid.SelectedRows.Count>0)
             {
+                pleaseWait.Close();
                 DialogResult result = MessageBox.Show("Вы уверены что хотите удалить?", "Удалить", MessageBoxButtons.YesNo);
                 if (result == DialogResult.Yes)
                 {
@@ -272,8 +283,13 @@ namespace Reminder_desktop_application
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             SettingsForm form = new SettingsForm(serviceDB);
-            form.ShowDialog();
+            pleaseWait.Close();
+                form.ShowDialog();
 
             int fontSize = serviceDB.getFontSize();
             notesDataGrid.DefaultCellStyle.Font = new Font("Segoe UI", fontSize);
@@ -287,7 +303,12 @@ namespace Reminder_desktop_application
 
         private void statsBtn_Click(object sender, EventArgs e)
         {
+            WaitForm pleaseWait = new WaitForm();
+            pleaseWait.Show();
+            Application.DoEvents();
+
             StatisticsForm form = new StatisticsForm(taskControler);
+            pleaseWait.Close();
             form.ShowDialog();
         }
 
