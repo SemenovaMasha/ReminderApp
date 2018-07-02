@@ -32,7 +32,7 @@ namespace Reminder_desktop_application
                     ApplicationId = 6619305,
                     Login = login,
                     Password = password,
-                    Settings = VkNet.Enums.Filters.Settings.All
+                    Settings = VkNet.Enums.Filters.Settings.All | VkNet.Enums.Filters.Settings.Offline //Не ори, я правил только тут
                 });
                 token = vk.Token;
                 userId = vk.UserId.ToString();

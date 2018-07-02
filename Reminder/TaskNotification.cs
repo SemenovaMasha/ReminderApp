@@ -1,4 +1,5 @@
-﻿using Reminder_desktop_application;
+﻿using Reminder.Properties;
+using Reminder_desktop_application;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,8 +26,8 @@ namespace Reminder_desktop_application
 
         public void LoadTask()
         {
-        //    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"E:\sound.wav");
-            SoundPlayer soundPlayer = new SoundPlayer(Environment.CurrentDirectory + "\\notify.wav");
+            //    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"E:\sound.wav");
+            SoundPlayer soundPlayer = new SoundPlayer(Resources.notify);
             soundPlayer.Load();
             soundPlayer.PlaySync();
             notificationBox.Text = taskToNotify.text;
