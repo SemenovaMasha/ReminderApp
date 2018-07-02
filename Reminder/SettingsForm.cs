@@ -13,14 +13,13 @@ namespace Reminder_desktop_application
 {
     public partial class SettingsForm : MetroFramework.Forms.MetroForm
     {
-        UserSettingsModel m;
         TaskServiceDB context;
        // bool hasToken;
 
         public SettingsForm(TaskServiceDB context)
         {
             this.context = context;
-            m = context.getUserSettings();
+            UserSettingsModel m = context.getUserSettings();
             InitializeComponent();
             keyWordTbx.TextAlign = HorizontalAlignment.Right;
 
@@ -29,7 +28,6 @@ namespace Reminder_desktop_application
             mailLoginTbx.Text = m.mailUserName;
             keyWordTbx.Text = m.secretWord;
             fontSizeBx.Value = m.fontSize;
-         //   hasToken = m.vkToken != "";
             if (m.vkToken is null || m.vkToken == "")
             {
                 connectVKBtn.Text = "Подключить Вконтакте";
@@ -44,7 +42,6 @@ namespace Reminder_desktop_application
         private void okBtn_Click(object sender, EventArgs e)
         {
             loadBtn.Visible = true;
-            //TaskServiceDB context = new TaskServiceDB();
             UserSettingsModel model = context.getUserSettings();
 
             model.vkMessageFlag = vkNotificationChbx.Checked;
@@ -60,11 +57,10 @@ namespace Reminder_desktop_application
         private void connectVKBtn_Click(object sender, EventArgs e)
         {
             loadBtn.Visible = true;
-            m = context.getUserSettings();
+            var m = context.getUserSettings();
             if (connectVKBtn.Text == "Отключить Вконтакте")
             {
-                m.vkToken = null;
-                m.vkUser = null;
+                context.tokenToNull();
                 vkNotificationChbx.Checked = false;
                 loadBtn.Visible = false;
                 connectVKBtn.Text = "Подключить Вконтакте";
@@ -74,9 +70,10 @@ namespace Reminder_desktop_application
                 loadBtn.Visible = false;
                 AuthorizationForm form = new AuthorizationForm(context);
                 form.ShowDialog();
-
-                // form.getToken();
-                connectVKBtn.Text = "Отключить Вконтакте";
+                if (form.result)
+                {
+                    connectVKBtn.Text = "Отключить Вконтакте";
+                }
             }
             this.connectVKBtn.Refresh();
         }
