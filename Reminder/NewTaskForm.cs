@@ -36,7 +36,8 @@ namespace Reminder_desktop_application
         public NewTaskForm(TaskControler controler, DateTime date) : this(controler)
         {
             datePck.Value = date;
-            remindTimePck.Value = date;
+            //remindTimePck.Value = date;
+            remindTimePck.Value = DateTime.Now;
         }
 
         public NewTaskForm(TaskControler controler, TaskModel editTask) : this(controler)
@@ -262,21 +263,26 @@ namespace Reminder_desktop_application
         {
             this.Close();
         }
-        
+
         private void usualRdbtn_CheckedChanged(object sender, EventArgs e)
         {
             remindTimePck.Visible = false;
-            remindRepeatCkb.Checked = false;
+            //remindRepeatCkb.Checked = false;
             remindRepeatCkb.Visible = false;
             remindTimeLbl.Visible = false;
 
-            remindRepeatCkb_CheckedChanged(null, null);
+            //remindRepeatCkb_CheckedChanged(null, null);
+            remindPeriodTbx.Visible = false;
+            remindTimePeriodType.Visible = false;
+            remindDurationTbx.Visible = false;
+            remindTimeDurationType.Visible = false;
+            metroLabel4.Visible = false;
         }
 
         private void remindRdbtn_CheckedChanged(object sender, EventArgs e)
         {
             remindTimePck.Visible = true;
-            remindRepeatCkb.Checked = false;
+            //remindRepeatCkb.Checked = false;
             remindRepeatCkb.Visible = true;
             remindTimeLbl.Visible = true;
 
