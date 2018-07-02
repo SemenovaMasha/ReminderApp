@@ -56,14 +56,15 @@ namespace Reminder_desktop_application
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            loadBtn.Visible = true;
+            //loadBtn.Visible = true;
             model = context.getUserSettings();
             WorkToVk workVk = new WorkToVk();
             
             if (!workVk.loginAuthorization(loginTbx.Text, passwordTbx.Text))
             {
-                loadBtn.Visible = false;
+          //      loadBtn.Visible = false;
                 passwordTbx.Text = null;
+
                 MessageBox.Show("Авторизация не удалась. Попробуйте снова или обратитесь на сайт vk.com для восстановления данных.");
             }
             else

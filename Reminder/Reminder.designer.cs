@@ -254,6 +254,7 @@ namespace Reminder_desktop_application
             this.Name = "Reminder";
             this.Text = "Blocknote";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Reminder_FormClosing);
+            this.Load += new System.EventHandler(this.Reminder_Load_1);
             this.ResizeEnd += new System.EventHandler(this.Reminder_ResizeEnd);
             this.Resize += new System.EventHandler(this.Reminder_Resize);
             this.contextMenuStrip1.ResumeLayout(false);

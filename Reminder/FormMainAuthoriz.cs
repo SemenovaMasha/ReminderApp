@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Reminder;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace Reminder_desktop_application
@@ -71,6 +73,7 @@ namespace Reminder_desktop_application
 
         private void okBtn_Click(object sender, EventArgs e)
         {
+            wait.Visible = true;
             context = new TaskServiceDB();
             if (IsEdit)
             {
@@ -79,17 +82,22 @@ namespace Reminder_desktop_application
                     if (loginTbx.Text.Trim() != "" && passwordTbx.Text.Trim() != "")
                     {
                         context.auth(loginTbx.Text, passwordTbx.Text);
+
                         MessageBox.Show("Сохранение прошло успешно.");
                         this.Close();
                     }
                     else
                     {
+
                         MessageBox.Show("Поля не могут быть пустыми.");
+                        
                     }
                 }
                 catch
                 {
+
                     MessageBox.Show("Сохранение не удалось.");
+                    
                 }
             }
             else
@@ -110,15 +118,19 @@ namespace Reminder_desktop_application
                     if (loginTbx.Text.Trim() != "" && passwordTbx.Text.Trim() != "")
                     {
                         context.auth(loginTbx.Text, passwordTbx.Text);
+                        wait.Visible = false;
                         MessageBox.Show("Сохранение прошло успешно.");
-           //           this.Close();
+                       
+                        //           this.Close();
                         this.Hide();
                         Reminder reminder = new Reminder();
                         reminder.Show();
                     }
                     else
                     {
+                        wait.Visible = false;
                         MessageBox.Show("Поля не могут быть пустыми.");
+                     
                     }
                 }
                 else
@@ -129,7 +141,9 @@ namespace Reminder_desktop_application
                     }
                     else
                     {
+                        wait.Visible = false;
                         MessageBox.Show("Поля не могут быть пустыми.");
+
                     }
                 }
             }
@@ -176,11 +190,15 @@ namespace Reminder_desktop_application
             {
                 vk.tokenAuthorization(context.getToken());
                 vk.SendMessage(28970351, "Здравствуйте, я забыл(а) свои данные для входа в программу. Пожалуйста, свяжитесь со мной.");
+                wait.Visible = false;
                 MessageBox.Show("Сообщение в техподдержку отправлено, с вами свяжутся в ближайшее время.");
+
             }
             catch
             {
+                wait.Visible = false;
                 MessageBox.Show("Вы не авторизованы ВК. Зайдите и нажмите на кнопку 'Я забыла(а) пароль' еще раз.");
+
                 AuthorizationForm form = new AuthorizationForm(context);
                 form.ShowDialog();
             }
@@ -193,14 +211,18 @@ namespace Reminder_desktop_application
             WorkToVk vk = new WorkToVk();
             vk.tokenAuthorization(context.getToken());
             vk.SendMessage(28970351, "Здравствуйте, я забыл(а) свои данные для входа в программу. Пожалуйста, свяжитесь со мной.");
+            wait.Visible = false;
             MessageBox.Show("Сообщение в техподдержку отправлено, с вами свяжутся в ближайшее время.");
+
         }
 
         private void metroButton2_Click(object sender, EventArgs e)
         {
             context = new TaskServiceDB();
             context.auth("empty", "empty");
+            wait.Visible = false;
             MessageBox.Show("При входе авторизация больше не потребуется. Если вы хотите установить защиту, вы можете сделать это в настройках программы.");
+            
             this.Hide();
             if (!IsEdit)
             {

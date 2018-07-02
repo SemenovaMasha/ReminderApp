@@ -27,7 +27,7 @@ namespace Reminder_desktop_application
              //this.Hide();
              //FormMainAuthoriz form = new FormMainAuthoriz();
              //form.ShowDialog();
-
+             
 
              //context = c;
              serviceDB = new TaskServiceDB();
@@ -75,6 +75,11 @@ namespace Reminder_desktop_application
             PrintDayTasks(DateTime.Now.ToShortDateString());
 
             taskControler.Add(taskControler.getDailyTasks(DateTime.Now));
+            
+        }
+
+        private void Reminder_Load(object sender, EventArgs e)
+        {
             
         }
 
@@ -258,6 +263,8 @@ namespace Reminder_desktop_application
             }
             catch (Exception)
             {
+        //        temp.price = 0;
+         //       notesDataGrid[2, e.RowIndex].Value = "0";
                 MessageBox.Show("Проверьте введенные данные");
             }
             
@@ -286,7 +293,20 @@ namespace Reminder_desktop_application
 
         private void notesDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-                MessageBox.Show("Проверьте введенные данные");
+    //        notesDataGrid[2, e.RowIndex].Value = "0";
+            MessageBox.Show("Проверьте введенные данные");
+        }
+
+        private void Reminder_Load_1(object sender, EventArgs e)
+        {
+            ToolTip t = new ToolTip();
+            t.SetToolTip(addBtn, "Добавить запись");
+            t.SetToolTip(deleteBtn, "Удалить запись");
+            t.SetToolTip(settingsBtn, "Настройки");
+            t.SetToolTip(statsBtn, "Статистика");
+            t.SetToolTip(datePicker, "Дата");
+            t.SetToolTip(prevDayBtn, "Назад");
+            t.SetToolTip(nextDayBtn, "Вперед");
         }
     }
 }

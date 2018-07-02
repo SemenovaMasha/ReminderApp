@@ -68,7 +68,7 @@ namespace Reminder_desktop_application
             date = DateTime.Now;
             this.token = tokken;
             this.userId = userId;
-            this.keyWord = keyWord;
+            this.keyWord = keyWord.ToLower();
             this.service = service;
 
             //var list = service.getDailyTasks(DateTime.Now);
@@ -128,7 +128,7 @@ namespace Reminder_desktop_application
                     )
                 {
 
-                    if (CurrentMessage.Body.Equals(keyWord + "#"))
+                    if (CurrentMessage.Body.ToLower().Equals(keyWord + "#"))
                     {
 
                         var list = service.getDailyTasks(DateTime.Now);

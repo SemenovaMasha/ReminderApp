@@ -52,10 +52,10 @@
             this.cancelLink.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cancelLink.Image = ((System.Drawing.Image)(resources.GetObject("cancelLink.Image")));
             this.cancelLink.ImageSize = 40;
-            this.cancelLink.Location = new System.Drawing.Point(249, 422);
-            this.cancelLink.Margin = new System.Windows.Forms.Padding(2);
+            this.cancelLink.Location = new System.Drawing.Point(332, 519);
+            this.cancelLink.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cancelLink.Name = "cancelLink";
-            this.cancelLink.Size = new System.Drawing.Size(58, 59);
+            this.cancelLink.Size = new System.Drawing.Size(77, 73);
             this.cancelLink.TabIndex = 2;
             this.cancelLink.Text = "Отмена";
             this.cancelLink.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -67,10 +67,10 @@
             this.saveLink.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.saveLink.Image = ((System.Drawing.Image)(resources.GetObject("saveLink.Image")));
             this.saveLink.ImageSize = 40;
-            this.saveLink.Location = new System.Drawing.Point(161, 422);
-            this.saveLink.Margin = new System.Windows.Forms.Padding(2);
+            this.saveLink.Location = new System.Drawing.Point(215, 519);
+            this.saveLink.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.saveLink.Name = "saveLink";
-            this.saveLink.Size = new System.Drawing.Size(85, 59);
+            this.saveLink.Size = new System.Drawing.Size(113, 73);
             this.saveLink.TabIndex = 1;
             this.saveLink.Text = "Сохранить";
             this.saveLink.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -81,9 +81,10 @@
             // 
             this.metroLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(223, 403);
+            this.metroLabel4.Location = new System.Drawing.Point(297, 496);
+            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(69, 19);
+            this.metroLabel4.Size = new System.Drawing.Size(74, 20);
             this.metroLabel4.TabIndex = 31;
             this.metroLabel4.Text = "в течение";
             // 
@@ -97,17 +98,19 @@
             "часов",
             "дней",
             "лет"});
-            this.remindTimeDurationType.Location = new System.Drawing.Point(355, 403);
+            this.remindTimeDurationType.Location = new System.Drawing.Point(473, 496);
+            this.remindTimeDurationType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.remindTimeDurationType.Name = "remindTimeDurationType";
-            this.remindTimeDurationType.Size = new System.Drawing.Size(107, 21);
+            this.remindTimeDurationType.Size = new System.Drawing.Size(141, 24);
             this.remindTimeDurationType.TabIndex = 30;
             // 
             // remindDurationTbx
             // 
             this.remindDurationTbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.remindDurationTbx.Location = new System.Drawing.Point(301, 403);
+            this.remindDurationTbx.Location = new System.Drawing.Point(401, 496);
+            this.remindDurationTbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.remindDurationTbx.Name = "remindDurationTbx";
-            this.remindDurationTbx.Size = new System.Drawing.Size(48, 20);
+            this.remindDurationTbx.Size = new System.Drawing.Size(63, 22);
             this.remindDurationTbx.TabIndex = 29;
             this.remindDurationTbx.Text = "1";
             // 
@@ -121,17 +124,19 @@
             "часов",
             "дней",
             "лет"});
-            this.remindTimePeriodType.Location = new System.Drawing.Point(355, 378);
+            this.remindTimePeriodType.Location = new System.Drawing.Point(473, 465);
+            this.remindTimePeriodType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.remindTimePeriodType.Name = "remindTimePeriodType";
-            this.remindTimePeriodType.Size = new System.Drawing.Size(107, 21);
+            this.remindTimePeriodType.Size = new System.Drawing.Size(141, 24);
             this.remindTimePeriodType.TabIndex = 28;
             // 
             // remindPeriodTbx
             // 
             this.remindPeriodTbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.remindPeriodTbx.Location = new System.Drawing.Point(301, 378);
+            this.remindPeriodTbx.Location = new System.Drawing.Point(401, 465);
+            this.remindPeriodTbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.remindPeriodTbx.Name = "remindPeriodTbx";
-            this.remindPeriodTbx.Size = new System.Drawing.Size(48, 20);
+            this.remindPeriodTbx.Size = new System.Drawing.Size(63, 22);
             this.remindPeriodTbx.TabIndex = 27;
             this.remindPeriodTbx.Text = "1";
             // 
@@ -139,11 +144,13 @@
             // 
             this.remindRepeatCkb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.remindRepeatCkb.AutoSize = true;
+            this.remindRepeatCkb.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.remindRepeatCkb.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
             this.remindRepeatCkb.FontWeight = MetroFramework.MetroCheckBoxWeight.Light;
-            this.remindRepeatCkb.Location = new System.Drawing.Point(155, 377);
+            this.remindRepeatCkb.Location = new System.Drawing.Point(244, 467);
+            this.remindRepeatCkb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.remindRepeatCkb.Name = "remindRepeatCkb";
-            this.remindRepeatCkb.Size = new System.Drawing.Size(137, 19);
+            this.remindRepeatCkb.Size = new System.Drawing.Size(146, 20);
             this.remindRepeatCkb.TabIndex = 26;
             this.remindRepeatCkb.Text = "Повторять каждые";
             this.remindRepeatCkb.UseSelectable = true;
@@ -154,21 +161,23 @@
             this.remindTimePck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.remindTimePck.CustomFormat = "HH:mm";
             this.remindTimePck.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.remindTimePck.Location = new System.Drawing.Point(80, 377);
+            this.remindTimePck.Location = new System.Drawing.Point(107, 464);
+            this.remindTimePck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.remindTimePck.MinDate = new System.DateTime(2016, 11, 5, 0, 0, 0, 0);
             this.remindTimePck.Name = "remindTimePck";
             this.remindTimePck.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.remindTimePck.ShowUpDown = true;
-            this.remindTimePck.Size = new System.Drawing.Size(62, 20);
+            this.remindTimePck.Size = new System.Drawing.Size(81, 22);
             this.remindTimePck.TabIndex = 25;
             // 
             // remindTimeLbl
             // 
             this.remindTimeLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.remindTimeLbl.AutoSize = true;
-            this.remindTimeLbl.Location = new System.Drawing.Point(23, 378);
+            this.remindTimeLbl.Location = new System.Drawing.Point(31, 465);
+            this.remindTimeLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.remindTimeLbl.Name = "remindTimeLbl";
-            this.remindTimeLbl.Size = new System.Drawing.Size(51, 19);
+            this.remindTimeLbl.Size = new System.Drawing.Size(53, 20);
             this.remindTimeLbl.TabIndex = 24;
             this.remindTimeLbl.Text = "Время:";
             // 
@@ -181,18 +190,20 @@
             // 
             // 
             this.remindTextTbx.CustomButton.Image = null;
-            this.remindTextTbx.CustomButton.Location = new System.Drawing.Point(189, 1);
+            this.remindTextTbx.CustomButton.Location = new System.Drawing.Point(371, 1);
+            this.remindTextTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.remindTextTbx.CustomButton.Name = "";
-            this.remindTextTbx.CustomButton.Size = new System.Drawing.Size(257, 257);
+            this.remindTextTbx.CustomButton.Size = new System.Drawing.Size(423, 390);
             this.remindTextTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.remindTextTbx.CustomButton.TabIndex = 1;
             this.remindTextTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.remindTextTbx.CustomButton.UseSelectable = true;
             this.remindTextTbx.CustomButton.Visible = false;
             this.remindTextTbx.Lines = new string[0];
-            this.remindTextTbx.Location = new System.Drawing.Point(23, 112);
+            this.remindTextTbx.Location = new System.Drawing.Point(31, 138);
+            this.remindTextTbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.remindTextTbx.MaxLength = 32767;
-            this.remindTextTbx.MinimumSize = new System.Drawing.Size(434, 206);
+            this.remindTextTbx.MinimumSize = new System.Drawing.Size(579, 254);
             this.remindTextTbx.Multiline = true;
             this.remindTextTbx.Name = "remindTextTbx";
             this.remindTextTbx.PasswordChar = '\0';
@@ -202,7 +213,7 @@
             this.remindTextTbx.SelectionLength = 0;
             this.remindTextTbx.SelectionStart = 0;
             this.remindTextTbx.ShortcutsEnabled = true;
-            this.remindTextTbx.Size = new System.Drawing.Size(447, 259);
+            this.remindTextTbx.Size = new System.Drawing.Size(596, 319);
             this.remindTextTbx.TabIndex = 22;
             this.remindTextTbx.UseSelectable = true;
             this.remindTextTbx.WaterMark = "Текст...";
@@ -212,37 +223,41 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(23, 90);
+            this.metroLabel3.Location = new System.Drawing.Point(31, 111);
+            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(95, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(105, 20);
             this.metroLabel3.TabIndex = 23;
             this.metroLabel3.Text = "Текст заметки:";
             // 
             // datePck
             // 
             this.datePck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.datePck.Location = new System.Drawing.Point(294, 58);
-            this.datePck.MinimumSize = new System.Drawing.Size(0, 29);
+            this.datePck.Location = new System.Drawing.Point(392, 71);
+            this.datePck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.datePck.MinimumSize = new System.Drawing.Size(0, 30);
             this.datePck.Name = "datePck";
-            this.datePck.Size = new System.Drawing.Size(168, 29);
+            this.datePck.Size = new System.Drawing.Size(223, 30);
             this.datePck.TabIndex = 32;
             // 
             // metroLabel1
             // 
             this.metroLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(248, 62);
+            this.metroLabel1.Location = new System.Drawing.Point(331, 76);
+            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(40, 19);
+            this.metroLabel1.Size = new System.Drawing.Size(42, 20);
             this.metroLabel1.TabIndex = 33;
             this.metroLabel1.Text = "Дата:";
             // 
             // usualRdbtn
             // 
             this.usualRdbtn.AutoSize = true;
-            this.usualRdbtn.Location = new System.Drawing.Point(24, 63);
+            this.usualRdbtn.Location = new System.Drawing.Point(32, 78);
+            this.usualRdbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.usualRdbtn.Name = "usualRdbtn";
-            this.usualRdbtn.Size = new System.Drawing.Size(68, 15);
+            this.usualRdbtn.Size = new System.Drawing.Size(72, 17);
             this.usualRdbtn.TabIndex = 34;
             this.usualRdbtn.Text = "Заметка";
             this.usualRdbtn.UseSelectable = true;
@@ -251,9 +266,10 @@
             // remindRdbtn
             // 
             this.remindRdbtn.AutoSize = true;
-            this.remindRdbtn.Location = new System.Drawing.Point(112, 63);
+            this.remindRdbtn.Location = new System.Drawing.Point(149, 78);
+            this.remindRdbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.remindRdbtn.Name = "remindRdbtn";
-            this.remindRdbtn.Size = new System.Drawing.Size(101, 15);
+            this.remindRdbtn.Size = new System.Drawing.Size(106, 17);
             this.remindRdbtn.TabIndex = 35;
             this.remindRdbtn.Text = "Напоминание";
             this.remindRdbtn.UseSelectable = true;
@@ -261,9 +277,9 @@
             // 
             // NewTaskForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 503);
+            this.ClientSize = new System.Drawing.Size(657, 619);
             this.Controls.Add(this.remindRdbtn);
             this.Controls.Add(this.usualRdbtn);
             this.Controls.Add(this.metroLabel1);
@@ -280,11 +296,12 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.cancelLink);
             this.Controls.Add(this.saveLink);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(578, 503);
-            this.MinimumSize = new System.Drawing.Size(493, 503);
+            this.MaximumSize = new System.Drawing.Size(771, 619);
+            this.MinimumSize = new System.Drawing.Size(657, 619);
             this.Name = "NewTaskForm";
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Resizable = false;
             this.Text = "Запись";
             this.ResumeLayout(false);

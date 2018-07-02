@@ -59,6 +59,10 @@ namespace Reminder_desktop_application
 
         private void connectVKBtn_Click(object sender, EventArgs e)
         {
+            ToolTip t = new ToolTip();
+            t.SetToolTip(mailLoginTbx, "На введенный адрес будут приходить уведомления");
+            t.SetToolTip(keyWordTbx, "Ключевое слово, написав которое в сообщении ВК, вы получите список ваших уведомлений на сегодня.");
+
             loadBtn.Visible = true;
             m = context.getUserSettings();
             if (connectVKBtn.Text == "Отключить Вконтакте")
@@ -93,6 +97,11 @@ namespace Reminder_desktop_application
             formMainAuthoriz.IsEdit = true;
             formMainAuthoriz.ShowDialog();
             
+        }
+
+        private void cancelLink_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

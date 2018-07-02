@@ -33,7 +33,8 @@ namespace Reminder_desktop_application
                     mailUserName = "",
                     fontSize = 12,
                     login = "x",
-                    password="x"
+                    password="x",
+                    secretWord = "список"
                 });
                 context.SaveChanges();
             }

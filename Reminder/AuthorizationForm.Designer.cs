@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuthorizationForm));
             this.loginTbx = new MetroFramework.Controls.MetroTextBox();
             this.passwordTbx = new MetroFramework.Controls.MetroTextBox();
             this.okBtn = new MetroFramework.Controls.MetroButton();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.loadBtn = new MetroFramework.Controls.MetroLink();
             this.SuspendLayout();
             // 
             // loginTbx
@@ -130,24 +128,11 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Пароль:";
             // 
-            // loadBtn
-            // 
-            this.loadBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.loadBtn.Image = ((System.Drawing.Image)(resources.GetObject("loadBtn.Image")));
-            this.loadBtn.ImageSize = 28;
-            this.loadBtn.Location = new System.Drawing.Point(292, 158);
-            this.loadBtn.Name = "loadBtn";
-            this.loadBtn.Size = new System.Drawing.Size(28, 28);
-            this.loadBtn.TabIndex = 10;
-            this.loadBtn.UseSelectable = true;
-            this.loadBtn.Visible = false;
-            // 
             // AuthorizationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(350, 215);
-            this.Controls.Add(this.loadBtn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.okBtn);
@@ -172,6 +157,5 @@
         private MetroFramework.Controls.MetroButton okBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private MetroFramework.Controls.MetroLink loadBtn;
     }
 }
