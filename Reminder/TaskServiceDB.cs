@@ -74,6 +74,14 @@ namespace Reminder_desktop_application
             context.SaveChanges();
         }
 
+        public void tokenToNull()
+        {
+            UserSettingsModel t = context.UserSettings.FirstOrDefault();
+            t.vkToken = null;
+            t.vkUser = null;
+            context.SaveChanges();
+        }
+
         public void editSettings(UserSettingsModel settings)
         {
             UserSettingsModel t = context.UserSettings.FirstOrDefault();

@@ -52,19 +52,19 @@ namespace Reminder_desktop_application
         //}
 
         UserSettingsModel model;
-  //      bool auth;
+        public bool result;
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            //loadBtn.Visible = true;
+            loadBtn.Visible = true;
             model = context.getUserSettings();
             WorkToVk workVk = new WorkToVk();
             
             if (!workVk.loginAuthorization(loginTbx.Text, passwordTbx.Text))
             {
-          //      loadBtn.Visible = false;
+                loadBtn.Visible = false;
                 passwordTbx.Text = null;
-
+                result = false;
                 MessageBox.Show("Авторизация не удалась. Попробуйте снова или обратитесь на сайт vk.com для восстановления данных.");
             }
             else
@@ -73,6 +73,7 @@ namespace Reminder_desktop_application
                 model.vkUser = workVk.userId.ToString();
                 context.editToken(workVk.token, workVk.userId);
                 workVk.start(workVk.token, workVk.userId, model.secretWord, context);
+                result = true;
                 this.Close();
             }
         }
