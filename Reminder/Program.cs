@@ -9,7 +9,8 @@ namespace Reminder_desktop_application
         [STAThread]
         static void Main()
         {
-            
+            string folder = Environment.UserName;
+            AppDomain.CurrentDomain.SetData("DataDirectory", @"C:\Users\"+folder);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMainAuthoriz());
