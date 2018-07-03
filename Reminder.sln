@@ -5,10 +5,9 @@ VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reminder", "Reminder\Reminder.csproj", "{D588DC54-541D-4598-AE9C-56D01931D9EB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Blocknote", "Blocknote\Blocknote.vdproj", "{02D847BB-1E28-4549-93BD-E35D21DE2EF4}"
+EndProject
 Global
-	GlobalSection(Performance) = preSolution
-		HasPerformanceSessions = true
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -18,11 +17,16 @@ Global
 		{D588DC54-541D-4598-AE9C-56D01931D9EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D588DC54-541D-4598-AE9C-56D01931D9EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D588DC54-541D-4598-AE9C-56D01931D9EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02D847BB-1E28-4549-93BD-E35D21DE2EF4}.Debug|Any CPU.ActiveCfg = Debug
+		{02D847BB-1E28-4549-93BD-E35D21DE2EF4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {414B7FCB-0944-4212-A906-789398E1A415}
+	EndGlobalSection
+	GlobalSection(Performance) = preSolution
+		HasPerformanceSessions = true
 	EndGlobalSection
 EndGlobal
