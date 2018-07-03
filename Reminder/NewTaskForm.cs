@@ -17,7 +17,7 @@ namespace Reminder_desktop_application
         private TaskModel editTask;
         public NewTaskForm(TaskControler controler)
         {
-          //  this.TopMost = true;
+            //  this.TopMost = true;
             InitializeComponent();
             taskControler = controler;
 
@@ -81,7 +81,7 @@ namespace Reminder_desktop_application
                 }
             }
             
-                   // period_duration, 
+            // period_duration, 
 
         }
 
@@ -159,7 +159,13 @@ namespace Reminder_desktop_application
                                 period_duration = period_value * 525600;
                             }
                         }
-
+                        if (remindTimeDurationType.SelectedIndex == 0)
+                        {
+                            if (period_sec > period_duration)
+                            {
+                                MessageBox.Show("Период повторений не может быть больше периода продолжительности напоминаний");
+                            }
+                        }
                         //Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
                         //    true,  period_sec,
                         //    period_duration,0, this.taskControler.serviceDB);
@@ -236,7 +242,13 @@ namespace Reminder_desktop_application
                                 period_duration = period_value * 525600;
                             }
                         }
-
+                        if (remindTimeDurationType.SelectedIndex == 0)
+                        {
+                            if (period_sec> period_duration)
+                            {
+                                MessageBox.Show("Период повторений не может быть больше периода продолжительности напоминаний");
+                            }
+                        }
                         editTask.text = remindTextTbx.Text;
                         editTask.next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay);
                         editTask.remind_flag = true;
@@ -250,14 +262,14 @@ namespace Reminder_desktop_application
 
                     }
                 }
-
-
+                
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Текст заметки не может быть пустым");
             }
+            
         }
 
         public static DateTime GetDateZeroTime(DateTime date)
@@ -339,9 +351,12 @@ namespace Reminder_desktop_application
 
         private void remindTimePeriodType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            remindTimeDurationType.Items.Clear();
             if (remindTimePeriodType.SelectedIndex == 0)
             {
                 remindPeriodTbx.MaxLength = 8;
+                object[] d = { "минут", "часов", "дней", "лет"};
+                remindTimeDurationType.Items.AddRange(d);
             }
             else if (remindTimePeriodType.SelectedIndex == 1)
             {
@@ -350,6 +365,8 @@ namespace Reminder_desktop_application
                 {
                     remindPeriodTbx.Text = remindPeriodTbx.Text.Substring(remindPeriodTbx.Text.Length-6);
                 }
+                object[] d = { "часов", "дней", "лет" };
+                remindTimeDurationType.Items.AddRange(d);
             }
             else if (remindTimePeriodType.SelectedIndex == 2)
             {
@@ -358,6 +375,8 @@ namespace Reminder_desktop_application
                 {
                     remindPeriodTbx.Text = remindPeriodTbx.Text.Substring(remindPeriodTbx.Text.Length - 5);
                 }
+                object[] d = { "дней", "лет" };
+                remindTimeDurationType.Items.AddRange(d);
             }
             else if (remindTimePeriodType.SelectedIndex == 3)
             {
@@ -366,8 +385,9 @@ namespace Reminder_desktop_application
                 {
                     remindPeriodTbx.Text = remindPeriodTbx.Text.Substring(remindPeriodTbx.Text.Length - 2);
                 }
+                object[] d = { "лет" };
+                remindTimeDurationType.Items.AddRange(d);
             }
-            
         }
 
         private void remindTimeDurationType_SelectedIndexChanged(object sender, EventArgs e)
