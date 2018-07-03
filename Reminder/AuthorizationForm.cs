@@ -19,7 +19,7 @@ namespace Reminder_desktop_application
         TaskServiceDB context;
         public AuthorizationForm(TaskServiceDB context)
         {
-            this.TopMost = true;
+           // this.TopMost = true;
             this.Text = "Авторизация VK";
             this.context = context;
             InitializeComponent();

@@ -19,7 +19,7 @@ namespace Reminder_desktop_application
 
         public SettingsForm(TaskServiceDB context)
         {
-            this.TopMost = true;
+         //   this.TopMost = true;
             this.context = context;
             UserSettingsModel m = context.getUserSettings();
             InitializeComponent();

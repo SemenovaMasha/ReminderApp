@@ -18,7 +18,7 @@ namespace Reminder_desktop_application
         TaskControler controler;
         public StatisticsForm(TaskControler controler)
         {
-            this.TopMost = true;
+          //  this.TopMost = true;
             this.controler = controler;
             InitializeComponent();
 

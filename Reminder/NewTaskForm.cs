@@ -17,7 +17,7 @@ namespace Reminder_desktop_application
         private TaskModel editTask;
         public NewTaskForm(TaskControler controler)
         {
-            this.TopMost = true;
+          //  this.TopMost = true;
             InitializeComponent();
             taskControler = controler;
 

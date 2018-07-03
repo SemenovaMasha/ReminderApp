@@ -19,7 +19,7 @@ namespace Reminder_desktop_application
 
         public FormMainAuthoriz()
         {
-            this.TopMost = true;
+          //  this.TopMost = true;
             this.Text = "Авторизация";
             InitializeComponent();
 
@@ -53,7 +53,6 @@ namespace Reminder_desktop_application
                 IsEdit = false;
                 return false;
             }
-
         }
 
         public void autoriz(string login, string password)

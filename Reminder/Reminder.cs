@@ -22,7 +22,7 @@ namespace Reminder_desktop_application
         
         public Reminder()
         {
-            this.TopMost = true;
+           // this.TopMost = true;
             InitializeComponent();
 
              //this.Hide();
