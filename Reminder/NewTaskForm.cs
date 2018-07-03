@@ -113,6 +113,16 @@ namespace Reminder_desktop_application
                         int period_duration = -1;
                         if (remindRepeatCkb.Checked)
                         {
+                            try
+                            {
+                                Convert.ToInt32(remindPeriodTbx.Text);
+                                Convert.ToInt32(remindDurationTbx.Text);
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Введите целые числа");
+                                return;
+                            }
                             int period_value = Convert.ToInt32(remindPeriodTbx.Text);
                             if (remindTimePeriodType.SelectedIndex == 0)
                             {
@@ -299,7 +309,6 @@ namespace Reminder_desktop_application
                 remindDurationTbx.Visible = false;
                 remindTimeDurationType.Visible = false;
                 metroLabel4.Visible = false;
-                //для metroLabel4 норм цвет подобрать
             }
             else
             {
@@ -317,7 +326,7 @@ namespace Reminder_desktop_application
 
         private void remindTextTbx_KeyUp(object sender, KeyEventArgs e)
         {
-            if (remindTextTbx.Text.Length < 1)
+            if (remindTextTbx.Text.Trim().Length < 1)
             {
                 saveLink.Visible = false;
             }
@@ -326,6 +335,72 @@ namespace Reminder_desktop_application
                 saveLink.Visible = true;
             }
 
+        }
+
+        private void remindTimePeriodType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (remindTimePeriodType.SelectedIndex == 0)
+            {
+                remindPeriodTbx.MaxLength = 8;
+            }
+            else if (remindTimePeriodType.SelectedIndex == 1)
+            {
+                remindPeriodTbx.MaxLength = 6;
+                if (remindPeriodTbx.Text.Length > 6)
+                {
+                    remindPeriodTbx.Text = remindPeriodTbx.Text.Substring(remindPeriodTbx.Text.Length-6);
+                }
+            }
+            else if (remindTimePeriodType.SelectedIndex == 2)
+            {
+                remindPeriodTbx.MaxLength = 5;
+                if (remindPeriodTbx.Text.Length > 5)
+                {
+                    remindPeriodTbx.Text = remindPeriodTbx.Text.Substring(remindPeriodTbx.Text.Length - 5);
+                }
+            }
+            else if (remindTimePeriodType.SelectedIndex == 3)
+            {
+                remindPeriodTbx.MaxLength = 2;
+                if (remindPeriodTbx.Text.Length > 2)
+                {
+                    remindPeriodTbx.Text = remindPeriodTbx.Text.Substring(remindPeriodTbx.Text.Length - 2);
+                }
+            }
+            
+        }
+
+        private void remindTimeDurationType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (remindTimeDurationType.SelectedIndex == 0)
+            {
+                remindDurationTbx.MaxLength = 8;
+            }
+            else if (remindTimeDurationType.SelectedIndex == 1)
+            {
+                remindDurationTbx.MaxLength = 6;
+                if (remindDurationTbx.Text.Length > 6)
+                {
+                    remindDurationTbx.Text = remindDurationTbx.Text.Substring(remindDurationTbx.Text.Length - 6);
+                }
+            }
+            else if (remindTimeDurationType.SelectedIndex == 2)
+            {
+                remindDurationTbx.MaxLength = 5;
+                if (remindDurationTbx.Text.Length > 5)
+                {
+                    remindDurationTbx.Text = remindDurationTbx.Text.Substring(remindDurationTbx.Text.Length - 5);
+                }
+            }
+            else if (remindTimeDurationType.SelectedIndex == 3)
+            {
+                remindDurationTbx.MaxLength = 2;
+                if (remindDurationTbx.Text.Length > 2)
+                {
+                    remindDurationTbx.Text = remindDurationTbx.Text.Substring(remindDurationTbx.Text.Length - 2);
+                }
+            }
         }
     }
 }

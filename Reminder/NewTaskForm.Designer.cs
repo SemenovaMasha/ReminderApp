@@ -102,6 +102,7 @@
             this.remindTimeDurationType.Name = "remindTimeDurationType";
             this.remindTimeDurationType.Size = new System.Drawing.Size(107, 21);
             this.remindTimeDurationType.TabIndex = 30;
+            this.remindTimeDurationType.SelectedIndexChanged += new System.EventHandler(this.remindTimeDurationType_SelectedIndexChanged);
             // 
             // remindDurationTbx
             // 
@@ -126,6 +127,7 @@
             this.remindTimePeriodType.Name = "remindTimePeriodType";
             this.remindTimePeriodType.Size = new System.Drawing.Size(107, 21);
             this.remindTimePeriodType.TabIndex = 28;
+            this.remindTimePeriodType.SelectedIndexChanged += new System.EventHandler(this.remindTimePeriodType_SelectedIndexChanged);
             // 
             // remindPeriodTbx
             // 
