@@ -59,29 +59,33 @@ namespace Reminder_desktop_application
                     {
                         remindTimePeriodType.SelectedIndex = 3;
                         remindPeriodTbx.Text = editTask.period_min / 525600 + "";
+                        remindTimeDurationType.SelectedIndex = 0;
+                        remindDurationTbx.Text = editTask.duration_min / 525600 + "";
                     }
                     else if (editTask.period_min % 1440 == 0)
                     {
                         remindTimePeriodType.SelectedIndex = 2;
                         remindPeriodTbx.Text = editTask.period_min / 1440 + "";
+                        remindTimeDurationType.SelectedIndex = 0;
+                        remindDurationTbx.Text = editTask.duration_min / 1440 + "";
                     }
                     else if (editTask.period_min % 60 == 0)
                     {
                         remindTimePeriodType.SelectedIndex = 1;
                         remindPeriodTbx.Text = editTask.period_min / 60 + "";
+                        remindTimeDurationType.SelectedIndex = 0;
+                        remindDurationTbx.Text = editTask.duration_min / 60 + "";
                     }
                     else 
                     {
                         remindTimePeriodType.SelectedIndex = 0;
                         remindPeriodTbx.Text = editTask.period_min + "";
+                        remindTimeDurationType.SelectedIndex = 0;
+                        remindDurationTbx.Text = editTask.duration_min + "";
                     }
-                    remindTimeDurationType.SelectedIndex = 0;
-                    remindDurationTbx.Text = editTask.duration_min + "";
-
+                    
                 }
             }
-            
-            // period_duration, 
 
         }
 
@@ -124,39 +128,62 @@ namespace Reminder_desktop_application
                                 return;
                             }
                             int period_value = Convert.ToInt32(remindPeriodTbx.Text);
+                            int duration_value = Convert.ToInt32(remindDurationTbx.Text);
                             if (remindTimePeriodType.SelectedIndex == 0)
                             {
                                 period_sec = period_value;
+                                if (remindTimeDurationType.SelectedIndex == 0)
+                                {
+                                    period_duration = duration_value;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 1)
+                                {
+                                    period_duration = duration_value * 60;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 2)
+                                {
+                                    period_duration = duration_value * 1440;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 3)
+                                {
+                                    period_duration = duration_value * 525600;
+                                }
                             }
                             else if (remindTimePeriodType.SelectedIndex == 1)
                             {
                                 period_sec = period_value * 60;
+                                if (remindTimeDurationType.SelectedIndex == 0)
+                                {
+                                    period_duration = duration_value * 60;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 1)
+                                {
+                                    period_duration = duration_value * 1440;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 2)
+                                {
+                                    period_duration = duration_value * 525600;
+                                }
                             }
                             else if (remindTimePeriodType.SelectedIndex == 2)
                             {
                                 period_sec = period_value * 1440;
+                                if (remindTimeDurationType.SelectedIndex == 0)
+                                {
+                                    period_duration = duration_value * 1440;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 1)
+                                {
+                                    period_duration = duration_value * 525600;
+                                }
                             }
                             else if (remindTimePeriodType.SelectedIndex == 3)
                             {
                                 period_sec = period_value * 525600;
-                            }
-
-                            period_value = Convert.ToInt32(remindDurationTbx.Text);
-                            if (remindTimeDurationType.SelectedIndex == 0)
-                            {
-                                period_duration = period_value;
-                            }
-                            else if (remindTimeDurationType.SelectedIndex == 1)
-                            {
-                                period_duration = period_value * 60;
-                            }
-                            else if (remindTimeDurationType.SelectedIndex == 2)
-                            {
-                                period_duration = period_value * 1440;
-                            }
-                            else if (remindTimeDurationType.SelectedIndex == 3)
-                            {
-                                period_duration = period_value * 525600;
+                                if (remindTimeDurationType.SelectedIndex == 0)
+                                {
+                                    period_duration = duration_value * 525600;
+                                }
                             }
                         }
                         if (remindTimeDurationType.SelectedIndex == 0)
@@ -207,40 +234,65 @@ namespace Reminder_desktop_application
                         if (remindRepeatCkb.Checked)
                         {
                             int period_value = Convert.ToInt32(remindPeriodTbx.Text);
+                            int duration_value = Convert.ToInt32(remindDurationTbx.Text);
                             if (remindTimePeriodType.SelectedIndex == 0)
                             {
                                 period_sec = period_value;
+                                if (remindTimeDurationType.SelectedIndex == 0)
+                                {
+                                    period_duration = duration_value;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 1)
+                                {
+                                    period_duration = duration_value * 60;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 2)
+                                {
+                                    period_duration = duration_value * 1440;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 3)
+                                {
+                                    period_duration = duration_value * 525600;
+                                }
                             }
                             else if (remindTimePeriodType.SelectedIndex == 1)
                             {
                                 period_sec = period_value * 60;
+                                if (remindTimeDurationType.SelectedIndex == 0)
+                                {
+                                    period_duration = duration_value * 60;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 1)
+                                {
+                                    period_duration = duration_value * 1440;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 2)
+                                {
+                                    period_duration = duration_value * 525600;
+                                }
                             }
                             else if (remindTimePeriodType.SelectedIndex == 2)
                             {
                                 period_sec = period_value * 1440;
+                                if (remindTimeDurationType.SelectedIndex == 0)
+                                {
+                                    period_duration = duration_value * 1440;
+                                }
+                                else if (remindTimeDurationType.SelectedIndex == 1)
+                                {
+                                    period_duration = duration_value * 525600;
+                                }
                             }
                             else if (remindTimePeriodType.SelectedIndex == 3)
                             {
                                 period_sec = period_value * 525600;
+                                if (remindTimeDurationType.SelectedIndex == 0)
+                                {
+                                    period_duration = duration_value * 525600;
+                                }
                             }
 
-                            period_value = Convert.ToInt32(remindDurationTbx.Text);
-                            if (remindTimeDurationType.SelectedIndex == 0)
-                            {
-                                period_duration = period_value;
-                            }
-                            else if (remindTimeDurationType.SelectedIndex == 1)
-                            {
-                                period_duration = period_value * 60;
-                            }
-                            else if (remindTimeDurationType.SelectedIndex == 2)
-                            {
-                                period_duration = period_value * 1440;
-                            }
-                            else if (remindTimeDurationType.SelectedIndex == 3)
-                            {
-                                period_duration = period_value * 525600;
-                            }
+                            
                         }
                         if (remindTimeDurationType.SelectedIndex == 0)
                         {
@@ -357,6 +409,7 @@ namespace Reminder_desktop_application
                 remindPeriodTbx.MaxLength = 8;
                 object[] d = { "минут", "часов", "дней", "лет"};
                 remindTimeDurationType.Items.AddRange(d);
+                remindTimeDurationType.SelectedIndex=0;
             }
             else if (remindTimePeriodType.SelectedIndex == 1)
             {
@@ -367,6 +420,7 @@ namespace Reminder_desktop_application
                 }
                 object[] d = { "часов", "дней", "лет" };
                 remindTimeDurationType.Items.AddRange(d);
+                remindTimeDurationType.SelectedIndex = 0;
             }
             else if (remindTimePeriodType.SelectedIndex == 2)
             {
@@ -377,6 +431,7 @@ namespace Reminder_desktop_application
                 }
                 object[] d = { "дней", "лет" };
                 remindTimeDurationType.Items.AddRange(d);
+                remindTimeDurationType.SelectedIndex = 0;
             }
             else if (remindTimePeriodType.SelectedIndex == 3)
             {
@@ -387,6 +442,7 @@ namespace Reminder_desktop_application
                 }
                 object[] d = { "лет" };
                 remindTimeDurationType.Items.AddRange(d);
+                remindTimeDurationType.SelectedIndex = 0;
             }
         }
 
