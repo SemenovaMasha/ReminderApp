@@ -310,5 +310,22 @@ namespace Reminder_desktop_application
                 metroLabel4.Visible = true;
             }
         }
+
+        private void remindTextTbx_KeyPress(object sender, KeyPressEventArgs e)
+        {
+        }
+
+        private void remindTextTbx_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (remindTextTbx.Text.Length < 1)
+            {
+                saveLink.Visible = false;
+            }
+            else
+            {
+                saveLink.Visible = true;
+            }
+
+        }
     }
 }
