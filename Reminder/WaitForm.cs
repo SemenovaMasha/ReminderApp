@@ -14,6 +14,7 @@ namespace Reminder
     {
         public WaitForm()
         {
+            this.TopMost = true;
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.AllowTransparency = true;

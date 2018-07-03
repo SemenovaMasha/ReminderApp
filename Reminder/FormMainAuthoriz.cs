@@ -19,6 +19,7 @@ namespace Reminder_desktop_application
 
         public FormMainAuthoriz()
         {
+            this.TopMost = true;
             this.Text = "Авторизация";
             InitializeComponent();
 

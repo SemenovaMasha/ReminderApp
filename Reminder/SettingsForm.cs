@@ -19,6 +19,7 @@ namespace Reminder_desktop_application
 
         public SettingsForm(TaskServiceDB context)
         {
+            this.TopMost = true;
             this.context = context;
             UserSettingsModel m = context.getUserSettings();
             InitializeComponent();
@@ -104,6 +105,14 @@ namespace Reminder_desktop_application
         private void cancelLink_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void SettingsForm_Load(object sender, EventArgs e)
+        {
+            ToolTip t = new ToolTip();
+            t.SetToolTip(mailLoginTbx, "На этот адрес будут приходить уведомления");
+            t.SetToolTip(keyWordTbx, "Ключевое слово для доступа в вашим напоминаниям через ВК");
+            t.SetToolTip(fontSizeBx, "Размер шрифта заметок/напоминаний");
         }
     }
 }

@@ -19,6 +19,7 @@ namespace Reminder_desktop_application
 
         public TaskNotification(TaskModel tasktonotify)
         {
+            this.TopMost = true;
             InitializeComponent();
             taskToNotify = tasktonotify;
             LoadTask();

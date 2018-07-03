@@ -272,6 +272,7 @@
             this.Name = "SettingsForm";
             this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Настройки";
+            this.Load += new System.EventHandler(this.SettingsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeBx)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

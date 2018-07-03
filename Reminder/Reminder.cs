@@ -22,7 +22,7 @@ namespace Reminder_desktop_application
         
         public Reminder()
         {
-            
+            this.TopMost = true;
             InitializeComponent();
 
              //this.Hide();
@@ -250,6 +250,7 @@ namespace Reminder_desktop_application
             }
             else
             {
+                pleaseWait.Close();
                 MessageBox.Show("Выберете заметку для удаления", null, MessageBoxButtons.OK);
             }
         }
