@@ -42,9 +42,9 @@
             // 
             // 
             this.loginTbx.CustomButton.Image = null;
-            this.loginTbx.CustomButton.Location = new System.Drawing.Point(94, 1);
+            this.loginTbx.CustomButton.Location = new System.Drawing.Point(126, 1);
             this.loginTbx.CustomButton.Name = "";
-            this.loginTbx.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.loginTbx.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.loginTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.loginTbx.CustomButton.TabIndex = 1;
             this.loginTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -72,9 +72,9 @@
             // 
             // 
             this.passwordTbx.CustomButton.Image = null;
-            this.passwordTbx.CustomButton.Location = new System.Drawing.Point(94, 1);
+            this.passwordTbx.CustomButton.Location = new System.Drawing.Point(126, 1);
             this.passwordTbx.CustomButton.Name = "";
-            this.passwordTbx.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.passwordTbx.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.passwordTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.passwordTbx.CustomButton.TabIndex = 1;
             this.passwordTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -95,6 +95,7 @@
             this.passwordTbx.UseSelectable = true;
             this.passwordTbx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.passwordTbx.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.passwordTbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.passwordTbx_KeyUp);
             // 
             // okBtn
             // 

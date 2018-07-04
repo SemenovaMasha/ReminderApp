@@ -77,6 +77,7 @@
             this.passwordTbx.UseSelectable = true;
             this.passwordTbx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.passwordTbx.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.passwordTbx.KeyUp += new System.Windows.Forms.KeyEventHandler(this.passwordTbx_KeyUp);
             // 
             // loginTbx
             // 

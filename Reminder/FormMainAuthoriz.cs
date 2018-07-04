@@ -253,5 +253,11 @@ namespace Reminder_desktop_application
             }
 
         }
+
+        private void passwordTbx_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                okBtn_Click(null, null);
+        }
     }
 }

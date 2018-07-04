@@ -73,7 +73,7 @@ namespace Reminder_desktop_application
             Reminder_ResizeEnd(null, null);
 
             //taskControler.TaskAppeared += SubscribeForNotification;
-            PrintDayTasks(DateTime.Now.ToShortDateString());
+            PrintDayTasks();
 
             taskControler.Add(taskControler.getDailyTasks(DateTime.Now));
             
@@ -115,17 +115,22 @@ namespace Reminder_desktop_application
             this.Show();
             this.WindowState = FormWindowState.Normal;
         }
-        
-        private void PrintDayTasks(string date)
+
+        private void PrintDayTasks()
+        {
+            PrintDayTasks(datePicker.Value);
+        }
+
+        private void PrintDayTasks(DateTime date)
         {
             notesDataGrid.Columns.Clear();
-            
-            DateTime myDate = DateTime.ParseExact(date, "dd.MM.yyyy",
-                                       System.Globalization.CultureInfo.InvariantCulture);
+
+            //DateTime myDate = DateTime.ParseExact(date, "dd.MM.yyyy",
+            //                           System.Globalization.CultureInfo.InvariantCulture);
 
             notesDataGrid.AutoGenerateColumns = false;
-            var tmp = taskControler.getDailyTasks(myDate);
-            notesDataGrid.DataSource = taskControler.getDailyTasks(myDate);
+            var tmp = taskControler.getDailyTasks(date);
+            notesDataGrid.DataSource = taskControler.getDailyTasks(date);
             this.notesDataGrid.DataError +=
         new DataGridViewDataErrorEventHandler(notesDataGrid_DataError);
 
@@ -134,7 +139,7 @@ namespace Reminder_desktop_application
             column1.HeaderText = "Текст";
             column1.DataPropertyName = "displayText";
             column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            column1.FillWeight = 60;
+            column1.FillWeight = 50;
             column1.ReadOnly = true;
             column1.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
             notesDataGrid.Columns.Add(column1);
@@ -153,17 +158,17 @@ namespace Reminder_desktop_application
             column3.HeaderText = "Цена";
             column3.DataPropertyName = "price";
             column3.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            column3.FillWeight = 15;
+            column3.FillWeight = 25;
             notesDataGrid.Columns.Add(column3);
 
-            sumLbl.Text = "Итоговая сумма: " + taskControler.getDailySum(myDate);
+            sumLbl.Text = "Итоговая сумма: " + taskControler.getDailySum(datePicker.Value) + "р.";
 
         }
-        
+
 
         private void reminderDateTime_ValueChanged(object sender, EventArgs e)
         {
-            PrintDayTasks(datePicker.Value.ToShortDateString());
+            PrintDayTasks();
         }
 
         private void reminderTasksView_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -172,7 +177,7 @@ namespace Reminder_desktop_application
 
         private void notificationForm_FormClosing(object sender, EventArgs e)
         {
-            PrintDayTasks(datePicker.Value.ToShortDateString());
+            PrintDayTasks();
         }
         private void reminderDateTime_Enter(object sender, EventArgs e)
         {
@@ -194,14 +199,14 @@ namespace Reminder_desktop_application
             form.ShowDialog();
 
             this.Activate();
-            PrintDayTasks(datePicker.Value.ToShortDateString());
+            PrintDayTasks();
 
-         //   int j = 0;
+            //   int j = 0;
         }
 
         private void reminderDateTime_ValueChanged_1(object sender, EventArgs e)
         {
-            PrintDayTasks(datePicker.Value.ToShortDateString());
+            PrintDayTasks();
         }
 
         private void prevDayBtn_Click(object sender, EventArgs e)
@@ -221,7 +226,7 @@ namespace Reminder_desktop_application
                 NewTaskForm form = new NewTaskForm(taskControler, ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index]);
                 form.ShowDialog();
 
-                PrintDayTasks(datePicker.Value.ToShortDateString());
+                PrintDayTasks();
             }
         }
 
@@ -241,7 +246,7 @@ namespace Reminder_desktop_application
                     {
                         TaskModel temp = ((List<TaskModel>)notesDataGrid.DataSource)[notesDataGrid.SelectedRows[0].Index];
                         taskControler.Remove(temp);
-                        PrintDayTasks(datePicker.Value.ToShortDateString());
+                        PrintDayTasks();
                     }
                     catch (RemoveTaskException exp)
                     {
@@ -264,7 +269,7 @@ namespace Reminder_desktop_application
             if(Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString())> Math.Pow(10, 12))
             {
                 ((List<TaskModel>)notesDataGrid.DataSource)[e.RowIndex].price = 0;
-                MessageBox.Show("Слишком большое число");
+                MessageBox.Show("Слишком большое число (максимум 12 цифр)");
                 return;
             }
 
@@ -275,14 +280,14 @@ namespace Reminder_desktop_application
 
                 taskControler.Edit(temp);
 
-                sumLbl.Text = "Итоговая сумма: " + taskControler.getDailySum(datePicker.Value);
+                sumLbl.Text = "Итоговая сумма: " + taskControler.getDailySum(datePicker.Value)+"р.";
             }
             catch(NullReferenceException)
             {
                 temp.price = 0;
                 taskControler.Edit(temp);
 
-                sumLbl.Text = "Итоговая сумма: " + taskControler.getDailySum(datePicker.Value);
+                sumLbl.Text = "Итоговая сумма: " + taskControler.getDailySum(datePicker.Value) + "р.";
             }
             catch (Exception)
             {

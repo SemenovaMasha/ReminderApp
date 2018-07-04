@@ -132,7 +132,7 @@ namespace Reminder_desktop_application
             this.notesDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.notesDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.notesDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.notesDataGrid.Size = new System.Drawing.Size(473, 304);
+            this.notesDataGrid.Size = new System.Drawing.Size(476, 330);
             this.notesDataGrid.TabIndex = 8;
             this.notesDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.notesDataGrid_CellDoubleClick);
             this.notesDataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.notesDataGrid_CellEndEdit);
@@ -140,8 +140,7 @@ namespace Reminder_desktop_application
             // 
             // datePicker
             // 
-            this.datePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.datePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.datePicker.Location = new System.Drawing.Point(179, 28);
             this.datePicker.MinimumSize = new System.Drawing.Size(0, 29);
             this.datePicker.Name = "datePicker";
@@ -155,7 +154,7 @@ namespace Reminder_desktop_application
             this.settingsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.settingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingsBtn.Image")));
             this.settingsBtn.ImageSize = 28;
-            this.settingsBtn.Location = new System.Drawing.Point(442, 26);
+            this.settingsBtn.Location = new System.Drawing.Point(445, 26);
             this.settingsBtn.Name = "settingsBtn";
             this.settingsBtn.Size = new System.Drawing.Size(28, 28);
             this.settingsBtn.TabIndex = 9;
@@ -167,7 +166,7 @@ namespace Reminder_desktop_application
             this.deleteBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.deleteBtn.Image = ((System.Drawing.Image)(resources.GetObject("deleteBtn.Image")));
             this.deleteBtn.ImageSize = 28;
-            this.deleteBtn.Location = new System.Drawing.Point(408, 26);
+            this.deleteBtn.Location = new System.Drawing.Point(411, 26);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(28, 28);
             this.deleteBtn.TabIndex = 10;
@@ -179,7 +178,7 @@ namespace Reminder_desktop_application
             this.addBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addBtn.Image = ((System.Drawing.Image)(resources.GetObject("addBtn.Image")));
             this.addBtn.ImageSize = 28;
-            this.addBtn.Location = new System.Drawing.Point(374, 26);
+            this.addBtn.Location = new System.Drawing.Point(377, 26);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(28, 28);
             this.addBtn.TabIndex = 11;
@@ -188,7 +187,6 @@ namespace Reminder_desktop_application
             // 
             // nextDayBtn
             // 
-            this.nextDayBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nextDayBtn.Image = ((System.Drawing.Image)(resources.GetObject("nextDayBtn.Image")));
             this.nextDayBtn.ImageSize = 28;
             this.nextDayBtn.Location = new System.Drawing.Point(328, 28);
@@ -214,7 +212,7 @@ namespace Reminder_desktop_application
             this.statsBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.statsBtn.Image = ((System.Drawing.Image)(resources.GetObject("statsBtn.Image")));
             this.statsBtn.ImageSize = 28;
-            this.statsBtn.Location = new System.Drawing.Point(476, 26);
+            this.statsBtn.Location = new System.Drawing.Point(479, 26);
             this.statsBtn.Name = "statsBtn";
             this.statsBtn.Size = new System.Drawing.Size(28, 28);
             this.statsBtn.TabIndex = 14;
@@ -223,10 +221,10 @@ namespace Reminder_desktop_application
             // 
             // sumLbl
             // 
-            this.sumLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.sumLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.sumLbl.AutoSize = true;
             this.sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.sumLbl.Location = new System.Drawing.Point(23, 382);
+            this.sumLbl.Location = new System.Drawing.Point(23, 408);
             this.sumLbl.Name = "sumLbl";
             this.sumLbl.Size = new System.Drawing.Size(155, 25);
             this.sumLbl.TabIndex = 15;
@@ -239,7 +237,7 @@ namespace Reminder_desktop_application
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
-            this.ClientSize = new System.Drawing.Size(519, 419);
+            this.ClientSize = new System.Drawing.Size(522, 445);
             this.Controls.Add(this.sumLbl);
             this.Controls.Add(this.statsBtn);
             this.Controls.Add(this.prevDayBtn);
