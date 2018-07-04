@@ -337,5 +337,10 @@ namespace Reminder_desktop_application
             t.SetToolTip(prevDayBtn, "Назад");
             t.SetToolTip(nextDayBtn, "Вперед");
         }
+
+        private void notesDataGrid_KeyUp(object sender, KeyEventArgs e)
+        {
+            deleteBtn_Click(null, null);
+        }
     }
 }
