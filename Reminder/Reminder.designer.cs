@@ -86,6 +86,7 @@ namespace Reminder_desktop_application
             // 
             this.notesDataGrid.AllowUserToAddRows = false;
             this.notesDataGrid.AllowUserToDeleteRows = false;
+            this.notesDataGrid.AllowUserToResizeColumns = false;
             this.notesDataGrid.AllowUserToResizeRows = false;
             this.notesDataGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 

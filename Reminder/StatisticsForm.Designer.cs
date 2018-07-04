@@ -62,6 +62,7 @@
             // 
             this.statsGrid.AllowUserToAddRows = false;
             this.statsGrid.AllowUserToDeleteRows = false;
+            this.statsGrid.AllowUserToResizeColumns = false;
             this.statsGrid.AllowUserToResizeRows = false;
             this.statsGrid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
