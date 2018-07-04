@@ -140,7 +140,7 @@ namespace Reminder_desktop_application
                     )
                 {
 
-                    if (CurrentMessage.Body.ToLower().Equals(keyWord + "#"))
+                    if (CurrentMessage.Body.ToLower().Equals(keyWord.ToLower() + "#"))
                     {
 
                         var list = service.getDailyTasks(DateTime.Now);
