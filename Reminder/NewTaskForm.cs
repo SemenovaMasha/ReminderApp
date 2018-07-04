@@ -27,7 +27,7 @@ namespace Reminder_desktop_application
 
             int fontSize = taskControler.getFontSize();
             if (fontSize >= 15)
-                remindTextTbx.FontSize =  MetroFramework.MetroTextBoxSize.Tall;
+                remindTextTbx.FontSize = MetroFramework.MetroTextBoxSize.Tall;
             else if (fontSize > 10)
                 remindTextTbx.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             else
@@ -54,7 +54,7 @@ namespace Reminder_desktop_application
                 if (editTask.period_min > 0)
                 {
                     remindRepeatCkb.Checked = true;
-                    
+
                     if (editTask.period_min % 525600 == 0)
                     {
                         remindTimePeriodType.SelectedIndex = 3;
@@ -76,14 +76,14 @@ namespace Reminder_desktop_application
                         remindTimeDurationType.SelectedIndex = 0;
                         remindDurationTbx.Text = editTask.duration_min / 60 + "";
                     }
-                    else 
+                    else
                     {
                         remindTimePeriodType.SelectedIndex = 0;
                         remindPeriodTbx.Text = editTask.period_min + "";
                         remindTimeDurationType.SelectedIndex = 0;
                         remindDurationTbx.Text = editTask.duration_min + "";
                     }
-                    
+
                 }
             }
 
@@ -191,30 +191,26 @@ namespace Reminder_desktop_application
                             if (period_sec > period_duration)
                             {
                                 MessageBox.Show("Период повторений не может быть больше периода продолжительности напоминаний");
-                                
-                            }
-                            else
-                            {
-                                //Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
-                                //    true,  period_sec,
-                                //    period_duration,0, this.taskControler.serviceDB);
-
-                                TaskModel task = new TaskModel
-                                {
-                                    text = remindTextTbx.Text,
-                                    next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
-                                    remind_flag = true,
-                                    period_min = period_sec,
-                                    duration_min = period_duration,
-                                    price = 0
-                                };
-                                task.generateJobKey();
-
-                                taskControler.Add(task);
-                                this.Close();
+                                return;
                             }
                         }
-                       
+                        //Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
+                        //    true,  period_sec,
+                        //    period_duration,0, this.taskControler.serviceDB);
+
+                        TaskModel task = new TaskModel
+                        {
+                            text = remindTextTbx.Text,
+                            next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
+                            remind_flag = true,
+                            period_min = period_sec,
+                            duration_min = period_duration,
+                            price = 0
+                        };
+                        task.generateJobKey();
+
+                        taskControler.Add(task);
+
                     }
                 }
                 else
@@ -297,42 +293,37 @@ namespace Reminder_desktop_application
                                 }
                             }
 
-                            
+
                         }
                         if (remindTimeDurationType.SelectedIndex == 0)
                         {
-                            if (period_sec> period_duration)
+                            if (period_sec > period_duration)
                             {
                                 MessageBox.Show("Период повторений не может быть больше периода продолжительности напоминаний");
-                               
-                            }
-                            else
-                            {
-                                editTask.text = remindTextTbx.Text;
-                                editTask.next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay);
-                                editTask.remind_flag = true;
-                                editTask.period_min = period_sec;
-                                editTask.duration_min = period_duration;
-
-                                taskControler.Controler.Remove(editTask);
-                                taskControler.Controler.Add(editTask);
-
-                                taskControler.Edit(editTask);
-                                this.Close();
+                                return;
                             }
                         }
-                        
+                        editTask.text = remindTextTbx.Text;
+                        editTask.next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay);
+                        editTask.remind_flag = true;
+                        editTask.period_min = period_sec;
+                        editTask.duration_min = period_duration;
+
+                        taskControler.Controler.Remove(editTask);
+                        taskControler.Controler.Add(editTask);
+
+                        taskControler.Edit(editTask);
 
                     }
                 }
-                
+
                 this.Close();
             }
             else
             {
                 MessageBox.Show("Текст заметки не может быть пустым");
             }
-            
+
         }
 
         public static DateTime GetDateZeroTime(DateTime date)
@@ -342,7 +333,7 @@ namespace Reminder_desktop_application
 
         public static DateTime GetTimeZeroSeconds(DateTime date)
         {
-            return new DateTime(date.Year, date.Month, date.Day, date.Hour,date.Minute,0);
+            return new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, 0);
         }
 
         private void cancelLink_Click(object sender, EventArgs e)
@@ -418,16 +409,16 @@ namespace Reminder_desktop_application
             if (remindTimePeriodType.SelectedIndex == 0)
             {
                 remindPeriodTbx.MaxLength = 8;
-                object[] d = { "минут", "часов", "дней", "лет"};
+                object[] d = { "минут", "часов", "дней", "лет" };
                 remindTimeDurationType.Items.AddRange(d);
-                remindTimeDurationType.SelectedIndex=0;
+                remindTimeDurationType.SelectedIndex = 0;
             }
             else if (remindTimePeriodType.SelectedIndex == 1)
             {
                 remindPeriodTbx.MaxLength = 6;
                 if (remindPeriodTbx.Text.Length > 6)
                 {
-                    remindPeriodTbx.Text = remindPeriodTbx.Text.Substring(remindPeriodTbx.Text.Length-6);
+                    remindPeriodTbx.Text = remindPeriodTbx.Text.Substring(remindPeriodTbx.Text.Length - 6);
                 }
                 object[] d = { "часов", "дней", "лет" };
                 remindTimeDurationType.Items.AddRange(d);
