@@ -54,9 +54,9 @@
             // 
             // 
             this.passwordTbx.CustomButton.Image = null;
-            this.passwordTbx.CustomButton.Location = new System.Drawing.Point(103, 1);
+            this.passwordTbx.CustomButton.Location = new System.Drawing.Point(137, 1);
             this.passwordTbx.CustomButton.Name = "";
-            this.passwordTbx.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.passwordTbx.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.passwordTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.passwordTbx.CustomButton.TabIndex = 1;
             this.passwordTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -64,7 +64,7 @@
             this.passwordTbx.CustomButton.Visible = false;
             this.passwordTbx.Lines = new string[0];
             this.passwordTbx.Location = new System.Drawing.Point(105, 90);
-            this.passwordTbx.MaxLength = 32767;
+            this.passwordTbx.MaxLength = 20;
             this.passwordTbx.Name = "passwordTbx";
             this.passwordTbx.PasswordChar = '*';
             this.passwordTbx.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -84,9 +84,9 @@
             // 
             // 
             this.loginTbx.CustomButton.Image = null;
-            this.loginTbx.CustomButton.Location = new System.Drawing.Point(103, 1);
+            this.loginTbx.CustomButton.Location = new System.Drawing.Point(137, 1);
             this.loginTbx.CustomButton.Name = "";
-            this.loginTbx.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.loginTbx.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.loginTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.loginTbx.CustomButton.TabIndex = 1;
             this.loginTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -94,7 +94,7 @@
             this.loginTbx.CustomButton.Visible = false;
             this.loginTbx.Lines = new string[0];
             this.loginTbx.Location = new System.Drawing.Point(105, 62);
-            this.loginTbx.MaxLength = 32767;
+            this.loginTbx.MaxLength = 20;
             this.loginTbx.Name = "loginTbx";
             this.loginTbx.PasswordChar = '\0';
             this.loginTbx.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -162,7 +162,7 @@
             this.Controls.Add(this.passwordTbx);
             this.Controls.Add(this.loginTbx);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(349, 196);
             this.MinimumSize = new System.Drawing.Size(349, 196);
             this.Name = "FormMainAuthoriz";

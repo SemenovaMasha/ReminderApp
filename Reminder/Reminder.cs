@@ -156,7 +156,7 @@ namespace Reminder_desktop_application
             column3.FillWeight = 15;
             notesDataGrid.Columns.Add(column3);
 
-            sumLbl.Text = "Итого: "+taskControler.getDailySum(myDate);
+            sumLbl.Text = "Итоговая сумма: " + taskControler.getDailySum(myDate);
 
         }
         
@@ -275,14 +275,14 @@ namespace Reminder_desktop_application
 
                 taskControler.Edit(temp);
 
-                sumLbl.Text = "Итого: " + taskControler.getDailySum(datePicker.Value);
+                sumLbl.Text = "Итоговая сумма: " + taskControler.getDailySum(datePicker.Value);
             }
             catch(NullReferenceException)
             {
                 temp.price = 0;
                 taskControler.Edit(temp);
 
-                sumLbl.Text = "Итого: " + taskControler.getDailySum(datePicker.Value);
+                sumLbl.Text = "Итоговая сумма: " + taskControler.getDailySum(datePicker.Value);
             }
             catch (Exception)
             {

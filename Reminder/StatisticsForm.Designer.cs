@@ -180,9 +180,9 @@
             this.sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.sumLbl.Location = new System.Drawing.Point(24, 291);
             this.sumLbl.Name = "sumLbl";
-            this.sumLbl.Size = new System.Drawing.Size(76, 25);
+            this.sumLbl.Size = new System.Drawing.Size(155, 25);
             this.sumLbl.TabIndex = 17;
-            this.sumLbl.Text = "Итого: 0";
+            this.sumLbl.Text = "Итоговая сумма: 0";
             // 
             // StatisticsForm
             // 
