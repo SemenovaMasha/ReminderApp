@@ -260,7 +260,8 @@ namespace Reminder_desktop_application
 
         private void notesDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
         {
-            if(Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString())> Math.Pow(10, 20))
+            if(notesDataGrid[2, e.RowIndex].Value!=null)
+            if(Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString())> Math.Pow(10, 12))
             {
                 ((List<TaskModel>)notesDataGrid.DataSource)[e.RowIndex].price = 0;
                 MessageBox.Show("Слишком большое число");
