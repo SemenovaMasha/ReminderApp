@@ -48,10 +48,9 @@
             // mailNotificationChbx
             // 
             this.mailNotificationChbx.AutoSize = true;
-            this.mailNotificationChbx.Location = new System.Drawing.Point(32, 69);
-            this.mailNotificationChbx.Margin = new System.Windows.Forms.Padding(4);
+            this.mailNotificationChbx.Location = new System.Drawing.Point(24, 56);
             this.mailNotificationChbx.Name = "mailNotificationChbx";
-            this.mailNotificationChbx.Size = new System.Drawing.Size(152, 17);
+            this.mailNotificationChbx.Size = new System.Drawing.Size(140, 15);
             this.mailNotificationChbx.TabIndex = 0;
             this.mailNotificationChbx.Text = "Уведомлять по почте";
             this.mailNotificationChbx.UseSelectable = true;
@@ -62,18 +61,16 @@
             // 
             // 
             this.mailLoginTbx.CustomButton.Image = null;
-            this.mailLoginTbx.CustomButton.Location = new System.Drawing.Point(186, 2);
-            this.mailLoginTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.mailLoginTbx.CustomButton.Location = new System.Drawing.Point(103, 1);
             this.mailLoginTbx.CustomButton.Name = "";
-            this.mailLoginTbx.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.mailLoginTbx.CustomButton.Size = new System.Drawing.Size(16, 17);
             this.mailLoginTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mailLoginTbx.CustomButton.TabIndex = 1;
             this.mailLoginTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
             this.mailLoginTbx.CustomButton.UseSelectable = true;
             this.mailLoginTbx.CustomButton.Visible = false;
             this.mailLoginTbx.Lines = new string[0];
-            this.mailLoginTbx.Location = new System.Drawing.Point(108, 95);
-            this.mailLoginTbx.Margin = new System.Windows.Forms.Padding(4);
+            this.mailLoginTbx.Location = new System.Drawing.Point(81, 77);
             this.mailLoginTbx.MaxLength = 32767;
             this.mailLoginTbx.Name = "mailLoginTbx";
             this.mailLoginTbx.PasswordChar = '\0';
@@ -82,7 +79,7 @@
             this.mailLoginTbx.SelectionLength = 0;
             this.mailLoginTbx.SelectionStart = 0;
             this.mailLoginTbx.ShortcutsEnabled = true;
-            this.mailLoginTbx.Size = new System.Drawing.Size(212, 28);
+            this.mailLoginTbx.Size = new System.Drawing.Size(159, 23);
             this.mailLoginTbx.TabIndex = 1;
             this.mailLoginTbx.UseSelectable = true;
             this.mailLoginTbx.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
@@ -91,30 +88,27 @@
             // metroLabel1
             // 
             this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(33, 95);
-            this.metroLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel1.Location = new System.Drawing.Point(25, 77);
             this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(51, 20);
+            this.metroLabel1.Size = new System.Drawing.Size(50, 19);
             this.metroLabel1.TabIndex = 2;
             this.metroLabel1.Text = "E-mail:";
             // 
             // vkNotificationChbx
             // 
             this.vkNotificationChbx.AutoSize = true;
-            this.vkNotificationChbx.Location = new System.Drawing.Point(33, 136);
-            this.vkNotificationChbx.Margin = new System.Windows.Forms.Padding(4);
+            this.vkNotificationChbx.Location = new System.Drawing.Point(25, 110);
             this.vkNotificationChbx.Name = "vkNotificationChbx";
-            this.vkNotificationChbx.Size = new System.Drawing.Size(125, 17);
+            this.vkNotificationChbx.Size = new System.Drawing.Size(114, 15);
             this.vkNotificationChbx.TabIndex = 3;
             this.vkNotificationChbx.Text = "Уведомлять в ВК";
             this.vkNotificationChbx.UseSelectable = true;
             // 
             // connectVKBtn
             // 
-            this.connectVKBtn.Location = new System.Drawing.Point(33, 168);
-            this.connectVKBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.connectVKBtn.Location = new System.Drawing.Point(25, 136);
             this.connectVKBtn.Name = "connectVKBtn";
-            this.connectVKBtn.Size = new System.Drawing.Size(287, 34);
+            this.connectVKBtn.Size = new System.Drawing.Size(215, 28);
             this.connectVKBtn.TabIndex = 4;
             this.connectVKBtn.Text = "Подключить ВК";
             this.connectVKBtn.UseSelectable = true;
@@ -123,17 +117,15 @@
             // metroLabel2
             // 
             this.metroLabel2.AutoSize = true;
-            this.metroLabel2.Location = new System.Drawing.Point(45, 296);
-            this.metroLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel2.Location = new System.Drawing.Point(34, 240);
             this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(114, 20);
+            this.metroLabel2.Size = new System.Drawing.Size(109, 19);
             this.metroLabel2.TabIndex = 5;
             this.metroLabel2.Text = "Размер шрифта:";
             // 
             // fontSizeBx
             // 
-            this.fontSizeBx.Location = new System.Drawing.Point(199, 297);
-            this.fontSizeBx.Margin = new System.Windows.Forms.Padding(4);
+            this.fontSizeBx.Location = new System.Drawing.Point(149, 241);
             this.fontSizeBx.Maximum = new decimal(new int[] {
             18,
             0,
@@ -145,7 +137,7 @@
             0,
             0});
             this.fontSizeBx.Name = "fontSizeBx";
-            this.fontSizeBx.Size = new System.Drawing.Size(79, 22);
+            this.fontSizeBx.Size = new System.Drawing.Size(59, 20);
             this.fontSizeBx.TabIndex = 6;
             this.fontSizeBx.Value = new decimal(new int[] {
             8,
@@ -156,10 +148,9 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(92, 219);
-            this.metroLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel3.Location = new System.Drawing.Point(69, 178);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(160, 20);
+            this.metroLabel3.Size = new System.Drawing.Size(151, 19);
             this.metroLabel3.TabIndex = 9;
             this.metroLabel3.Text = "Ключевая фраза/слово";
             // 
@@ -169,10 +160,9 @@
             // 
             // 
             this.keyWordTbx.CustomButton.Image = null;
-            this.keyWordTbx.CustomButton.Location = new System.Drawing.Point(233, 2);
-            this.keyWordTbx.CustomButton.Margin = new System.Windows.Forms.Padding(4);
+            this.keyWordTbx.CustomButton.Location = new System.Drawing.Point(129, 1);
             this.keyWordTbx.CustomButton.Name = "";
-            this.keyWordTbx.CustomButton.Size = new System.Drawing.Size(23, 23);
+            this.keyWordTbx.CustomButton.Size = new System.Drawing.Size(16, 17);
             this.keyWordTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.keyWordTbx.CustomButton.TabIndex = 1;
             this.keyWordTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -180,8 +170,7 @@
             this.keyWordTbx.CustomButton.Visible = false;
             this.keyWordTbx.Lines = new string[] {
         "список"};
-            this.keyWordTbx.Location = new System.Drawing.Point(31, 251);
-            this.keyWordTbx.Margin = new System.Windows.Forms.Padding(4);
+            this.keyWordTbx.Location = new System.Drawing.Point(23, 204);
             this.keyWordTbx.MaxLength = 32767;
             this.keyWordTbx.Name = "keyWordTbx";
             this.keyWordTbx.PasswordChar = '\0';
@@ -190,7 +179,7 @@
             this.keyWordTbx.SelectionLength = 0;
             this.keyWordTbx.SelectionStart = 0;
             this.keyWordTbx.ShortcutsEnabled = true;
-            this.keyWordTbx.Size = new System.Drawing.Size(259, 28);
+            this.keyWordTbx.Size = new System.Drawing.Size(194, 23);
             this.keyWordTbx.TabIndex = 8;
             this.keyWordTbx.Text = "список";
             this.keyWordTbx.UseSelectable = true;
@@ -200,19 +189,17 @@
             // metroLabel4
             // 
             this.metroLabel4.AutoSize = true;
-            this.metroLabel4.Location = new System.Drawing.Point(291, 253);
-            this.metroLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.metroLabel4.Location = new System.Drawing.Point(218, 206);
             this.metroLabel4.Name = "metroLabel4";
-            this.metroLabel4.Size = new System.Drawing.Size(18, 20);
+            this.metroLabel4.Size = new System.Drawing.Size(17, 19);
             this.metroLabel4.TabIndex = 10;
             this.metroLabel4.Text = "#";
             // 
             // metroButton1
             // 
-            this.metroButton1.Location = new System.Drawing.Point(27, 344);
-            this.metroButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.metroButton1.Location = new System.Drawing.Point(20, 280);
             this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(287, 34);
+            this.metroButton1.Size = new System.Drawing.Size(215, 28);
             this.metroButton1.TabIndex = 11;
             this.metroButton1.Text = "Изменить данные для входа";
             this.metroButton1.UseSelectable = true;
@@ -223,10 +210,10 @@
             this.okBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.okBtn.Image = ((System.Drawing.Image)(resources.GetObject("okBtn.Image")));
             this.okBtn.ImageSize = 40;
-            this.okBtn.Location = new System.Drawing.Point(71, 384);
-            this.okBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.okBtn.Location = new System.Drawing.Point(53, 312);
+            this.okBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.okBtn.Name = "okBtn";
-            this.okBtn.Size = new System.Drawing.Size(113, 73);
+            this.okBtn.Size = new System.Drawing.Size(85, 59);
             this.okBtn.TabIndex = 13;
             this.okBtn.Text = "Сохранить";
             this.okBtn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -238,10 +225,10 @@
             this.cancelLink.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.cancelLink.Image = ((System.Drawing.Image)(resources.GetObject("cancelLink.Image")));
             this.cancelLink.ImageSize = 40;
-            this.cancelLink.Location = new System.Drawing.Point(190, 384);
-            this.cancelLink.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cancelLink.Location = new System.Drawing.Point(142, 312);
+            this.cancelLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cancelLink.Name = "cancelLink";
-            this.cancelLink.Size = new System.Drawing.Size(77, 73);
+            this.cancelLink.Size = new System.Drawing.Size(58, 59);
             this.cancelLink.TabIndex = 14;
             this.cancelLink.Text = "Отмена";
             this.cancelLink.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -250,9 +237,9 @@
             // 
             // SettingsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(357, 470);
+            this.ClientSize = new System.Drawing.Size(268, 382);
             this.Controls.Add(this.cancelLink);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.metroButton1);
@@ -266,11 +253,10 @@
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.mailLoginTbx);
             this.Controls.Add(this.mailNotificationChbx);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(357, 470);
-            this.MinimumSize = new System.Drawing.Size(357, 470);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximumSize = new System.Drawing.Size(268, 382);
+            this.MinimumSize = new System.Drawing.Size(268, 382);
             this.Name = "SettingsForm";
-            this.Padding = new System.Windows.Forms.Padding(27, 74, 27, 25);
             this.Text = "Настройки";
             this.Load += new System.EventHandler(this.SettingsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fontSizeBx)).EndInit();

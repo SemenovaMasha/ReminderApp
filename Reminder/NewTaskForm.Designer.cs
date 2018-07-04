@@ -53,7 +53,7 @@
             this.cancelLink.Image = ((System.Drawing.Image)(resources.GetObject("cancelLink.Image")));
             this.cancelLink.ImageSize = 40;
             this.cancelLink.Location = new System.Drawing.Point(249, 422);
-            this.cancelLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelLink.Margin = new System.Windows.Forms.Padding(2);
             this.cancelLink.Name = "cancelLink";
             this.cancelLink.Size = new System.Drawing.Size(58, 59);
             this.cancelLink.TabIndex = 2;
@@ -68,7 +68,7 @@
             this.saveLink.Image = ((System.Drawing.Image)(resources.GetObject("saveLink.Image")));
             this.saveLink.ImageSize = 40;
             this.saveLink.Location = new System.Drawing.Point(161, 422);
-            this.saveLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.saveLink.Margin = new System.Windows.Forms.Padding(2);
             this.saveLink.Name = "saveLink";
             this.saveLink.Size = new System.Drawing.Size(85, 59);
             this.saveLink.TabIndex = 1;
@@ -185,9 +185,9 @@
             // 
             // 
             this.remindTextTbx.CustomButton.Image = null;
-            this.remindTextTbx.CustomButton.Location = new System.Drawing.Point(142, 1);
+            this.remindTextTbx.CustomButton.Location = new System.Drawing.Point(189, 1);
             this.remindTextTbx.CustomButton.Name = "";
-            this.remindTextTbx.CustomButton.Size = new System.Drawing.Size(193, 209);
+            this.remindTextTbx.CustomButton.Size = new System.Drawing.Size(257, 257);
             this.remindTextTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.remindTextTbx.CustomButton.TabIndex = 1;
             this.remindTextTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -230,7 +230,7 @@
             this.datePck.Location = new System.Drawing.Point(294, 58);
             this.datePck.MinimumSize = new System.Drawing.Size(0, 29);
             this.datePck.Name = "datePck";
-            this.datePck.Size = new System.Drawing.Size(168, 30);
+            this.datePck.Size = new System.Drawing.Size(168, 29);
             this.datePck.TabIndex = 32;
             // 
             // metroLabel1
@@ -286,6 +286,7 @@
             this.Controls.Add(this.metroLabel3);
             this.Controls.Add(this.cancelLink);
             this.Controls.Add(this.saveLink);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(578, 503);
             this.MinimumSize = new System.Drawing.Size(493, 503);

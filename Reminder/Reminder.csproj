@@ -281,6 +281,7 @@
     <Content Include="MetroFramework.txt" />
     <Content Include="notify.wav" />
     <Content Include="Reminder desktop application.csproj" />
+    <None Include="Resources\sketch.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
