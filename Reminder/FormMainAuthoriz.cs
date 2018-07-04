@@ -70,6 +70,10 @@ namespace Reminder_desktop_application
                 Reminder reminder = new Reminder();
                 pleaseWait.Close();
                 reminder.Show();
+
+                reminder.Activate();
+                reminder.Focus();
+                reminder.BringToFront();
             }
             else
             {
@@ -132,6 +136,10 @@ namespace Reminder_desktop_application
                         this.Hide();
                         Reminder reminder = new Reminder();
                         reminder.Show();
+
+                        reminder.Activate();
+                        reminder.Focus();
+                        reminder.BringToFront();
                     }
                     else
                     {
@@ -175,6 +183,10 @@ namespace Reminder_desktop_application
                         Reminder reminder = new Reminder();
                         pleaseWait.Close();
                         reminder.Show();
+
+                        reminder.Activate();
+                        reminder.Focus();
+                        reminder.BringToFront();
                     }
                 }
                 else
@@ -234,6 +246,10 @@ namespace Reminder_desktop_application
                 Reminder reminder = new Reminder();
                 pleaseWait.Close();
                 reminder.Show();
+
+                reminder.Activate();
+                reminder.Focus();
+                reminder.BringToFront();
             }
 
         }

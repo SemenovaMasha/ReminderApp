@@ -131,7 +131,7 @@ namespace Reminder_desktop_application
             this.notesDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.notesDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.notesDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.notesDataGrid.Size = new System.Drawing.Size(481, 304);
+            this.notesDataGrid.Size = new System.Drawing.Size(473, 304);
             this.notesDataGrid.TabIndex = 8;
             this.notesDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.notesDataGrid_CellDoubleClick);
             this.notesDataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.notesDataGrid_CellEndEdit);
@@ -178,7 +178,7 @@ namespace Reminder_desktop_application
             this.addBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.addBtn.Image = ((System.Drawing.Image)(resources.GetObject("addBtn.Image")));
             this.addBtn.ImageSize = 28;
-            this.addBtn.Location = new System.Drawing.Point(375, 26);
+            this.addBtn.Location = new System.Drawing.Point(374, 26);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(28, 28);
             this.addBtn.TabIndex = 11;
