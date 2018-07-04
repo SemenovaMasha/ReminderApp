@@ -52,7 +52,7 @@ namespace Reminder_desktop_application
             model.vkMessageFlag = vkNotificationChbx.Checked;
             model.mailMessageFlag = mailNotificationChbx.Checked;
             model.mailUserName = mailLoginTbx.Text;
-            model.secretWord = keyWordTbx.Text;
+            model.secretWord = keyWordTbx.Text.ToLower();
             model.fontSize = Convert.ToInt32(fontSizeBx.Value);
 
             context.editSettings(model);
