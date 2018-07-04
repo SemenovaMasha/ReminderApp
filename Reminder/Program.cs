@@ -10,7 +10,7 @@ namespace Reminder_desktop_application
         static void Main()
         {
             string folder = Environment.UserName;
-            AppDomain.CurrentDomain.SetData("DataDirectory", @"C:\Users\" + folder + @"\AppData\Local\Blocknote\");
+            AppDomain.CurrentDomain.SetData("DataDirectory", @"C:\Users\" + folder + @"\AppData\Local\");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FormMainAuthoriz());
