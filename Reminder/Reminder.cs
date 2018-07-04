@@ -132,7 +132,7 @@ namespace Reminder_desktop_application
             DataGridViewTextBoxColumn column1 = new DataGridViewTextBoxColumn();
             column1.Name = "text";
             column1.HeaderText = "Текст";
-            column1.DataPropertyName = "text";
+            column1.DataPropertyName = "displayText";
             column1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             column1.FillWeight = 60;
             column1.ReadOnly = true;
@@ -340,6 +340,7 @@ namespace Reminder_desktop_application
 
         private void notesDataGrid_KeyUp(object sender, KeyEventArgs e)
         {
+            if(e.KeyCode == Keys.Delete)
             deleteBtn_Click(null, null);
         }
     }

@@ -41,6 +41,15 @@ namespace Reminder_desktop_application
         public string time { get { return remind_flag ? next_date.ToShortTimeString() : ""; } }
 
         [NotMapped]
+        public string displayText { get {
+                string[] lines = text.Replace("\r","").Split('\n');
+
+                string displayText = lines.Length > 4 ? lines[0] + "\n" + lines[1] + "\n" + lines[2] + "\n" + lines[3] + "..." : text;
+                
+                return displayText.Length>200?displayText.Substring(0,200)+"...":displayText;
+            } }
+
+        [NotMapped]
         public JobKey JobKey { get; set; }
 
         public void generateJobKey()

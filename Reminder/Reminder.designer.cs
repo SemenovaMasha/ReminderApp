@@ -129,6 +129,7 @@ namespace Reminder_desktop_application
             this.notesDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.notesDataGrid.RowHeadersVisible = false;
             this.notesDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.notesDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.notesDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.notesDataGrid.Size = new System.Drawing.Size(481, 304);
             this.notesDataGrid.TabIndex = 8;
@@ -143,7 +144,7 @@ namespace Reminder_desktop_application
             this.datePicker.Location = new System.Drawing.Point(179, 28);
             this.datePicker.MinimumSize = new System.Drawing.Size(0, 29);
             this.datePicker.Name = "datePicker";
-            this.datePicker.Size = new System.Drawing.Size(143, 30);
+            this.datePicker.Size = new System.Drawing.Size(143, 29);
             this.datePicker.TabIndex = 7;
             this.datePicker.Theme = MetroFramework.MetroThemeStyle.Light;
             this.datePicker.ValueChanged += new System.EventHandler(this.reminderDateTime_ValueChanged_1);
