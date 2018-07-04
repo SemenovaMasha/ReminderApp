@@ -129,6 +129,7 @@ namespace Reminder_desktop_application
             this.notesDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.notesDataGrid.RowHeadersVisible = false;
             this.notesDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.notesDataGrid.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.notesDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.notesDataGrid.Size = new System.Drawing.Size(473, 304);
             this.notesDataGrid.TabIndex = 8;
