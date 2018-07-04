@@ -191,25 +191,30 @@ namespace Reminder_desktop_application
                             if (period_sec > period_duration)
                             {
                                 MessageBox.Show("Период повторений не может быть больше периода продолжительности напоминаний");
+                                
+                            }
+                            else
+                            {
+                                //Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
+                                //    true,  period_sec,
+                                //    period_duration,0, this.taskControler.serviceDB);
+
+                                TaskModel task = new TaskModel
+                                {
+                                    text = remindTextTbx.Text,
+                                    next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
+                                    remind_flag = true,
+                                    period_min = period_sec,
+                                    duration_min = period_duration,
+                                    price = 0
+                                };
+                                task.generateJobKey();
+
+                                taskControler.Add(task);
+                                this.Close();
                             }
                         }
-                        //Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
-                        //    true,  period_sec,
-                        //    period_duration,0, this.taskControler.serviceDB);
-
-                        TaskModel task = new TaskModel
-                        {
-                            text = remindTextTbx.Text,
-                            next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
-                            remind_flag = true,
-                            period_min = period_sec,
-                            duration_min = period_duration,
-                            price = 0
-                        };
-                        task.generateJobKey();
-                        
-                        taskControler.Add(task);
-
+                       
                     }
                 }
                 else
@@ -299,18 +304,24 @@ namespace Reminder_desktop_application
                             if (period_sec> period_duration)
                             {
                                 MessageBox.Show("Период повторений не может быть больше периода продолжительности напоминаний");
+                               
+                            }
+                            else
+                            {
+                                editTask.text = remindTextTbx.Text;
+                                editTask.next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay);
+                                editTask.remind_flag = true;
+                                editTask.period_min = period_sec;
+                                editTask.duration_min = period_duration;
+
+                                taskControler.Controler.Remove(editTask);
+                                taskControler.Controler.Add(editTask);
+
+                                taskControler.Edit(editTask);
+                                this.Close();
                             }
                         }
-                        editTask.text = remindTextTbx.Text;
-                        editTask.next_date = GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay);
-                        editTask.remind_flag = true;
-                        editTask.period_min = period_sec;
-                        editTask.duration_min = period_duration;
-
-                        taskControler.Controler.Remove(editTask);
-                        taskControler.Controler.Add(editTask);
-
-                        taskControler.Edit(editTask);
+                        
 
                     }
                 }
