@@ -178,7 +178,7 @@
             this.sumLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.sumLbl.AutoSize = true;
             this.sumLbl.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.sumLbl.Location = new System.Drawing.Point(352, 291);
+            this.sumLbl.Location = new System.Drawing.Point(24, 291);
             this.sumLbl.Name = "sumLbl";
             this.sumLbl.Size = new System.Drawing.Size(76, 25);
             this.sumLbl.TabIndex = 17;
