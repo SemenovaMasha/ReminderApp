@@ -192,7 +192,8 @@ namespace Reminder_desktop_application
             NewTaskForm form = new NewTaskForm(taskControler,datePicker.Value);
             pleaseWait.Close();
             form.ShowDialog();
-            
+
+            this.Activate();
             PrintDayTasks(datePicker.Value.ToShortDateString());
 
          //   int j = 0;
@@ -253,6 +254,8 @@ namespace Reminder_desktop_application
                 pleaseWait.Close();
                 MessageBox.Show("Выберете заметку для удаления", null, MessageBoxButtons.OK);
             }
+
+            this.Activate();
         }
 
         private void notesDataGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -307,6 +310,8 @@ namespace Reminder_desktop_application
                 sumLbl.FontSize = MetroFramework.MetroLabelSize.Medium;
             else
                 sumLbl.FontSize = MetroFramework.MetroLabelSize.Small;
+
+            this.Activate();
         }
 
         private void statsBtn_Click(object sender, EventArgs e)
@@ -318,6 +323,7 @@ namespace Reminder_desktop_application
             StatisticsForm form = new StatisticsForm(taskControler);
             pleaseWait.Close();
             form.ShowDialog();
+            this.Activate();
         }
 
         private void notesDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)

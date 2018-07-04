@@ -132,6 +132,7 @@ namespace Reminder_desktop_application
                         this.Hide();
                         Reminder reminder = new Reminder();
                         reminder.Show();
+                        reminder.Activate();
                     }
                     else
                     {
