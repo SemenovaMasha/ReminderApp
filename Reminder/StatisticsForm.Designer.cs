@@ -195,6 +195,7 @@
             this.Controls.Add(this.statsChart);
             this.Controls.Add(this.statsGrid);
             this.Controls.Add(this.dateDtPkc);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(258, 428);
             this.Name = "StatisticsForm";
             this.Text = "Статистика";
