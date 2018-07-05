@@ -37,6 +37,7 @@ namespace Reminder_desktop_application
             remindTextTbx.Text = editTask.text;
             datePck.Value = editTask.next_date.Date;
             remindTimePck.Value = editTask.next_date;
+            saveLink.Visible = true;
 
             if (editTask.remind_flag)
             {
