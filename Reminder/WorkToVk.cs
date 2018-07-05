@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Timers;
 using VkNet;
+using VkNet.Enums.Filters;
 using VkNet.Model;
 using VkNet.Model.RequestParams;
 
@@ -17,9 +18,11 @@ namespace Reminder_desktop_application
         TaskServiceDB contextDB;
         UserSettingsModel model;
         ReminderContext context;
+        
 
         public bool loginAuthorization(string login, string password)
         {
+            Settings settings = Settings.All;
             context = new ReminderContext();
                 contextDB = new TaskServiceDB();
             model = contextDB.getUserSettings();
@@ -30,10 +33,12 @@ namespace Reminder_desktop_application
                     ApplicationId = 6619305,
                     Login = login,
                     Password = password,
-                    Settings = VkNet.Enums.Filters.Settings.All | VkNet.Enums.Filters.Settings.Offline 
+                    Settings = Settings.All | Settings.Offline 
                 });
                 token = vk.Token;
+                
                 userId = vk.UserId.ToString();
+
 
                 context.SaveChanges();
                 return true;
@@ -115,11 +120,11 @@ namespace Reminder_desktop_application
                     Count = 1
                 }).Messages[0];
                 if (CurrentMessage.FromId == Convert.ToInt64(model.vkUser) && 
-                    CurrentMessage.Text != LastMessage.Body
+                    CurrentMessage.Body != LastMessage.Body
                     )
                 {
 
-                    if (CurrentMessage.Text.ToLower().Equals(keyWord.ToLower() + "#"))
+                    if (CurrentMessage.Body.ToLower().Equals(keyWord.ToLower() + "#"))
                     {
 
                         var list = service.getDailyTasks(DateTime.Now);

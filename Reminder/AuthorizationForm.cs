@@ -12,10 +12,8 @@ namespace Reminder_desktop_application
             this.Text = "Авторизация VK";
             this.context = context;
             InitializeComponent();
-
         }
         
-
         UserSettingsModel model;
         public bool result;
 
