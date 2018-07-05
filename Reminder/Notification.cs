@@ -1,7 +1,5 @@
 ﻿using Quartz;
-using Reminder_desktop_application;
 using System;
-using System.Threading.Tasks;
 
 namespace Reminder_desktop_application
 {

@@ -1,8 +1,6 @@
-﻿using Reminder_desktop_application;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Reminder_desktop_application
 {

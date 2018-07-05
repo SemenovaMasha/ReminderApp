@@ -1,10 +1,8 @@
-﻿using System;
+﻿using Reminder;
+using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
-using MetroFramework.Controls;
-using Reminder_desktop_application;
 using System.Drawing;
-using Reminder;
+using System.Windows.Forms;
 
 namespace Reminder_desktop_application
 {

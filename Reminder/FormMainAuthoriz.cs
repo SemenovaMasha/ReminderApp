@@ -1,7 +1,5 @@
 ﻿using Reminder;
 using System;
-using System.Drawing;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace Reminder_desktop_application

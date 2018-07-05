@@ -1,6 +1,5 @@
 ﻿using Quartz;
 using Quartz.Impl;
-using Reminder_desktop_application;
 using System;
 
 namespace Reminder_desktop_application
