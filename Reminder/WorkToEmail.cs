@@ -17,11 +17,11 @@ namespace Reminder_desktop_application
                 smtp.Credentials = new NetworkCredential("zametkiandnapominaniya@gmail.com", "cewgondyoSwesp7");
                 smtp.EnableSsl = true;
                 
-                MailAddress from = new MailAddress("zametkiandnapominaniya@gmail.com", "Blocknote");
+                MailAddress from = new MailAddress("zametkiandnapominaniya@gmail.com", "NoteMe");
                 MailAddress to = new MailAddress(recipientEmail);
                 MailMessage m = new MailMessage(from, to)
                 {
-                    Subject = "Оповещение от Blocknote",
+                    Subject = "Оповещение от NoteMe",
                     Body = message,
                     IsBodyHtml = true
                 };
