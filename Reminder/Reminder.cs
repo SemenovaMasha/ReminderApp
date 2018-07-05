@@ -333,5 +333,28 @@ namespace Reminder_desktop_application
             if(e.KeyCode == Keys.Delete)
             deleteBtn_Click(null, null);
         }
+
+        private void notesDataGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            e.Control.KeyPress += new KeyPressEventHandler(priceColumn_KeyPress);
+        }
+        private void priceColumn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!((e.KeyChar <= '9'&&e.KeyChar >= '0')
+                ||e.KeyChar==(char)Keys.Back
+                ||(e.KeyChar==(char)Keys.Delete&&e.KeyChar!='.')
+                ||((e.KeyChar==(char)','&&!((DataGridViewTextBoxEditingControl)sender).Text.Contains(",")))
+
+                ))
+            {
+                e.Handled = true;
+                return;
+            }
+            if (((DataGridViewTextBoxEditingControl)sender).Text.Length > 15
+                &&(e.KeyChar != (char)Keys.Back)&&((e.KeyChar != (char)Keys.Delete)))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

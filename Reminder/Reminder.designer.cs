@@ -136,6 +136,7 @@ namespace Reminder_desktop_application
             this.notesDataGrid.TabIndex = 8;
             this.notesDataGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.notesDataGrid_CellDoubleClick);
             this.notesDataGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.notesDataGrid_CellEndEdit);
+            this.notesDataGrid.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.notesDataGrid_EditingControlShowing);
             this.notesDataGrid.KeyUp += new System.Windows.Forms.KeyEventHandler(this.notesDataGrid_KeyUp);
             // 
             // datePicker
