@@ -150,9 +150,9 @@
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.Location = new System.Drawing.Point(20, 178);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(176, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(182, 19);
             this.metroLabel3.TabIndex = 9;
-            this.metroLabel3.Text = "Ключевая фраза (max = 10)";
+            this.metroLabel3.Text = "Ключевая фраза (макс. = 10)";
             // 
             // keyWordTbx
             // 
