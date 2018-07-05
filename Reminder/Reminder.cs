@@ -257,7 +257,7 @@ namespace Reminder_desktop_application
             TaskModel temp = ((List<TaskModel>)notesDataGrid.DataSource)[e.RowIndex];
             try
             {
-                temp.price = Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString().Replace(".", ","));
+                temp.price = Math.Round(Convert.ToDouble(notesDataGrid[2, e.RowIndex].Value.ToString().Replace(".", ",")),2);
 
                 taskControler.Edit(temp);
 
@@ -313,7 +313,7 @@ namespace Reminder_desktop_application
 
         private void notesDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-            MessageBox.Show("Проверьте введенные данные");
+            MessageBox.Show("Проверьте введенные данные (разделитель для вещественного числа - запятая)");
         }
 
         private void Reminder_Load_1(object sender, EventArgs e)
