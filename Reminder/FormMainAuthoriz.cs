@@ -22,6 +22,7 @@ namespace Reminder_desktop_application
           //  this.TopMost = true;
             this.Text = "Авторизация";
             InitializeComponent();
+            //this.Activate();
 
             //если надо очистить данные логина/пароля снять комментирование и закомментировать снова
             //context = new TaskServiceDB();
@@ -201,6 +202,8 @@ namespace Reminder_desktop_application
                 metroButton2.Visible = true;
             }
             pleaseWait.Close();
+
+            this.Activate();
         }
 
         private void metroButton1_Click(object sender, EventArgs e)
@@ -252,6 +255,12 @@ namespace Reminder_desktop_application
                 reminder.BringToFront();
             }
 
+        }
+
+        private void passwordTbx_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                okBtn_Click(null, null);
         }
     }
 }

@@ -61,9 +61,9 @@
             // 
             // 
             this.mailLoginTbx.CustomButton.Image = null;
-            this.mailLoginTbx.CustomButton.Location = new System.Drawing.Point(103, 1);
+            this.mailLoginTbx.CustomButton.Location = new System.Drawing.Point(137, 1);
             this.mailLoginTbx.CustomButton.Name = "";
-            this.mailLoginTbx.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.mailLoginTbx.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.mailLoginTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.mailLoginTbx.CustomButton.TabIndex = 1;
             this.mailLoginTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -148,11 +148,11 @@
             // metroLabel3
             // 
             this.metroLabel3.AutoSize = true;
-            this.metroLabel3.Location = new System.Drawing.Point(69, 178);
+            this.metroLabel3.Location = new System.Drawing.Point(20, 178);
             this.metroLabel3.Name = "metroLabel3";
-            this.metroLabel3.Size = new System.Drawing.Size(151, 19);
+            this.metroLabel3.Size = new System.Drawing.Size(176, 19);
             this.metroLabel3.TabIndex = 9;
-            this.metroLabel3.Text = "Ключевая фраза/слово";
+            this.metroLabel3.Text = "Ключевая фраза (max = 10)";
             // 
             // keyWordTbx
             // 
@@ -160,9 +160,9 @@
             // 
             // 
             this.keyWordTbx.CustomButton.Image = null;
-            this.keyWordTbx.CustomButton.Location = new System.Drawing.Point(129, 1);
+            this.keyWordTbx.CustomButton.Location = new System.Drawing.Point(172, 1);
             this.keyWordTbx.CustomButton.Name = "";
-            this.keyWordTbx.CustomButton.Size = new System.Drawing.Size(16, 17);
+            this.keyWordTbx.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.keyWordTbx.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.keyWordTbx.CustomButton.TabIndex = 1;
             this.keyWordTbx.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -171,7 +171,7 @@
             this.keyWordTbx.Lines = new string[] {
         "список"};
             this.keyWordTbx.Location = new System.Drawing.Point(23, 204);
-            this.keyWordTbx.MaxLength = 32767;
+            this.keyWordTbx.MaxLength = 10;
             this.keyWordTbx.Name = "keyWordTbx";
             this.keyWordTbx.PasswordChar = '\0';
             this.keyWordTbx.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -211,7 +211,7 @@
             this.okBtn.Image = ((System.Drawing.Image)(resources.GetObject("okBtn.Image")));
             this.okBtn.ImageSize = 40;
             this.okBtn.Location = new System.Drawing.Point(53, 312);
-            this.okBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.okBtn.Margin = new System.Windows.Forms.Padding(2);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(85, 59);
             this.okBtn.TabIndex = 13;
@@ -226,7 +226,7 @@
             this.cancelLink.Image = ((System.Drawing.Image)(resources.GetObject("cancelLink.Image")));
             this.cancelLink.ImageSize = 40;
             this.cancelLink.Location = new System.Drawing.Point(142, 312);
-            this.cancelLink.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cancelLink.Margin = new System.Windows.Forms.Padding(2);
             this.cancelLink.Name = "cancelLink";
             this.cancelLink.Size = new System.Drawing.Size(58, 59);
             this.cancelLink.TabIndex = 14;
