@@ -99,6 +99,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_4697306A4D8D475BB72749180F633660"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_47050D0853F3E5F717AC3C8C715540D8"
         "OwnerKey" = "8:_BDA6D39D71734413BFD36E6B33B262B6"
         "MsmSig" = "8:_UNDEFINED"
@@ -161,12 +167,6 @@
         {
         "MsmKey" = "8:_A0A320E8F465AC8A0442EF502C0664BB"
         "OwnerKey" = "8:_BDA6D39D71734413BFD36E6B33B262B6"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A9F1F3DBB409448F8C725481F1C1704D"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -750,6 +750,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4697306A4D8D475BB72749180F633660"
+            {
+            "SourcePath" = "8:..\\ReminderDB.sdf"
+            "TargetName" = "8:ReminderDB.sdf"
+            "Tag" = "8:"
+            "Folder" = "8:_570720F6A3734C78871DDDB27BF3BC1D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_47050D0853F3E5F717AC3C8C715540D8"
             {
             "AssemblyRegister" = "3:1"
@@ -943,26 +963,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A9F1F3DBB409448F8C725481F1C1704D"
-            {
-            "SourcePath" = "8:C:\\Users\\anton\\AppData\\Local\\Blocknote\\ReminderDB.sdf"
-            "TargetName" = "8:ReminderDB.sdf"
-            "Tag" = "8:"
-            "Folder" = "8:_570720F6A3734C78871DDDB27BF3BC1D"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_B73347E2A25A239C19C735493B29D8A2"
