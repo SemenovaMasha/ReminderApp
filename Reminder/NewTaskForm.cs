@@ -129,6 +129,11 @@ namespace Reminder_desktop_application
                             }
                             int period_value = Convert.ToInt32(remindPeriodTbx.Text);
                             int duration_value = Convert.ToInt32(remindDurationTbx.Text);
+                            if(period_value<1|| duration_value < 1)
+                            {
+                                MessageBox.Show("Проверьте периоды напоминаний");
+                                return;
+                            }
                             if (remindTimePeriodType.SelectedIndex == 0)
                             {
                                 period_sec = period_value;
@@ -194,10 +199,6 @@ namespace Reminder_desktop_application
                                 return;
                             }
                         }
-                        //Task task = new Task(getGuid(),remindTextTbx.Text, GetDateZeroTime(datePck.Value).Add(GetTimeZeroSeconds(remindTimePck.Value).TimeOfDay),
-                        //    true,  period_sec,
-                        //    period_duration,0, this.taskControler.serviceDB);
-
                         TaskModel task = new TaskModel
                         {
                             text = remindTextTbx.Text,
@@ -234,8 +235,23 @@ namespace Reminder_desktop_application
                         int period_duration = -1;
                         if (remindRepeatCkb.Checked)
                         {
+                            try
+                            {
+                                Convert.ToInt32(remindPeriodTbx.Text);
+                                Convert.ToInt32(remindDurationTbx.Text);
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Введите целые числа");
+                                return;
+                            }
                             int period_value = Convert.ToInt32(remindPeriodTbx.Text);
                             int duration_value = Convert.ToInt32(remindDurationTbx.Text);
+                            if (period_value < 1 || duration_value < 1)
+                            {
+                                MessageBox.Show("Проверьте периоды напоминаний");
+                                return;
+                            }
                             if (remindTimePeriodType.SelectedIndex == 0)
                             {
                                 period_sec = period_value;
