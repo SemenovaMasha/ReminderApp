@@ -7,11 +7,9 @@ namespace Reminder_desktop_application
     public partial class SettingsForm : MetroFramework.Forms.MetroForm
     {
         TaskServiceDB context;
-       // bool hasToken;
 
         public SettingsForm(TaskServiceDB context)
         {
-         //   this.TopMost = true;
             this.context = context;
             UserSettingsModel m = context.getUserSettings();
             InitializeComponent();
@@ -57,19 +55,16 @@ namespace Reminder_desktop_application
             ToolTip t = new ToolTip();
             t.SetToolTip(mailLoginTbx, "На введенный адрес будут приходить уведомления");
             t.SetToolTip(keyWordTbx, "Ключевое слово, написав которое в сообщении ВК, вы получите список ваших уведомлений на сегодня.");
-
-         //   loadBtn.Visible = true;
+            
             var m = context.getUserSettings();
             if (connectVKBtn.Text == "Отключить Вконтакте")
             {
                 context.tokenToNull();
                 vkNotificationChbx.Checked = false;
-       //         loadBtn.Visible = false;
                 connectVKBtn.Text = "Подключить Вконтакте";
             }
             else
             {
-      //          loadBtn.Visible = false;
                 AuthorizationForm form = new AuthorizationForm(context);
                 form.ShowDialog();
                 if (form.result)

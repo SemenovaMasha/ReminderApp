@@ -142,7 +142,6 @@
             this.MinimumSize = new System.Drawing.Size(262, 175);
             this.Name = "AuthorizationForm";
             this.Text = "Авторизация VK";
-            this.Load += new System.EventHandler(this.AuthorizationForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

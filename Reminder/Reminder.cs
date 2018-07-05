@@ -8,27 +8,16 @@ namespace Reminder_desktop_application
 {
     public partial class Reminder : MetroFramework.Forms.MetroForm
     {
-        /*  TODO:
-         *  Lazy
-         */
 
         public TaskControler taskControler;
-        //public ReminderContext context;
         TaskServiceDB serviceDB;
         WorkToVk workVk;
         UserSettingsModel model;
         
         public Reminder()
         {
-           // this.TopMost = true;
             InitializeComponent();
-
-             //this.Hide();
-             //FormMainAuthoriz form = new FormMainAuthoriz();
-             //form.ShowDialog();
-             
-
-             //context = c;
+            
              serviceDB = new TaskServiceDB();
             serviceDB.createSettingsIfNotExists();
 
@@ -65,12 +54,10 @@ namespace Reminder_desktop_application
             }
             
             taskControler = new TaskControler(new NotificationControler(), serviceDB);
-            //реинжиниринг напоминаний - если повторяющееся событие, и дата прошла, подвинуть дату на период, пока дата не станет > текущей или > его duration
             taskControler.reingin();
 
             Reminder_ResizeEnd(null, null);
 
-            //taskControler.TaskAppeared += SubscribeForNotification;
             PrintDayTasks();
 
             taskControler.Add(taskControler.getDailyTasks(DateTime.Now));
@@ -122,10 +109,7 @@ namespace Reminder_desktop_application
         private void PrintDayTasks(DateTime date)
         {
             notesDataGrid.Columns.Clear();
-
-            //DateTime myDate = DateTime.ParseExact(date, "dd.MM.yyyy",
-            //                           System.Globalization.CultureInfo.InvariantCulture);
-
+            
             notesDataGrid.AutoGenerateColumns = false;
             var tmp = taskControler.getDailyTasks(date);
             notesDataGrid.DataSource = taskControler.getDailyTasks(date);
@@ -198,8 +182,7 @@ namespace Reminder_desktop_application
 
             this.Activate();
             PrintDayTasks();
-
-            //   int j = 0;
+            
         }
 
         private void reminderDateTime_ValueChanged_1(object sender, EventArgs e)
@@ -289,8 +272,6 @@ namespace Reminder_desktop_application
             }
             catch (Exception)
             {
-        //        temp.price = 0;
-         //       notesDataGrid[2, e.RowIndex].Value = "0";
                 MessageBox.Show("Проверьте введенные данные");
             }
             
@@ -332,7 +313,6 @@ namespace Reminder_desktop_application
 
         private void notesDataGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-    //        notesDataGrid[2, e.RowIndex].Value = "0";
             MessageBox.Show("Проверьте введенные данные");
         }
 

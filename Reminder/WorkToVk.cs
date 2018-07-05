@@ -30,7 +30,7 @@ namespace Reminder_desktop_application
                     ApplicationId = 6619305,
                     Login = login,
                     Password = password,
-                    Settings = VkNet.Enums.Filters.Settings.All | VkNet.Enums.Filters.Settings.Offline //Не ори, я правил только тут
+                    Settings = VkNet.Enums.Filters.Settings.All | VkNet.Enums.Filters.Settings.Offline 
                 });
                 token = vk.Token;
                 userId = vk.UserId.ToString();
@@ -41,6 +41,7 @@ namespace Reminder_desktop_application
             }
             catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 return false;
             }
         }
@@ -55,7 +56,7 @@ namespace Reminder_desktop_application
             }
             catch (Exception ex)
             {
-
+                Console.WriteLine(ex.Message);
             }
         }
         
@@ -70,27 +71,9 @@ namespace Reminder_desktop_application
             this.userId = userId;
             this.keyWord = keyWord.ToLower();
             this.service = service;
-
-            //var list = service.getDailyTasks(DateTime.Now);
-            //list = list.Where(c => c.next_date > DateTime.Now).ToList();
-
-            //foreach (TaskModel word in list)
-            //{
-            //    spisok += word.text + "\n";
-            //}
-
-            //if (spisok == "")
-            //{
-            //    spisok = "Напоминаний на сегодня больше нет.";
-            //}
-
+            
             tokenAuthorization(token);
-
-            //LastMessage = vk.Messages.Get(new MessagesGetParams
-            //{
-            //    Count = 1
-            //}).Messages[0];
-
+            
             Thread mythread = new Thread(tamer);
 
             aTimer.AutoReset = true;
@@ -103,7 +86,6 @@ namespace Reminder_desktop_application
         DateTime date;
         VkNet.Model.Message LastMessage = null;
         VkNet.Model.Message CurrentMessage = null;
-     //   int count;
         bool send;
 
         private void tamer()
@@ -116,7 +98,6 @@ namespace Reminder_desktop_application
 
             LastMessage = new Message();
             LastMessage.Body = "";
-            Console.WriteLine(date);
             send = false;
             try
             {
@@ -127,12 +108,7 @@ namespace Reminder_desktop_application
                 {
                     Count = 1
                 }).Messages[0];
-                //LastMessage = CurrentMessage;
-
-                //long id = Convert.ToInt64(CurrentMessage.UserId);
-                
                 if (CurrentMessage.UserId == Convert.ToInt64(model.vkUser) && 
-                    //&&!CurrentMessage.Date.Equals(LastMessage.Date) && 
                     CurrentMessage.Body != LastMessage.Body
                     )
                 {
@@ -155,10 +131,7 @@ namespace Reminder_desktop_application
                         }
 
                         SendMessage(Convert.ToInt64(userId), spisok);
-                        //    count--;
                         LastMessage.Body = spisok;
-
-                       // CurrentMessage.Body = spisok;
                     }
                 }
             }
@@ -183,9 +156,9 @@ namespace Reminder_desktop_application
                     send = true;
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                Console.WriteLine();
+                Console.WriteLine(ex.Message);
             }
         }
     }

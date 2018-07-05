@@ -17,15 +17,9 @@ namespace Reminder_desktop_application
 
         public FormMainAuthoriz()
         {
-          //  this.TopMost = true;
             this.Text = "Авторизация";
             InitializeComponent();
-            //this.Activate();
-
-            //если надо очистить данные логина/пароля снять комментирование и закомментировать снова
-            //context = new TaskServiceDB();
-            //user = context.getUserSettings();
-            //context.auth("x", "x");
+            
         }
 
         WaitForm pleaseWait = new WaitForm();
@@ -59,7 +53,6 @@ namespace Reminder_desktop_application
 
             if (user.login == login && user.password == password)
             {
-             //   MessageBox.Show("Авторизация прошла успешно.");
                 this.Hide();
 
                 WaitForm pleaseWait = new WaitForm();
@@ -237,7 +230,6 @@ namespace Reminder_desktop_application
 
             context = new TaskServiceDB();
             context.auth("empty", "empty");
-            //   wait.Visible = false;
             pleaseWait.Close();
             MessageBox.Show("При входе авторизация больше не потребуется. Если вы хотите установить защиту, вы можете сделать это в настройках программы.");
             

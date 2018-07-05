@@ -10,7 +10,6 @@ namespace Reminder_desktop_application
 
         public TaskNotification(TaskModel tasktonotify)
         {
-          //  this.TopMost = true;
             InitializeComponent();
             taskToNotify = tasktonotify;
             LoadTask();
@@ -18,7 +17,6 @@ namespace Reminder_desktop_application
 
         public void LoadTask()
         {
-            //    System.Media.SoundPlayer player = new System.Media.SoundPlayer(@"E:\sound.wav");
             SoundPlayer soundPlayer = new SoundPlayer(Resources.notify);
             soundPlayer.Load();
             soundPlayer.PlaySync();

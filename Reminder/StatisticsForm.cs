@@ -11,7 +11,6 @@ namespace Reminder_desktop_application
         TaskControler controler;
         public StatisticsForm(TaskControler controler)
         {
-          //  this.TopMost = true;
             this.controler = controler;
             InitializeComponent();
 
@@ -51,13 +50,11 @@ namespace Reminder_desktop_application
             }
 
             Series series = this.statsChart.Series.Add("месяцы");
-            //series.IsValueShownAsLabel = true;
 
             statsGrid.Rows.Clear();
 
             for (int i = 0; i < seriesArray.Length; i++)
             {
-                //series.Points.Add(sumPoints[i]);
                 series.Points.Add(sumPoints[i]);
                 series.Points[i].AxisLabel = seriesArray[i];
                 if (sumPoints[i] > 0)

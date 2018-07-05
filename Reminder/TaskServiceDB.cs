@@ -107,7 +107,6 @@ namespace Reminder_desktop_application
                 throw new Exception("Элемент не найден");
             }
             t.vkToken = token == "" ? "" : Crypter.Encrypt(token);
-            //   t.vkUser = login == "" ? "" : Crypter.Encrypt(login);
             t.vkUser = login;
             context.SaveChanges();
         }

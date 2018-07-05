@@ -12,8 +12,8 @@ namespace Reminder
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             this.AllowTransparency = true;
-            this.BackColor = Color.AliceBlue;//цвет фона  
-            this.TransparencyKey = this.BackColor;//он же будет заменен на прозрачный цвет
+            this.BackColor = Color.AliceBlue;  
+            this.TransparencyKey = this.BackColor;
             this.ShowInTaskbar = false;
             
         }

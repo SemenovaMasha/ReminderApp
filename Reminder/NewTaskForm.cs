@@ -9,7 +9,6 @@ namespace Reminder_desktop_application
         private TaskModel editTask;
         public NewTaskForm(TaskControler controler)
         {
-            //  this.TopMost = true;
             InitializeComponent();
             taskControler = controler;
 
@@ -29,7 +28,6 @@ namespace Reminder_desktop_application
         public NewTaskForm(TaskControler controler, DateTime date) : this(controler)
         {
             datePck.Value = date;
-            //remindTimePck.Value = date;
             remindTimePck.Value = DateTime.Now;
         }
 
@@ -215,7 +213,6 @@ namespace Reminder_desktop_application
                         editTask.remind_flag = false;
                         editTask.period_min = -1;
                         editTask.duration_min = -1;
-                        //editTask.generateJobKey();
 
                         taskControler.Controler.Remove(editTask);
 
@@ -352,11 +349,9 @@ namespace Reminder_desktop_application
         private void usualRdbtn_CheckedChanged(object sender, EventArgs e)
         {
             remindTimePck.Visible = false;
-            //remindRepeatCkb.Checked = false;
             remindRepeatCkb.Visible = false;
             remindTimeLbl.Visible = false;
-
-            //remindRepeatCkb_CheckedChanged(null, null);
+            
             remindPeriodTbx.Visible = false;
             remindTimePeriodType.Visible = false;
             remindDurationTbx.Visible = false;
@@ -367,7 +362,6 @@ namespace Reminder_desktop_application
         private void remindRdbtn_CheckedChanged(object sender, EventArgs e)
         {
             remindTimePck.Visible = true;
-            //remindRepeatCkb.Checked = false;
             remindRepeatCkb.Visible = true;
             remindTimeLbl.Visible = true;
 
