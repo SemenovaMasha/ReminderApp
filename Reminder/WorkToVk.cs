@@ -104,16 +104,22 @@ namespace Reminder_desktop_application
                 contextDB = new TaskServiceDB();
                 model = contextDB.getUserSettings();
                 this.keyWord = model.secretWord;
-                CurrentMessage = vk.Messages.Get(new MessagesGetParams
+                //CurrentMessage = vk.Messages.Get(new MessagesGetParams
+                //{
+                //    Count = 1
+                //}).Messages[0];
+
+                CurrentMessage = vk.Messages.GetHistory(new MessagesGetHistoryParams
                 {
+                    UserId = Convert.ToInt64(model.vkUser),
                     Count = 1
                 }).Messages[0];
-                if (CurrentMessage.UserId == Convert.ToInt64(model.vkUser) && 
-                    CurrentMessage.Body != LastMessage.Body
+                if (CurrentMessage.FromId == Convert.ToInt64(model.vkUser) && 
+                    CurrentMessage.Text != LastMessage.Body
                     )
                 {
 
-                    if (CurrentMessage.Body.ToLower().Equals(keyWord.ToLower() + "#"))
+                    if (CurrentMessage.Text.ToLower().Equals(keyWord.ToLower() + "#"))
                     {
 
                         var list = service.getDailyTasks(DateTime.Now);
