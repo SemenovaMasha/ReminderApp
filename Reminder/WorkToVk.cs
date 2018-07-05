@@ -122,7 +122,7 @@ namespace Reminder_desktop_application
                         spisok = "";
                         foreach (TaskModel word in list)
                         {
-                            spisok += word.text + "\n";
+                            spisok += word.text + "\n\n";
                         }
 
                         if (spisok == "")
