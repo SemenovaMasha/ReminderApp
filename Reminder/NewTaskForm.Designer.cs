@@ -210,7 +210,7 @@
             this.remindTextTbx.Multiline = true;
             this.remindTextTbx.Name = "remindTextTbx";
             this.remindTextTbx.PasswordChar = '\0';
-            this.remindTextTbx.PromptText = "Текст...";
+            this.remindTextTbx.WaterMark = "Текст...";
             this.remindTextTbx.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.remindTextTbx.SelectedText = "";
             this.remindTextTbx.SelectionLength = 0;
